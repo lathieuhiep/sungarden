@@ -8,11 +8,11 @@ body {
   min-height: 100vh;
   line-height: 1.8em;
   overflow-x: hidden;
-  font-size: $font-size-primary;
+  word-break: break-word;
+  font-size: 16px;
   color: $color-primary;
   font-family: $font-family-text;
-  font-weight: $font-weight-regular;
-  word-break: break-word;
+  font-weight: 400;
   @include flexbox();
   @include flex-direction(column);
 }
@@ -21,20 +21,21 @@ body {
 }
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 15px;
-  font-weight: $font-weight-bold;
+  font-weight: 500;
   color: $color-title;
 }
 h1 {
   font-size: 36px;
+  font-weight: 700;
 }
 h2 {
   font-size: 30px;
 }
 h3 {
-  font-size: 24px;
+  font-size: 28px;
 }
 h4 {
-  font-size: 20px;
+  font-size: 24px;
 }
 h5 {
   font-size: 18px;
@@ -43,12 +44,12 @@ h6 {
   font-size: 16px;
 }
 a {
-  color: $color-primary;
+  color: $color-link;
   text-decoration: none;
   @include transition();
 
   &:hover {
-    color: $color-hover;
+    color: $color-title;
   }
 }
 p {

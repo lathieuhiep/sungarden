@@ -68,6 +68,12 @@ require get_parent_theme_file_path( '/includes/plugin-activation.php' );
  */
 require get_parent_theme_file_path( '/extension/process-option.php' );
 
+/**
+ * Required: post type
+ */
+require get_parent_theme_file_path( '/extension/post-type/project.php' );
+require get_parent_theme_file_path( '/extension/post-type/product.php' );
+
 if ( class_exists( 'ReduxFramework' ) ) {
 	/*
 	 * Required: Redux Framework
@@ -85,7 +91,7 @@ if ( class_exists( 'RW_Meta_Box' ) ) {
 
 if ( ! function_exists( 'rwmb_meta' ) ) {
 
-	function rwmb_meta( $key, $args = '', $post_id = null ) {
+	function rwmb_meta( $key, $args = '', $post_id = null ): bool {
 		return false;
 	}
 
@@ -298,7 +304,7 @@ function sungarden_get_social_url() {
 	endforeach;
 }
 
-function sungarden_get_social_network() {
+function sungarden_get_social_network(): array {
 	return array(
 
 		array( 'id' => 'facebook', 'icon' => 'fab fa-facebook-f' ),
@@ -355,7 +361,8 @@ function sungarden_paging_nav_query( $sungarden_querry ) {
 
 // Sanitize Pagination
 add_action( 'navigation_markup_template', 'sungarden_sanitize_pagination' );
-function sungarden_sanitize_pagination( $sungarden_content ) {
+
+function sungarden_sanitize_pagination( $sungarden_content ): string {
 	// Remove role attribute
 	$sungarden_content = str_replace( 'role="navigation"', '', $sungarden_content );
 
@@ -366,7 +373,7 @@ function sungarden_sanitize_pagination( $sungarden_content ) {
 }
 
 /* Start Get col global */
-function sungarden_col_use_sidebar( $option_sidebar, $active_sidebar ) {
+function sungarden_col_use_sidebar( $option_sidebar, $active_sidebar ): string {
 
 	if ( $option_sidebar != 'hide' && is_active_sidebar( $active_sidebar ) ):
 
@@ -384,7 +391,7 @@ function sungarden_col_use_sidebar( $option_sidebar, $active_sidebar ) {
 	return $class_col_content;
 }
 
-function sungarden_col_sidebar() {
+function sungarden_col_sidebar(): string {
 	$class_col_sidebar = 'col-12 col-md-4 col-lg-3';
 
 	return $class_col_sidebar;
@@ -451,7 +458,7 @@ function sungarden_comment_form() {
 /* End comment */
 
 /* Start get Category check box */
-function sungarden_check_get_cat( $type_taxonomy ) {
+function sungarden_check_get_cat( $type_taxonomy ): array {
 	$cat_check = array();
 	$category  = get_terms(
 		array(
@@ -486,7 +493,7 @@ function sungarden_post_share() {
 }
 
 /* Start opengraph */
-function sungarden_doctype_opengraph( $output ) {
+function sungarden_doctype_opengraph( $output ): string {
 	return $output . '
  xmlns:og="http://opengraphprotocol.org/schema/"
  xmlns:fb="http://www.facebook.com/2008/fbml"';
