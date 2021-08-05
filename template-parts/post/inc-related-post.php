@@ -1,36 +1,36 @@
 <?php
-global $basictheme_options;
+global $sungarden_options;
 
-$basictheme_related_post_limit  =   $basictheme_options ['basictheme_related_post_limit'];
-$basictheme_term_cat_post       =   get_the_terms( get_the_ID(), 'category' );
+$sungarden_related_post_limit  =   $sungarden_options ['sungarden_related_post_limit'];
+$sungarden_term_cat_post       =   get_the_terms( get_the_ID(), 'category' );
 
-if ( !empty( $basictheme_term_cat_post ) ):
+if ( !empty( $sungarden_term_cat_post ) ):
 
-    $basictheme_term_cat_post_ids = array();
+    $sungarden_term_cat_post_ids = array();
 
-    foreach( $basictheme_term_cat_post as $item_cat_post_id ) $basictheme_term_cat_post_ids[] = $item_cat_post_id->term_id;
+    foreach( $sungarden_term_cat_post as $item_cat_post_id ) $sungarden_term_cat_post_ids[] = $item_cat_post_id->term_id;
 
-    $basictheme_post_related_arg = array(
+    $sungarden_post_related_arg = array(
         'post_type'         =>  'post',
-        'cat'               =>  $basictheme_term_cat_post_ids,
+        'cat'               =>  $sungarden_term_cat_post_ids,
         'post__not_in'      =>  array( get_the_ID() ),
-        'posts_per_page'    =>  $basictheme_related_post_limit,
+        'posts_per_page'    =>  $sungarden_related_post_limit,
     );
 
-    $basictheme_post_related_query = new WP_Query( $basictheme_post_related_arg );
+    $sungarden_post_related_query = new WP_Query( $sungarden_post_related_arg );
 
-    if ( $basictheme_post_related_query->have_posts() ) :
+    if ( $sungarden_post_related_query->have_posts() ) :
 ?>
 
     <div class="site-single-post-related">
         <h3 class="title">
-            <?php esc_html_e( 'Related Post', 'basictheme' ); ?>
+            <?php esc_html_e( 'Related Post', 'sungarden' ); ?>
         </h3>
 
         <div class="row">
             <?php
-            while ( $basictheme_post_related_query->have_posts() ) :
-                $basictheme_post_related_query->the_post();
+            while ( $sungarden_post_related_query->have_posts() ) :
+                $sungarden_post_related_query->the_post();
             ?>
 
                 <div class="col-12 col-sm-6 col-md-4 item">

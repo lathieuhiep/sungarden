@@ -1,8 +1,8 @@
 <?php
 
 // Remove jquery migrate
-add_action( 'wp_default_scripts', 'basictheme_remove_jquery_migrate' );
-function basictheme_remove_jquery_migrate( $scripts ) {
+add_action( 'wp_default_scripts', 'sungarden_remove_jquery_migrate' );
+function sungarden_remove_jquery_migrate( $scripts ) {
 	if ( ! is_admin() && isset( $scripts->registered['jquery'] ) ) {
 		$script = $scripts->registered['jquery'];
 		if ( $script->deps ) {
@@ -12,19 +12,19 @@ function basictheme_remove_jquery_migrate( $scripts ) {
 }
 
 //Register Back-End script
-add_action('admin_enqueue_scripts', 'basictheme_register_back_end_scripts');
+add_action('admin_enqueue_scripts', 'sungarden_register_back_end_scripts');
 
-function basictheme_register_back_end_scripts(){
+function sungarden_register_back_end_scripts(){
 
 	/* Start Get CSS Admin */
-	wp_enqueue_style( 'basictheme-admin-styles', get_theme_file_uri( '/extension/assets/css/admin-styles.css' ) );
+	wp_enqueue_style( 'sungarden-admin-styles', get_theme_file_uri( '/extension/assets/css/admin-styles.css' ) );
 
 }
 
 //Register Front-End Styles
-add_action('wp_enqueue_scripts', 'basictheme_register_front_end');
+add_action('wp_enqueue_scripts', 'sungarden_register_front_end');
 
-function basictheme_register_front_end() {
+function sungarden_register_front_end() {
 
 	/*
 	* Start font google
@@ -32,7 +32,7 @@ function basictheme_register_front_end() {
     wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap', array(), null );
 
 	/* Start main Css */
-	wp_enqueue_style( 'basictheme-library', get_theme_file_uri( '/assets/css/library.min.css' ), array(), '' );
+	wp_enqueue_style( 'sungarden-library', get_theme_file_uri( '/assets/css/library.min.css' ), array(), '' );
 	/* End main Css */
 
     /* Start main Css */
@@ -40,7 +40,7 @@ function basictheme_register_front_end() {
     /* End main Css */
 
 	/*  Start Style Css   */
-	wp_enqueue_style( 'basictheme-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'sungarden-style', get_stylesheet_uri() );
 	/*  Start Style Css   */
 
 	/*
@@ -55,13 +55,13 @@ function basictheme_register_front_end() {
 	wp_enqueue_script( 'html5', get_theme_file_uri( '/assets/js/html5.js' ), array(), '3.7.3' );
 	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
-	wp_enqueue_script( 'basictheme-library', get_theme_file_uri( '/assets/js/library.min.js' ), array('jquery'), '', true );
+	wp_enqueue_script( 'sungarden-library', get_theme_file_uri( '/assets/js/library.min.js' ), array('jquery'), '', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'basictheme-custom', get_theme_file_uri( '/assets/js/custom.js' ), array(), '1.0.0', true );
+	wp_enqueue_script( 'sungarden-custom', get_theme_file_uri( '/assets/js/custom.js' ), array(), '1.0.0', true );
 
 	/*
    * End Get Js Front End

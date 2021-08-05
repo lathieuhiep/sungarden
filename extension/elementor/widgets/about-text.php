@@ -4,18 +4,18 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class basictheme_widget_about_text extends Widget_Base {
+class sungarden_widget_about_text extends Widget_Base {
 
     public function get_categories() {
-        return array( 'basictheme_widgets' );
+        return array( 'sungarden_widgets' );
     }
 
     public function get_name() {
-        return 'basictheme-about-text';
+        return 'sungarden-about-text';
     }
 
     public function get_title() {
-        return esc_html__( 'About Text', 'basictheme' );
+        return esc_html__( 'About Text', 'sungarden' );
     }
 
     public function get_icon() {
@@ -27,16 +27,16 @@ class basictheme_widget_about_text extends Widget_Base {
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__( 'Text', 'basictheme' ),
+                'label' => esc_html__( 'Text', 'sungarden' ),
             ]
         );
 
         $this->add_control(
             'widget_title',
             [
-                'label'         =>  esc_html__( 'Title', 'basictheme' ),
+                'label'         =>  esc_html__( 'Title', 'sungarden' ),
                 'type'          =>  Controls_Manager::TEXT,
-                'default'       =>  esc_html__( 'Title About Text', 'basictheme' ),
+                'default'       =>  esc_html__( 'Title About Text', 'sungarden' ),
                 'label_block'   =>  true
             ]
         );
@@ -44,7 +44,7 @@ class basictheme_widget_about_text extends Widget_Base {
         $this->add_control(
             'icon',
             [
-                'label'     =>  esc_html__( 'Icon', 'basictheme' ),
+                'label'     =>  esc_html__( 'Icon', 'sungarden' ),
                 'type'      =>  Controls_Manager::ICON,
                 'default'   =>  [
                     'value'     =>  'fas fa-star',
@@ -58,16 +58,16 @@ class basictheme_widget_about_text extends Widget_Base {
         $this->start_controls_section(
             'section_text_editor',
             [
-                'label' => esc_html__( 'Text Editor', 'basictheme' ),
+                'label' => esc_html__( 'Text Editor', 'sungarden' ),
             ]
         );
 
         $this->add_control(
             'widget_description',
             [
-                'label'     =>  esc_html__( 'Description', 'basictheme' ),
+                'label'     =>  esc_html__( 'Description', 'sungarden' ),
                 'type'      =>  Controls_Manager::WYSIWYG,
-                'default'   =>  esc_html__( 'Default description', 'basictheme' ),
+                'default'   =>  esc_html__( 'Default description', 'sungarden' ),
             ]
         );
 
@@ -75,27 +75,27 @@ class basictheme_widget_about_text extends Widget_Base {
 
         /*STYLE TAB*/
         $this->start_controls_section('style', array(
-            'label' =>  esc_html__( 'Text', 'basictheme' ),
+            'label' =>  esc_html__( 'Text', 'sungarden' ),
             'tab'   =>  Controls_Manager::TAB_STYLE,
         ));
 
         $this->add_control(
             'align',
             [
-                'label'     =>  esc_html__( 'Alignment Title', 'basictheme' ),
+                'label'     =>  esc_html__( 'Alignment Title', 'sungarden' ),
                 'type'      =>  Controls_Manager::CHOOSE,
                 'options'   =>  [
                     'left'  =>  [
-                        'title' =>  esc_html__( 'Left', 'basictheme' ),
+                        'title' =>  esc_html__( 'Left', 'sungarden' ),
                         'icon'  =>  'fa fa-align-left',
                     ],
 
                     'center'    =>  [
-                        'title' =>  esc_html__( 'Center', 'basictheme' ),
+                        'title' =>  esc_html__( 'Center', 'sungarden' ),
                         'icon'  =>  'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' =>  esc_html__( 'Right', 'basictheme' ),
+                        'title' =>  esc_html__( 'Right', 'sungarden' ),
                         'icon'  =>  'fa fa-align-right',
                     ],
                 ],
@@ -108,7 +108,7 @@ class basictheme_widget_about_text extends Widget_Base {
         $this->add_control(
             'title_color',
             [
-                'label'     =>  __( 'Title Color', 'basictheme' ),
+                'label'     =>  __( 'Title Color', 'sungarden' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'selectors' =>  [
                     '{{WRAPPER}} .element-about-text__title' => 'color: {{VALUE}}',
@@ -119,7 +119,7 @@ class basictheme_widget_about_text extends Widget_Base {
         $this->add_control(
             'text_editor_color',
             [
-                'label'     =>  __( 'Text Editor Color', 'basictheme' ),
+                'label'     =>  __( 'Text Editor Color', 'sungarden' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'selectors' =>  [
                     '{{WRAPPER}} .element-about-text__description' => 'color: {{VALUE}}',
@@ -130,12 +130,12 @@ class basictheme_widget_about_text extends Widget_Base {
         $this->add_control(
             'hide_line',
             [
-                'label'     =>  esc_html__( 'Hide Line', 'basictheme' ),
+                'label'     =>  esc_html__( 'Hide Line', 'sungarden' ),
                 'type'      =>  Controls_Manager::SELECT,
                 'default'   =>  'no',
                 'options'   =>  [
-                    'no'    =>  esc_html__( 'No', 'basictheme' ),
-                    'yes'   =>  esc_html__( 'Yes', 'basictheme' ),
+                    'no'    =>  esc_html__( 'No', 'sungarden' ),
+                    'yes'   =>  esc_html__( 'Yes', 'sungarden' ),
                 ],
             ]
         );
@@ -143,7 +143,7 @@ class basictheme_widget_about_text extends Widget_Base {
         $this->add_responsive_control(
             'margin_bottom_line',
             [
-                'label'     =>  esc_html__( 'Margin Bottom Line', 'basictheme' ),
+                'label'     =>  esc_html__( 'Margin Bottom Line', 'sungarden' ),
                 'type'      =>  Controls_Manager::SLIDER,
                 'default'   =>  [
                     'size'  =>  '',
@@ -237,4 +237,4 @@ class basictheme_widget_about_text extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new basictheme_widget_about_text );
+Plugin::instance()->widgets_manager->register_widget_type( new sungarden_widget_about_text );

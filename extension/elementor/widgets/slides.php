@@ -4,18 +4,18 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class basictheme_widget_slides extends Widget_Base {
+class sungarden_widget_slides extends Widget_Base {
 
     public function get_categories() {
-        return array( 'basictheme_widgets' );
+        return array( 'sungarden_widgets' );
     }
 
     public function get_name() {
-        return 'basictheme-slides';
+        return 'sungarden-slides';
     }
 
     public function get_title() {
-        return esc_html__( 'Slides Theme', 'basictheme' );
+        return esc_html__( 'Slides Theme', 'sungarden' );
     }
 
     public function get_icon() {
@@ -23,14 +23,14 @@ class basictheme_widget_slides extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return ['basictheme-elementor-custom'];
+        return ['sungarden-elementor-custom'];
     }
 
     protected function _register_controls() {
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__( 'Slides', 'basictheme' ),
+                'label' => esc_html__( 'Slides', 'sungarden' ),
             ]
         );
 
@@ -38,12 +38,12 @@ class basictheme_widget_slides extends Widget_Base {
 
         $repeater->start_controls_tabs( 'slides_repeater' );
 
-        $repeater->start_controls_tab( 'background', [ 'label' => esc_html__( 'Background', 'basictheme' ) ] );
+        $repeater->start_controls_tab( 'background', [ 'label' => esc_html__( 'Background', 'sungarden' ) ] );
 
         $repeater->add_control(
             'slides_image',
             [
-                'label'     =>  esc_html__( 'Image', 'basictheme' ),
+                'label'     =>  esc_html__( 'Image', 'sungarden' ),
                 'type'      =>  Controls_Manager::MEDIA,
                 'default'   =>  [
                     'url'   =>  Utils::get_placeholder_image_src(),
@@ -57,13 +57,13 @@ class basictheme_widget_slides extends Widget_Base {
         $repeater->add_control(
             'background_size',
             [
-                'label'     =>  esc_html__( 'Size', 'basictheme' ),
+                'label'     =>  esc_html__( 'Size', 'sungarden' ),
                 'type'      =>  Controls_Manager::SELECT,
                 'default'   =>  'cover',
                 'options'   =>  [
-                    'cover'     =>  esc_html__( 'Cover', 'basictheme' ),
-                    'contain'   =>  esc_html__( 'Contain', 'basictheme' ),
-                    'auto'      =>  esc_html__( 'Auto', 'basictheme' ),
+                    'cover'     =>  esc_html__( 'Cover', 'sungarden' ),
+                    'contain'   =>  esc_html__( 'Contain', 'sungarden' ),
+                    'auto'      =>  esc_html__( 'Auto', 'sungarden' ),
                 ],
                 'selectors' => [
                     '{{WRAPPER}} {{CURRENT_ITEM}} .element-slides__item--bg' => 'background-size: {{VALUE}}',
@@ -83,7 +83,7 @@ class basictheme_widget_slides extends Widget_Base {
         $repeater->add_control(
             'background_overlay',
             [
-                'label' => esc_html__( 'Background Overlay', 'basictheme' ),
+                'label' => esc_html__( 'Background Overlay', 'sungarden' ),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => '',
                 'separator' => 'before',
@@ -102,7 +102,7 @@ class basictheme_widget_slides extends Widget_Base {
         $repeater->add_control(
             'background_overlay_color',
             [
-                'label' => esc_html__( 'Color', 'basictheme' ),
+                'label' => esc_html__( 'Color', 'sungarden' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => 'rgba(0,0,0,0.5)',
                 'conditions' => [
@@ -121,14 +121,14 @@ class basictheme_widget_slides extends Widget_Base {
 
         $repeater->end_controls_tab();
 
-        $repeater->start_controls_tab( 'content', [ 'label' => esc_html__( 'Content', 'basictheme' ) ] );
+        $repeater->start_controls_tab( 'content', [ 'label' => esc_html__( 'Content', 'sungarden' ) ] );
 
         $repeater->add_control(
             'heading',
             [
-                'label' => esc_html__( 'Title & Description', 'basictheme' ),
+                'label' => esc_html__( 'Title & Description', 'sungarden' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Slide Heading', 'basictheme' ),
+                'default' => esc_html__( 'Slide Heading', 'sungarden' ),
                 'label_block' => true,
             ]
         );
@@ -136,9 +136,9 @@ class basictheme_widget_slides extends Widget_Base {
         $repeater->add_control(
             'description',
             [
-                'label' => esc_html__( 'Description', 'basictheme' ),
+                'label' => esc_html__( 'Description', 'sungarden' ),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'basictheme' ),
+                'default' => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'sungarden' ),
                 'show_label' => false,
             ]
         );
@@ -146,32 +146,32 @@ class basictheme_widget_slides extends Widget_Base {
         $repeater->add_control(
             'button_text',
             [
-                'label' => esc_html__( 'Button Text', 'basictheme' ),
+                'label' => esc_html__( 'Button Text', 'sungarden' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Click Here', 'basictheme' ),
+                'default' => esc_html__( 'Click Here', 'sungarden' ),
             ]
         );
 
         $repeater->add_control(
             'link',
             [
-                'label'         =>  esc_html__( 'Link', 'basictheme' ),
+                'label'         =>  esc_html__( 'Link', 'sungarden' ),
                 'type'          =>  Controls_Manager::URL,
                 'label_block'   =>  true,
                 'default'       =>  [
                     'is_external'   =>  'true',
                 ],
-                'placeholder'   =>  esc_html__( 'https://your-link.com', 'basictheme' ),
+                'placeholder'   =>  esc_html__( 'https://your-link.com', 'sungarden' ),
             ]
         );
 
 	    $repeater->add_control(
 		    'show_content',
 		    [
-			    'label'         => esc_html__( 'Show Content', 'basictheme' ),
+			    'label'         => esc_html__( 'Show Content', 'sungarden' ),
 			    'type'          => Controls_Manager::SWITCHER,
-			    'label_on'      => esc_html__( 'Show', 'basictheme' ),
-			    'label_off'     => esc_html__( 'Hide', 'basictheme' ),
+			    'label_on'      => esc_html__( 'Show', 'sungarden' ),
+			    'label_off'     => esc_html__( 'Hide', 'sungarden' ),
 			    'return_value'  => 'yes',
 			    'default'       => 'yes',
 		    ]
@@ -179,34 +179,34 @@ class basictheme_widget_slides extends Widget_Base {
 
         $repeater->end_controls_tab();
 
-        $repeater->start_controls_tab( 'style', [ 'label' => esc_html__( 'Style', 'basictheme' ) ] );
+        $repeater->start_controls_tab( 'style', [ 'label' => esc_html__( 'Style', 'sungarden' ) ] );
 
         $repeater->add_control(
             'custom_style',
             [
-                'label' => esc_html__( 'Custom', 'basictheme' ),
+                'label' => esc_html__( 'Custom', 'sungarden' ),
                 'type' => Controls_Manager::SWITCHER,
-                'description' => esc_html__( 'Set custom style that will only affect this specific slide.', 'basictheme' ),
+                'description' => esc_html__( 'Set custom style that will only affect this specific slide.', 'sungarden' ),
             ]
         );
 
         $repeater->add_control(
             'horizontal_position',
             [
-                'label' => esc_html__( 'Horizontal Position', 'basictheme' ),
+                'label' => esc_html__( 'Horizontal Position', 'sungarden' ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'basictheme' ),
+                        'title' => esc_html__( 'Left', 'sungarden' ),
                         'icon' => 'eicon-h-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'basictheme' ),
+                        'title' => esc_html__( 'Center', 'sungarden' ),
                         'icon' => 'eicon-h-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'basictheme' ),
+                        'title' => esc_html__( 'Right', 'sungarden' ),
                         'icon' => 'eicon-h-align-right',
                     ],
                 ],
@@ -232,20 +232,20 @@ class basictheme_widget_slides extends Widget_Base {
         $repeater->add_control(
             'vertical_position',
             [
-                'label' => esc_html__( 'Vertical Position', 'basictheme' ),
+                'label' => esc_html__( 'Vertical Position', 'sungarden' ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options' => [
                     'top' => [
-                        'title' => esc_html__( 'Top', 'basictheme' ),
+                        'title' => esc_html__( 'Top', 'sungarden' ),
                         'icon' => 'eicon-v-align-top',
                     ],
                     'middle' => [
-                        'title' => esc_html__( 'Middle', 'basictheme' ),
+                        'title' => esc_html__( 'Middle', 'sungarden' ),
                         'icon' => 'eicon-v-align-middle',
                     ],
                     'bottom' => [
-                        'title' => esc_html__( 'Bottom', 'basictheme' ),
+                        'title' => esc_html__( 'Bottom', 'sungarden' ),
                         'icon' => 'eicon-v-align-bottom',
                     ],
                 ],
@@ -271,20 +271,20 @@ class basictheme_widget_slides extends Widget_Base {
         $repeater->add_control(
             'text_align',
             [
-                'label' => esc_html__( 'Text Align', 'basictheme' ),
+                'label' => esc_html__( 'Text Align', 'sungarden' ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'basictheme' ),
+                        'title' => esc_html__( 'Left', 'sungarden' ),
                         'icon' => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'basictheme' ),
+                        'title' => esc_html__( 'Center', 'sungarden' ),
                         'icon' => 'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'basictheme' ),
+                        'title' => esc_html__( 'Right', 'sungarden' ),
                         'icon' => 'fa fa-align-right',
                     ],
                 ],
@@ -309,20 +309,20 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'slides_list',
             [
-                'label'     =>  esc_html__( 'Slides', 'basictheme' ),
+                'label'     =>  esc_html__( 'Slides', 'sungarden' ),
                 'type'      =>  Controls_Manager::REPEATER,
                 'fields'    => $repeater->get_controls(),
                 'default'   =>  [
                     [
-                        'heading' => esc_html__( 'Slider 1 Heading', 'basictheme' ),
-                        'description' => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'basictheme' ),
-                        'button_text' => esc_html__( 'Click Here', 'basictheme' ),
+                        'heading' => esc_html__( 'Slider 1 Heading', 'sungarden' ),
+                        'description' => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'sungarden' ),
+                        'button_text' => esc_html__( 'Click Here', 'sungarden' ),
                         'link' => '#'
                     ],
                     [
-                        'heading' => esc_html__( 'Slider 2 Heading', 'basictheme' ),
-                        'description' => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'basictheme' ),
-                        'button_text' => esc_html__( 'Click Here', 'basictheme' ),
+                        'heading' => esc_html__( 'Slider 2 Heading', 'sungarden' ),
+                        'description' => esc_html__( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'sungarden' ),
+                        'button_text' => esc_html__( 'Click Here', 'sungarden' ),
                         'link' => '#'
                     ],
                 ],
@@ -333,7 +333,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_responsive_control(
             'slides_height',
             [
-                'label' => esc_html__( 'Height', 'basictheme' ),
+                'label' => esc_html__( 'Height', 'sungarden' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -361,7 +361,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->start_controls_section(
             'section_slider_options',
             [
-                'label' => esc_html__( 'Slider Options', 'basictheme' ),
+                'label' => esc_html__( 'Slider Options', 'sungarden' ),
                 'tab' => Controls_Manager::SECTION
             ]
         );
@@ -370,9 +370,9 @@ class basictheme_widget_slides extends Widget_Base {
             'loop',
             [
                 'type'          =>  Controls_Manager::SWITCHER,
-                'label'         =>  esc_html__('Loop Slider ?', 'basictheme'),
-                'label_off'     =>  esc_html__('No', 'basictheme'),
-                'label_on'      =>  esc_html__('Yes', 'basictheme'),
+                'label'         =>  esc_html__('Loop Slider ?', 'sungarden'),
+                'label_off'     =>  esc_html__('No', 'sungarden'),
+                'label_on'      =>  esc_html__('Yes', 'sungarden'),
                 'return_value'  =>  'yes',
                 'default'       =>  'yes',
             ]
@@ -381,10 +381,10 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'autoplay',
             [
-                'label'         => esc_html__('Autoplay?', 'basictheme'),
+                'label'         => esc_html__('Autoplay?', 'sungarden'),
                 'type'          => Controls_Manager::SWITCHER,
-                'label_off'     => esc_html__('No', 'basictheme'),
-                'label_on'      => esc_html__('Yes', 'basictheme'),
+                'label_off'     => esc_html__('No', 'sungarden'),
+                'label_on'      => esc_html__('Yes', 'sungarden'),
                 'return_value'  => 'yes',
                 'default'       => 'no',
             ]
@@ -393,10 +393,10 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'nav',
             [
-                'label'         => esc_html__('nav Slider', 'basictheme'),
+                'label'         => esc_html__('nav Slider', 'sungarden'),
                 'type'          => Controls_Manager::SWITCHER,
-                'label_on'      => esc_html__('Yes', 'basictheme'),
-                'label_off'     => esc_html__('No', 'basictheme'),
+                'label_on'      => esc_html__('Yes', 'sungarden'),
+                'label_off'     => esc_html__('No', 'sungarden'),
                 'return_value'  => 'yes',
                 'default'       => 'yes',
             ]
@@ -405,10 +405,10 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'dots',
             [
-                'label'         => esc_html__('Dots Slider', 'basictheme'),
+                'label'         => esc_html__('Dots Slider', 'sungarden'),
                 'type'          => Controls_Manager::SWITCHER,
-                'label_on'      => esc_html__('Yes', 'basictheme'),
-                'label_off'     => esc_html__('No', 'basictheme'),
+                'label_on'      => esc_html__('Yes', 'sungarden'),
+                'label_off'     => esc_html__('No', 'sungarden'),
                 'return_value'  => 'yes',
                 'default'       => 'no',
             ]
@@ -419,7 +419,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->start_controls_section(
             'section_style_slides',
             [
-                'label' => esc_html__( 'Slides', 'basictheme' ),
+                'label' => esc_html__( 'Slides', 'sungarden' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -427,7 +427,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_responsive_control(
             'content_max_width',
             [
-                'label' => esc_html__( 'Content Width', 'basictheme' ),
+                'label' => esc_html__( 'Content Width', 'sungarden' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -459,7 +459,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_responsive_control(
             'slides_padding',
             [
-                'label' => esc_html__( 'Padding', 'basictheme' ),
+                'label' => esc_html__( 'Padding', 'sungarden' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
@@ -471,21 +471,21 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'slides_horizontal_position',
             [
-                'label' => esc_html__( 'Horizontal Position', 'basictheme' ),
+                'label' => esc_html__( 'Horizontal Position', 'sungarden' ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'default' => 'center',
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'basictheme' ),
+                        'title' => esc_html__( 'Left', 'sungarden' ),
                         'icon' => 'eicon-h-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'basictheme' ),
+                        'title' => esc_html__( 'Center', 'sungarden' ),
                         'icon' => 'eicon-h-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'basictheme' ),
+                        'title' => esc_html__( 'Right', 'sungarden' ),
                         'icon' => 'eicon-h-align-right',
                     ],
                 ],
@@ -496,21 +496,21 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'slides_vertical_position',
             [
-                'label' => esc_html__( 'Vertical Position', 'basictheme' ),
+                'label' => esc_html__( 'Vertical Position', 'sungarden' ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'default' => 'middle',
                 'options' => [
                     'top' => [
-                        'title' => esc_html__( 'Top', 'basictheme' ),
+                        'title' => esc_html__( 'Top', 'sungarden' ),
                         'icon' => 'eicon-v-align-top',
                     ],
                     'middle' => [
-                        'title' => esc_html__( 'Middle', 'basictheme' ),
+                        'title' => esc_html__( 'Middle', 'sungarden' ),
                         'icon' => 'eicon-v-align-middle',
                     ],
                     'bottom' => [
-                        'title' => esc_html__( 'Bottom', 'basictheme' ),
+                        'title' => esc_html__( 'Bottom', 'sungarden' ),
                         'icon' => 'eicon-v-align-bottom',
                     ],
                 ],
@@ -521,20 +521,20 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'slides_text_align',
             [
-                'label' => esc_html__( 'Text Align', 'basictheme' ),
+                'label' => esc_html__( 'Text Align', 'sungarden' ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'basictheme' ),
+                        'title' => esc_html__( 'Left', 'sungarden' ),
                         'icon' => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'basictheme' ),
+                        'title' => esc_html__( 'Center', 'sungarden' ),
                         'icon' => 'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'basictheme' ),
+                        'title' => esc_html__( 'Right', 'sungarden' ),
                         'icon' => 'fa fa-align-right',
                     ],
                 ],
@@ -550,7 +550,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->start_controls_section(
             'section_style_title',
             [
-                'label' => esc_html__( 'Title', 'basictheme' ),
+                'label' => esc_html__( 'Title', 'sungarden' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -558,7 +558,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'heading_spacing',
             [
-                'label' => esc_html__( 'Spacing', 'basictheme' ),
+                'label' => esc_html__( 'Spacing', 'sungarden' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -575,7 +575,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'heading_color',
             [
-                'label' => esc_html__( 'Text Color', 'basictheme' ),
+                'label' => esc_html__( 'Text Color', 'sungarden' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--heading' => 'color: {{VALUE}}',
@@ -597,7 +597,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->start_controls_section(
             'section_style_description',
             [
-                'label' => esc_html__( 'Description', 'basictheme' ),
+                'label' => esc_html__( 'Description', 'sungarden' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -605,7 +605,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'description_spacing',
             [
-                'label' => esc_html__( 'Spacing', 'basictheme' ),
+                'label' => esc_html__( 'Spacing', 'sungarden' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -622,7 +622,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'description_color',
             [
-                'label' => esc_html__( 'Text Color', 'basictheme' ),
+                'label' => esc_html__( 'Text Color', 'sungarden' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--description' => 'color: {{VALUE}}',
@@ -644,14 +644,14 @@ class basictheme_widget_slides extends Widget_Base {
         $this->start_controls_section(
             'section_style_button',
             [
-                'label' => esc_html__( 'Button', 'basictheme' ),
+                'label' => esc_html__( 'Button', 'sungarden' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control( 'button_color',
             [
-                'label' => esc_html__( 'Text Color', 'basictheme' ),
+                'label' => esc_html__( 'Text Color', 'sungarden' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link, {{WRAPPER}} .element-slides__item .element-slides__item--link a' => 'color: {{VALUE}}; border-color: {{VALUE}}',
@@ -670,7 +670,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'button_border_width',
             [
-                'label' => esc_html__( 'Border Width', 'basictheme' ),
+                'label' => esc_html__( 'Border Width', 'sungarden' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -687,7 +687,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'button_border_radius',
             [
-                'label' => esc_html__( 'Border Radius', 'basictheme' ),
+                'label' => esc_html__( 'Border Radius', 'sungarden' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -704,12 +704,12 @@ class basictheme_widget_slides extends Widget_Base {
 
         $this->start_controls_tabs( 'button_tabs' );
 
-        $this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', 'basictheme' ) ] );
+        $this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', 'sungarden' ) ] );
 
         $this->add_control(
             'button_text_color',
             [
-                'label' => esc_html__( 'Text Color', 'basictheme' ),
+                'label' => esc_html__( 'Text Color', 'sungarden' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link, {{WRAPPER}} .element-slides__item .element-slides__item--link a' => 'color: {{VALUE}};',
@@ -720,7 +720,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'button_background_color',
             [
-                'label' => esc_html__( 'Background Color', 'basictheme' ),
+                'label' => esc_html__( 'Background Color', 'sungarden' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link' => 'background-color: {{VALUE}};',
@@ -731,7 +731,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'button_border_color',
             [
-                'label' => esc_html__( 'Border Color', 'basictheme' ),
+                'label' => esc_html__( 'Border Color', 'sungarden' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link' => 'border-color: {{VALUE}};',
@@ -741,12 +741,12 @@ class basictheme_widget_slides extends Widget_Base {
 
         $this->end_controls_tab();
 
-        $this->start_controls_tab( 'hover', [ 'label' => esc_html__( 'Hover', 'basictheme' ) ] );
+        $this->start_controls_tab( 'hover', [ 'label' => esc_html__( 'Hover', 'sungarden' ) ] );
 
         $this->add_control(
             'button_hover_text_color',
             [
-                'label' => esc_html__( 'Text Color', 'basictheme' ),
+                'label' => esc_html__( 'Text Color', 'sungarden' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link:hover, {{WRAPPER}} .element-slides__item .element-slides__item--link a:hover' => 'color: {{VALUE}};',
@@ -757,7 +757,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'button_hover_background_color',
             [
-                'label' => esc_html__( 'Background Color', 'basictheme' ),
+                'label' => esc_html__( 'Background Color', 'sungarden' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link:hover' => 'background-color: {{VALUE}};',
@@ -768,7 +768,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'button_hover_border_color',
             [
-                'label' => esc_html__( 'Border Color', 'basictheme' ),
+                'label' => esc_html__( 'Border Color', 'sungarden' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides__item .element-slides__item--link:hover' => 'border-color: {{VALUE}};',
@@ -785,7 +785,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->start_controls_section(
             'section_style_navigation',
             [
-                'label' => esc_html__( 'Navigation', 'basictheme' ),
+                'label' => esc_html__( 'Navigation', 'sungarden' ),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'conditions' => [
                     'relation' => 'or',
@@ -806,7 +806,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'heading_style_arrows',
             [
-                'label' => esc_html__( 'Arrows', 'basictheme' ),
+                'label' => esc_html__( 'Arrows', 'sungarden' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'conditions' => [
@@ -823,7 +823,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'arrows_size',
             [
-                'label' => esc_html__( 'Arrows Size', 'basictheme' ),
+                'label' => esc_html__( 'Arrows Size', 'sungarden' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -848,7 +848,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'arrows_color',
             [
-                'label' => esc_html__( 'Arrows Color', 'basictheme' ),
+                'label' => esc_html__( 'Arrows Color', 'sungarden' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides.owl-carousel .owl-nav button i.fa' => 'color: {{VALUE}};',
@@ -867,7 +867,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'arrows_color_hover',
             [
-                'label' => esc_html__( 'Arrows Color Hover', 'basictheme' ),
+                'label' => esc_html__( 'Arrows Color Hover', 'sungarden' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides.owl-carousel .owl-nav button i.fa:hover' => 'color: {{VALUE}};',
@@ -886,7 +886,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'heading_style_dots',
             [
-                'label' => esc_html__( 'Dots', 'basictheme' ),
+                'label' => esc_html__( 'Dots', 'sungarden' ),
                 'type' => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'conditions' => [
@@ -903,7 +903,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'dots_size',
             [
-                'label' => esc_html__( 'Dots Size', 'basictheme' ),
+                'label' => esc_html__( 'Dots Size', 'sungarden' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -928,7 +928,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'dots_color',
             [
-                'label' => esc_html__( 'Dots Color', 'basictheme' ),
+                'label' => esc_html__( 'Dots Color', 'sungarden' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides.owl-carousel .owl-dots .owl-dot span' => 'background-color: {{VALUE}};',
@@ -947,7 +947,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_control(
             'dots_color_hover',
             [
-                'label' => esc_html__( 'Dots Color Hover', 'basictheme' ),
+                'label' => esc_html__( 'Dots Color Hover', 'sungarden' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .element-slides.owl-carousel .owl-dots .owl-dot.active span, {{WRAPPER}} .element-slides.owl-carousel .owl-dots .owl-dot:hover span' => 'background-color: {{VALUE}};',
@@ -986,7 +986,7 @@ class basictheme_widget_slides extends Widget_Base {
             <?php
 
             foreach ( $settings['slides_list'] as $item ) :
-                $basictheme_slides_link         =   $item['link'];
+                $sungarden_slides_link         =   $item['link'];
 
             ?>
 
@@ -1017,8 +1017,8 @@ class basictheme_widget_slides extends Widget_Base {
 
                                 <?php if ( !empty( $item['button_text'] ) ) : ?>
                                     <div class="element-slides__item--link">
-                                        <?php if ( !empty( $basictheme_slides_link['url'] ) ) : ?>
-                                            <a href="<?php echo esc_url( $basictheme_slides_link['url'] ); ?>" <?php echo ( $basictheme_slides_link['is_external'] ? 'target="_blank"' : '' ); ?>>
+                                        <?php if ( !empty( $sungarden_slides_link['url'] ) ) : ?>
+                                            <a href="<?php echo esc_url( $sungarden_slides_link['url'] ); ?>" <?php echo ( $sungarden_slides_link['is_external'] ? 'target="_blank"' : '' ); ?>>
                                                 <?php echo esc_html( $item['button_text'] ); ?>
                                             </a>
                                         <?php
@@ -1112,4 +1112,4 @@ class basictheme_widget_slides extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new basictheme_widget_slides );
+Plugin::instance()->widgets_manager->register_widget_type( new sungarden_widget_slides );

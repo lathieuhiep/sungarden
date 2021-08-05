@@ -1,20 +1,20 @@
 <?php
 
-add_filter( 'rwmb_meta_boxes', 'basictheme_register_meta_boxes' );
+add_filter( 'rwmb_meta_boxes', 'sungarden_register_meta_boxes' );
 
-function basictheme_register_meta_boxes() {
+function sungarden_register_meta_boxes() {
 
     /* Start meta box post */
-    $basictheme_meta_boxes[] = array(
+    $sungarden_meta_boxes[] = array(
         'id'         => 'post_format_option',
-        'title'      => esc_html__( 'Post Format', 'basictheme' ),
+        'title'      => esc_html__( 'Post Format', 'sungarden' ),
         'post_types' => array( 'post' ),
         'context'    => 'normal',
         'priority'   => 'high',
         'fields' => array(
 
             array(
-                'id'               => 'basictheme_gallery_post',
+                'id'               => 'sungarden_gallery_post',
                 'name'             => 'Gallery',
                 'type'             => 'image_advanced',
                 'force_delete'     => false,
@@ -23,7 +23,7 @@ function basictheme_register_meta_boxes() {
             ),
 
             array(
-                'id'            => 'basictheme_video_post',
+                'id'            => 'sungarden_video_post',
                 'name'          => 'Video Or Audio',
                 'type'          => 'oembed',
             ),
@@ -33,6 +33,6 @@ function basictheme_register_meta_boxes() {
     );
     /* End meta box post */
 
-    return $basictheme_meta_boxes;
+    return $sungarden_meta_boxes;
 
 }

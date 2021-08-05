@@ -8,29 +8,29 @@ if ( ! class_exists( 'Redux' ) ) {
 
 
 // This is your option name where all the Redux data is stored.
-$basictheme_opt_name = "basictheme_options";
+$sungarden_opt_name = "sungarden_options";
 
 /**
  * ---> SET ARGUMENTS
  * All the possible arguments for Redux.
  * */
 
-$basictheme_theme = wp_get_theme(); // For use with some settings. Not necessary.
+$sungarden_theme = wp_get_theme(); // For use with some settings. Not necessary.
 
-$basictheme_opt_args = array(
+$sungarden_opt_args = array(
 
-    'opt_name'             => $basictheme_opt_name,
+    'opt_name'             => $sungarden_opt_name,
     // This is where your data is stored in the database and also becomes your global variable name.
-    'display_name'         => $basictheme_theme->get( 'Name' ),
+    'display_name'         => $sungarden_theme->get( 'Name' ),
     // Name that appears at the top of your panel
-    'display_version'      => $basictheme_theme->get( 'Version' ),
+    'display_version'      => $sungarden_theme->get( 'Version' ),
     // Version that appears at the top of your panel
     'menu_type'            => 'menu',
     //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
     'allow_sub_menu'       => false,
     // Show the sections below the admin menu item or not
-    'menu_title'           => $basictheme_theme->get( 'Name' ) . esc_html__(' Options', 'basictheme'),
-    'page_title'           => $basictheme_theme->get( 'Name' ) . esc_html__(' Options', 'basictheme'),
+    'menu_title'           => $sungarden_theme->get( 'Name' ) . esc_html__(' Options', 'sungarden'),
+    'page_title'           => $sungarden_theme->get( 'Name' ) . esc_html__(' Options', 'sungarden'),
     // You will need to generate a Google API key to use this feature.
     // Please visit: https://developers.google.com/fonts/docs/developer_api#Auth
     'google_api_key'       => '',
@@ -122,7 +122,7 @@ $basictheme_opt_args = array(
         ),
     )
 );
-Redux::set_args( $basictheme_opt_name, $basictheme_opt_args );
+Redux::set_args( $sungarden_opt_name, $sungarden_opt_args );
 /*
  * ---> END ARGUMENTS
  */
@@ -131,23 +131,23 @@ Redux::set_args( $basictheme_opt_name, $basictheme_opt_args );
  * ---> START HELP TABS
  */
 
-$basictheme_opt_tabs = array(
+$sungarden_opt_tabs = array(
     array(
         'id'        =>  'redux-help-tab-1',
-        'title'     =>  esc_html__( 'Theme Information 1', 'basictheme' ),
-        'content'   =>  esc_html__( '<p>This is the tab content, HTML is allowed.</p>', 'basictheme' )
+        'title'     =>  esc_html__( 'Theme Information 1', 'sungarden' ),
+        'content'   =>  esc_html__( '<p>This is the tab content, HTML is allowed.</p>', 'sungarden' )
     ),
     array(
         'id'        =>  'redux-help-tab-2',
-        'title'     =>  esc_html__( 'Theme Information 2', 'basictheme' ),
-        'content'   =>  esc_html__( '<p>This is the tab content, HTML is allowed.</p>', 'basictheme' )
+        'title'     =>  esc_html__( 'Theme Information 2', 'sungarden' ),
+        'content'   =>  esc_html__( '<p>This is the tab content, HTML is allowed.</p>', 'sungarden' )
     )
 );
-Redux::set_help_tab( $basictheme_opt_name, $basictheme_opt_tabs );
+Redux::set_help_tab( $sungarden_opt_name, $sungarden_opt_tabs );
 
 // Set the help sidebar
-$basictheme_opt_content = esc_html__( '<p>This is the sidebar content, HTML is allowed.</p>', 'basictheme' );
-Redux::set_help_sidebar( $basictheme_opt_name, $basictheme_opt_content );
+$sungarden_opt_content = esc_html__( '<p>This is the sidebar content, HTML is allowed.</p>', 'sungarden' );
+Redux::set_help_sidebar( $sungarden_opt_name, $sungarden_opt_content );
 
 
 /*
@@ -162,9 +162,9 @@ Redux::set_help_sidebar( $basictheme_opt_name, $basictheme_opt_content );
 
 // -> START option background
 
-Redux::set_section( $basictheme_opt_name, array(
-    'id'                =>   'basictheme_theme_option',
-    'title'             =>   $basictheme_theme->get( 'Name' ).' '.$basictheme_theme->get( 'Version' ),
+Redux::set_section( $sungarden_opt_name, array(
+    'id'                =>   'sungarden_theme_option',
+    'title'             =>   $sungarden_theme->get( 'Name' ).' '.$sungarden_theme->get( 'Version' ),
     'customizer_width'  =>   '400px',
     'icon'              =>   '',
 ));
@@ -173,73 +173,73 @@ Redux::set_section( $basictheme_opt_name, array(
 
 /* Start General Options */
 
-Redux::set_section( $basictheme_opt_name, array(
-    'title'             =>  esc_html__( 'General Options', 'basictheme' ),
-    'id'                =>  'basictheme_general',
-    'desc'              =>  esc_html__( 'General all config', 'basictheme' ),
+Redux::set_section( $sungarden_opt_name, array(
+    'title'             =>  esc_html__( 'General Options', 'sungarden' ),
+    'id'                =>  'sungarden_general',
+    'desc'              =>  esc_html__( 'General all config', 'sungarden' ),
     'customizer_width'  =>  '400px',
     'icon'              =>  'el el-th-large',
 ));
 
 // Favicon Config
-Redux::set_section( $basictheme_opt_name, array(
-    'title'         =>  esc_html__( 'Favicon', 'basictheme' ),
-    'id'            =>  'basictheme_favicon_config',
-    'desc'          =>  esc_html__( '', 'basictheme' ),
+Redux::set_section( $sungarden_opt_name, array(
+    'title'         =>  esc_html__( 'Favicon', 'sungarden' ),
+    'id'            =>  'sungarden_favicon_config',
+    'desc'          =>  esc_html__( '', 'sungarden' ),
     'subsection'    =>  true,
     'fields'        =>  array(
         array(
-            'id'        =>  'basictheme_favicon_upload',
+            'id'        =>  'sungarden_favicon_upload',
             'type'      =>  'media',
             'url'       =>  true,
-            'title'     =>  esc_html__( 'Upload Favicon Image', 'basictheme' ),
-            'subtitle'  =>  esc_html__( 'Favicon image for your website', 'basictheme' ),
-            'desc'      =>  esc_html__( '', 'basictheme' ),
+            'title'     =>  esc_html__( 'Upload Favicon Image', 'sungarden' ),
+            'subtitle'  =>  esc_html__( 'Favicon image for your website', 'sungarden' ),
+            'desc'      =>  esc_html__( '', 'sungarden' ),
             'default'   =>  false,
         ),
     )
 ));
 
 //Loading config
-Redux::set_section( $basictheme_opt_name, array(
-    'title'         =>  esc_html__( 'Loading config', 'basictheme' ),
-    'id'            =>  'basictheme_general_loading',
-    'desc'          =>  esc_html__( '', 'basictheme' ),
+Redux::set_section( $sungarden_opt_name, array(
+    'title'         =>  esc_html__( 'Loading config', 'sungarden' ),
+    'id'            =>  'sungarden_general_loading',
+    'desc'          =>  esc_html__( '', 'sungarden' ),
     'subsection'    =>  true,
     'fields'        =>  array(
         array(
-            'id'        =>  'basictheme_general_show_loading',
+            'id'        =>  'sungarden_general_show_loading',
             'type'      =>  'switch',
-            'title'     =>  esc_html__( 'Loading On/Off', 'basictheme' ),
+            'title'     =>  esc_html__( 'Loading On/Off', 'sungarden' ),
             'default'   =>  false,
         ),
         array(
-            'id'        =>  'basictheme_general_image_loading',
+            'id'        =>  'sungarden_general_image_loading',
             'type'      =>  'media',
             'url'       =>  true,
-            'title'     =>  esc_html__( 'Upload image loading', 'basictheme' ),
-            'subtitle'  =>  esc_html__( 'Upload image .gif', 'basictheme' ),
+            'title'     =>  esc_html__( 'Upload image loading', 'sungarden' ),
+            'subtitle'  =>  esc_html__( 'Upload image .gif', 'sungarden' ),
             'default'   =>  '',
-            'required'  =>  array( 'basictheme_general_show_loading', '=', true ),
+            'required'  =>  array( 'sungarden_general_show_loading', '=', true ),
         ),
     )
 ));
 
 //Background Options
-Redux::set_section( $basictheme_opt_name, array(
-    'title'             =>  esc_html__( 'Background', 'basictheme' ),
-    'id'                =>  'basictheme_background',
-    'desc'              =>  esc_html__( 'Background all config', 'basictheme' ),
+Redux::set_section( $sungarden_opt_name, array(
+    'title'             =>  esc_html__( 'Background', 'sungarden' ),
+    'id'                =>  'sungarden_background',
+    'desc'              =>  esc_html__( 'Background all config', 'sungarden' ),
     'customizer_width'  =>  '400px',
     'subsection'        => true,
     'fields'            => array(
         array(
-            'id'        =>  'basictheme_background_body',
+            'id'        =>  'sungarden_background_body',
             'output'    =>  'body',
             'type'      =>  'background',
             'clone'     =>  'true',
-            'title'     =>  esc_html__( 'Body background', 'basictheme' ),
-            'subtitle'  =>  esc_html__( 'Body background with image, color, etc.', 'basictheme' ),
+            'title'     =>  esc_html__( 'Body background', 'sungarden' ),
+            'subtitle'  =>  esc_html__( 'Body background with image, color, etc.', 'sungarden' ),
             'hint'      =>  array(
                 'content'   =>  'This is a <b>hint</b> tool-tip for the text field.<br/><br/>Add any HTML based text you like here.',
             )
@@ -250,38 +250,38 @@ Redux::set_section( $basictheme_opt_name, array(
 /* End General Options */
 
 /* Start Header Options */
-Redux::set_section( $basictheme_opt_name, array(
-    'title'             =>  esc_html__( 'Header Options', 'basictheme' ),
-    'id'                =>  'basictheme_header',
-    'desc'              =>  esc_html__( 'Header all config', 'basictheme' ),
+Redux::set_section( $sungarden_opt_name, array(
+    'title'             =>  esc_html__( 'Header Options', 'sungarden' ),
+    'id'                =>  'sungarden_header',
+    'desc'              =>  esc_html__( 'Header all config', 'sungarden' ),
     'customizer_width'  =>  '400px',
     'icon'              =>  'el el-arrow-up',
 ));
 
 //Logo Config
-Redux::set_section( $basictheme_opt_name, array(
-    'title'         =>  esc_html__( 'Logo', 'basictheme' ),
-    'id'            =>  'basictheme_logo_config',
-    'desc'          =>  esc_html__( '', 'basictheme' ),
+Redux::set_section( $sungarden_opt_name, array(
+    'title'         =>  esc_html__( 'Logo', 'sungarden' ),
+    'id'            =>  'sungarden_logo_config',
+    'desc'          =>  esc_html__( '', 'sungarden' ),
     'subsection'    =>  true,
     'fields'        =>  array(
 
         array(
-            'id'        =>  'basictheme_logo_image',
+            'id'        =>  'sungarden_logo_image',
             'type'      =>  'media',
             'url'       =>  true,
-            'title'     =>  esc_html__( 'Upload logo', 'basictheme' ),
-            'subtitle'  =>  esc_html__( 'logo image for your website', 'basictheme' ),
-            'desc'      =>  esc_html__( '', 'basictheme' ),
+            'title'     =>  esc_html__( 'Upload logo', 'sungarden' ),
+            'subtitle'  =>  esc_html__( 'logo image for your website', 'sungarden' ),
+            'desc'      =>  esc_html__( '', 'sungarden' ),
             'default'   =>  false,
         ),
 
         array(
-            'id'                => 'basictheme_logo_images_size',
+            'id'                => 'sungarden_logo_images_size',
             'type'              => 'dimensions',
             'units'             => array( 'em', 'px', '%' ),
-            'title'             => esc_html__( 'Set width/height for logo', 'basictheme' ),
-            'subtitle'          => esc_html__( '', 'basictheme' ),
+            'title'             => esc_html__( 'Set width/height for logo', 'sungarden' ),
+            'subtitle'          => esc_html__( '', 'sungarden' ),
             'units_extended'    => 'true',
             'default'           => array(
                 'width'     =>  '',
@@ -291,13 +291,13 @@ Redux::set_section( $basictheme_opt_name, array(
         ),
 
         array(
-            'id'        =>  'basictheme_nav_top_sticky',
+            'id'        =>  'sungarden_nav_top_sticky',
             'type'      =>  'select',
-            'title'     =>  esc_html__( 'Sticky Menu', 'basictheme' ),
+            'title'     =>  esc_html__( 'Sticky Menu', 'sungarden' ),
             'default'   =>  1,
             'options'   =>  array(
-                1   =>  esc_html__( 'Yes', 'basictheme' ),
-                2   =>  esc_html__( 'No', 'basictheme' )
+                1   =>  esc_html__( 'Yes', 'sungarden' ),
+                2   =>  esc_html__( 'No', 'sungarden' )
             )
         ),
 
@@ -305,42 +305,42 @@ Redux::set_section( $basictheme_opt_name, array(
 ));
 
 // information
-Redux::set_section( $basictheme_opt_name, array(
-    'title'         =>  esc_html__( 'Information', 'basictheme' ),
-    'id'            =>  'basictheme_information_config',
-    'desc'          =>  esc_html__( '', 'basictheme' ),
+Redux::set_section( $sungarden_opt_name, array(
+    'title'         =>  esc_html__( 'Information', 'sungarden' ),
+    'id'            =>  'sungarden_information_config',
+    'desc'          =>  esc_html__( '', 'sungarden' ),
     'subsection'    =>  true,
     'fields'        =>  array(
 
         array(
-            'id'        =>  'basictheme_information_show_hide',
+            'id'        =>  'sungarden_information_show_hide',
             'type'      =>  'select',
-            'title'     =>  esc_html__( 'Show Or Hide Information', 'basictheme' ),
+            'title'     =>  esc_html__( 'Show Or Hide Information', 'sungarden' ),
             'default'   =>  1,
             'options'   =>  array(
-                1   =>  esc_html__( 'Show', 'basictheme' ),
-                0   =>  esc_html__( 'Hide', 'basictheme' )
+                1   =>  esc_html__( 'Show', 'sungarden' ),
+                0   =>  esc_html__( 'Hide', 'sungarden' )
             )
         ),
 
         array(
-            'id'        =>  'basictheme_information_address',
+            'id'        =>  'sungarden_information_address',
             'type'      =>  'text',
-            'title'     =>  esc_html__( 'Address', 'basictheme' ),
+            'title'     =>  esc_html__( 'Address', 'sungarden' ),
             'default'   =>  '988782, Our Street, S State.',
         ),
 
         array(
-            'id'        =>  'basictheme_information_mail',
+            'id'        =>  'sungarden_information_mail',
             'type'      =>  'text',
-            'title'     =>  esc_html__( 'Mail', 'basictheme' ),
+            'title'     =>  esc_html__( 'Mail', 'sungarden' ),
             'default'   =>  'info@domain.com',
         ),
 
         array(
-            'id'        =>  'basictheme_information_phone',
+            'id'        =>  'sungarden_information_phone',
             'type'      =>  'text',
-            'title'     =>  esc_html__( 'Phone', 'basictheme' ),
+            'title'     =>  esc_html__( 'Phone', 'sungarden' ),
             'default'   =>  '+1 234 567 186',
         ),
 
@@ -350,18 +350,18 @@ Redux::set_section( $basictheme_opt_name, array(
 /* End Header Options */
 
 /* Start Blog Option */
-Redux::set_section( $basictheme_opt_name, array(
-    'title'             =>  esc_html__( 'Blog Options', 'basictheme' ),
-    'id'                =>  'basictheme_blog_option',
+Redux::set_section( $sungarden_opt_name, array(
+    'title'             =>  esc_html__( 'Blog Options', 'sungarden' ),
+    'id'                =>  'sungarden_blog_option',
     'customizer_width'  =>  '400px',
     'icon'              =>  'el el-blogger',
     'fields'            =>  array(
 
         array(
-            'id'        =>  'basictheme_blog_sidebar_archive',
+            'id'        =>  'sungarden_blog_sidebar_archive',
             'type'      =>  'image_select',
-            'title'     =>  esc_html__( 'Sidebar Archive', 'basictheme' ),
-            'desc'      =>  esc_html__( 'Use for archive, index, page search', 'basictheme' ),
+            'title'     =>  esc_html__( 'Sidebar Archive', 'sungarden' ),
+            'desc'      =>  esc_html__( 'Use for archive, index, page search', 'sungarden' ),
             'default'   =>  'right',
             'options'   =>  array(
                 'hide' =>  array(
@@ -383,9 +383,9 @@ Redux::set_section( $basictheme_opt_name, array(
         ),
 
 	    array(
-		    'id'        =>  'basictheme_blog_per_row',
+		    'id'        =>  'sungarden_blog_per_row',
 		    'type'      =>  'select',
-		    'title'     =>  esc_html__( 'Blog Per Row', 'basictheme' ),
+		    'title'     =>  esc_html__( 'Blog Per Row', 'sungarden' ),
 		    'default'   =>  2,
 		    'options'   =>  array(
 			    2   =>  '2 Column',
@@ -397,17 +397,17 @@ Redux::set_section( $basictheme_opt_name, array(
     )
 ));
 
-Redux::set_section( $basictheme_opt_name, array(
-	'title'         =>  esc_html__( 'Single Post', 'basictheme' ),
-	'id'            =>  'basictheme_single_post_option',
-	'desc'          =>  esc_html__( '', 'basictheme' ),
+Redux::set_section( $sungarden_opt_name, array(
+	'title'         =>  esc_html__( 'Single Post', 'sungarden' ),
+	'id'            =>  'sungarden_single_post_option',
+	'desc'          =>  esc_html__( '', 'sungarden' ),
 	'subsection'    =>  true,
 	'fields'        =>  array(
 
 		array(
-			'id'        =>  'basictheme_blog_sidebar_single',
+			'id'        =>  'sungarden_blog_sidebar_single',
 			'type'      =>  'image_select',
-			'title'     =>  esc_html__( 'Sidebar Single', 'basictheme' ),
+			'title'     =>  esc_html__( 'Sidebar Single', 'sungarden' ),
 			'default'   =>  'right',
 			'options'   =>  array(
 				'hide' =>  array(
@@ -429,16 +429,16 @@ Redux::set_section( $basictheme_opt_name, array(
 		),
 
 		array(
-			'id'        =>  'basictheme_on_off_share_single',
+			'id'        =>  'sungarden_on_off_share_single',
 			'type'      =>  'switch',
-			'title'     =>  esc_html__( 'On/Off Share Post Single', 'basictheme' ),
+			'title'     =>  esc_html__( 'On/Off Share Post Single', 'sungarden' ),
 			'default'   =>  true,
 		),
 
 		array(
-			'id'            =>  'basictheme_related_post_limit',
+			'id'            =>  'sungarden_related_post_limit',
 			'type'          =>  'slider',
-			'title'         =>  esc_html__( 'Related Post Limit', 'basictheme' ),
+			'title'         =>  esc_html__( 'Related Post Limit', 'sungarden' ),
 			'min'           =>  1,
 			'step'          =>  1,
 			'max'           =>  250,
@@ -451,38 +451,38 @@ Redux::set_section( $basictheme_opt_name, array(
 /* End Blog Option */
 
 /* Start Social Network */
-Redux::set_section( $basictheme_opt_name, array(
-    'title'             =>  esc_html__( 'Social Network', 'basictheme' ),
-    'id'                =>  'basictheme_social_network',
+Redux::set_section( $sungarden_opt_name, array(
+    'title'             =>  esc_html__( 'Social Network', 'sungarden' ),
+    'id'                =>  'sungarden_social_network',
     'customizer_width'  =>  '400px',
     'icon'              =>  'el el-globe-alt',
     'fields'            =>  array(
 
         array(
-            'id'        =>  'basictheme_social_network_facebook',
+            'id'        =>  'sungarden_social_network_facebook',
             'type'      =>  'text',
-            'title'     =>  esc_html__( 'Facebook', 'basictheme' ),
+            'title'     =>  esc_html__( 'Facebook', 'sungarden' ),
             'default'   =>  '#',
         ),
 
         array(
-            'id'        =>  'basictheme_social_network_youtube',
+            'id'        =>  'sungarden_social_network_youtube',
             'type'      =>  'text',
-            'title'     =>  esc_html__( 'Youtube', 'basictheme' ),
+            'title'     =>  esc_html__( 'Youtube', 'sungarden' ),
             'default'   =>  '#',
         ),
 
         array(
-            'id'        =>  'basictheme_social_network_twitter',
+            'id'        =>  'sungarden_social_network_twitter',
             'type'      =>  'text',
-            'title'     =>  esc_html__( 'Twitter', 'basictheme' ),
+            'title'     =>  esc_html__( 'Twitter', 'sungarden' ),
             'default'   =>  '#',
         ),
 
         array(
-            'id'        =>  'basictheme_social_network_instagram',
+            'id'        =>  'sungarden_social_network_instagram',
             'type'      =>  'text',
-            'title'     =>  esc_html__( 'Instagram', 'basictheme' ),
+            'title'     =>  esc_html__( 'Instagram', 'sungarden' ),
             'default'   =>  '#',
         ),
 
@@ -490,77 +490,29 @@ Redux::set_section( $basictheme_opt_name, array(
 ));
 /* End Social Network */
 
-/* Start Shop */
-Redux::set_section( $basictheme_opt_name, array(
-    'title'             =>  esc_html__( 'Shop', 'basictheme' ),
-    'id'                =>  'basictheme_shop_woo',
-    'desc'              =>  esc_html__( 'Settings WooCommerce', 'basictheme' ),
-    'customizer_width'  =>  '400px',
-    'icon'              =>  'el el-shopping-cart',
-    'fields'            =>  array(
-
-        array(
-            'id'            =>  'basictheme_product_limit',
-            'type'          =>  'slider',
-            'title'         =>  esc_html__( 'Product Limit Page Shop', 'basictheme' ),
-            'min'           =>  1,
-            'step'          =>  1,
-            'max'           =>  250,
-            'default'       =>  12,
-            'display_value' => 'text'
-        ),
-
-        array(
-            'id'        =>  'basictheme_products_per_row',
-            'type'      =>  'select',
-            'title'     =>  esc_html__( 'Products Per Row', 'basictheme' ),
-            'default'   =>  4,
-            'options'   =>  array(
-                3   =>  '3 Column',
-                4   =>  '4 Column',
-                5   =>  '5 Column',
-            )
-        ),
-
-        array(
-            'id'        =>  'basictheme_sidebar_woo',
-            'type'      =>  'select',
-            'title'     =>  esc_html__( 'Position Sidebar Woocommerce', 'basictheme' ),
-            'desc'          =>  esc_html__( 'Position Sidebar Woocommerce', 'basictheme' ),
-            'default'   =>  'left',
-            'options'   =>  array(
-                'left'  =>  'Left',
-                'right' =>  'Right',
-                'hide'  =>  'Hide',
-            )
-        ),
-    )
-));
-/* End Shop */
-
 /* Start Typography Options */
-Redux::set_section( $basictheme_opt_name, array(
-    'title'             =>  esc_html__( 'Typography', 'basictheme' ),
-    'id'                =>  'basictheme_typography',
-    'desc'              =>  esc_html__( 'Typography all config', 'basictheme' ),
+Redux::set_section( $sungarden_opt_name, array(
+    'title'             =>  esc_html__( 'Typography', 'sungarden' ),
+    'id'                =>  'sungarden_typography',
+    'desc'              =>  esc_html__( 'Typography all config', 'sungarden' ),
     'customizer_width'  =>  '400px',
     'icon'              =>  'el el-fontsize'
 ));
 
 // Body font
-Redux::set_section( $basictheme_opt_name, array(
-    'title'         =>  esc_html__( 'Body Typography', 'basictheme' ),
-    'id'            =>  'basictheme_body_typography',
-    'desc'          =>  esc_html__( '', 'basictheme' ),
+Redux::set_section( $sungarden_opt_name, array(
+    'title'         =>  esc_html__( 'Body Typography', 'sungarden' ),
+    'id'            =>  'sungarden_body_typography',
+    'desc'          =>  esc_html__( '', 'sungarden' ),
     'subsection'    =>  true,
     'fields'        =>  array(
 
         array(
-            'id'        =>  'basictheme_body_typography_font',
+            'id'        =>  'sungarden_body_typography_font',
             'type'      =>  'typography',
             'output'    =>  array( 'body' ),
-            'title'     =>  esc_html__( 'Body Font', 'basictheme' ),
-            'subtitle'  =>  esc_html__( 'Specify the body font properties.', 'basictheme' ),
+            'title'     =>  esc_html__( 'Body Font', 'sungarden' ),
+            'subtitle'  =>  esc_html__( 'Specify the body font properties.', 'sungarden' ),
             'google'    =>  true,
             'default'   =>  array(
                 'color'         =>  '',
@@ -571,29 +523,29 @@ Redux::set_section( $basictheme_opt_name, array(
         ),
 
         array(
-            'id'        =>  'basictheme_link_color',
+            'id'        =>  'sungarden_link_color',
             'type'      =>  'link_color',
             'output'    =>  array( 'a' ),
-            'title'     =>  esc_html__( 'Link Color', 'basictheme' ),
-            'subtitle'  =>  esc_html__( 'Controls the color of all text links.', 'basictheme' ),
+            'title'     =>  esc_html__( 'Link Color', 'sungarden' ),
+            'subtitle'  =>  esc_html__( 'Controls the color of all text links.', 'sungarden' ),
             'default'   =>  ''
         ),
     )
 ));
 
 // Header font
-Redux::set_section( $basictheme_opt_name, array(
-    'title'         =>  esc_html__( 'Custom Typography', 'basictheme' ),
-    'id'            =>  'basictheme_custom_typography',
-    'desc'          =>  esc_html__( '', 'basictheme' ),
+Redux::set_section( $sungarden_opt_name, array(
+    'title'         =>  esc_html__( 'Custom Typography', 'sungarden' ),
+    'id'            =>  'sungarden_custom_typography',
+    'desc'          =>  esc_html__( '', 'sungarden' ),
     'subsection'    =>  true,
     'fields'        =>  array(
 
         array(
-            'id'        =>  'basictheme_custom_typography_1',
+            'id'        =>  'sungarden_custom_typography_1',
             'type'      =>  'typography',
-            'title'     =>  esc_html__( 'Custom 1 Typography', 'basictheme' ),
-            'subtitle'  =>  esc_html__( 'These settings control the typography for all Custom 1.', 'basictheme' ),
+            'title'     =>  esc_html__( 'Custom 1 Typography', 'sungarden' ),
+            'subtitle'  =>  esc_html__( 'These settings control the typography for all Custom 1.', 'sungarden' ),
             'google'    =>  true,
             'default'   =>  array(
                 'font-size'     =>  '',
@@ -605,18 +557,18 @@ Redux::set_section( $basictheme_opt_name, array(
 
         //selector custom typo 1
         array(
-            'id'        =>  'basictheme_custom_typography_1_selector',
+            'id'        =>  'sungarden_custom_typography_1_selector',
             'type'      =>  'textarea',
-            'title'     =>  esc_html__( 'Selectors 1', 'basictheme' ),
-            'desc'      =>  esc_html__( 'Import selectors. You can import one or multi selector.Example: #selector1,#selector2,.selector3', 'basictheme' ),
+            'title'     =>  esc_html__( 'Selectors 1', 'sungarden' ),
+            'desc'      =>  esc_html__( 'Import selectors. You can import one or multi selector.Example: #selector1,#selector2,.selector3', 'sungarden' ),
             'default'   =>  ''
         ),
 
         array(
-            'id'        =>  'basictheme_custom_typography_2',
+            'id'        =>  'sungarden_custom_typography_2',
             'type'      =>  'typography',
-            'title'     =>  esc_html__( 'Custom 2 Typography', 'basictheme' ),
-            'subtitle'  =>  esc_html__( 'These settings control the typography for all Custom 2.', 'basictheme' ),
+            'title'     =>  esc_html__( 'Custom 2 Typography', 'sungarden' ),
+            'subtitle'  =>  esc_html__( 'These settings control the typography for all Custom 2.', 'sungarden' ),
             'google'    =>  true,
             'default'   =>  array(
                 'font-size'     =>  '',
@@ -628,18 +580,18 @@ Redux::set_section( $basictheme_opt_name, array(
 
         //selector custom typo 2
         array(
-            'id'        => 'basictheme_custom_typography_2_selector',
+            'id'        => 'sungarden_custom_typography_2_selector',
             'type'      => 'textarea',
-            'title'     => esc_html__( 'Selectors 2', 'basictheme' ),
-            'desc'      => esc_html__( 'Import selectors. You can import one or multi selector.Example: #selector1,#selector2,.selector3', 'basictheme' ),
+            'title'     => esc_html__( 'Selectors 2', 'sungarden' ),
+            'desc'      => esc_html__( 'Import selectors. You can import one or multi selector.Example: #selector1,#selector2,.selector3', 'sungarden' ),
             'default'   => ''
         ),
 
         array(
-            'id'        =>  'basictheme_custom_typography_3',
+            'id'        =>  'sungarden_custom_typography_3',
             'type'      =>  'typography',
-            'title'     =>  esc_html__( 'Custom 3 Typography', 'basictheme' ),
-            'subtitle'  =>  esc_html__( 'These settings control the typography for all Custom 3.', 'basictheme' ),
+            'title'     =>  esc_html__( 'Custom 3 Typography', 'sungarden' ),
+            'subtitle'  =>  esc_html__( 'These settings control the typography for all Custom 3.', 'sungarden' ),
             'google'    =>  true,
             'default'   =>  array(
                 'font-size'     =>  '',
@@ -652,10 +604,10 @@ Redux::set_section( $basictheme_opt_name, array(
 
         //selector custom typo 3
         array(
-            'id'        =>  'basictheme_custom_typography_3_selector',
+            'id'        =>  'sungarden_custom_typography_3_selector',
             'type'      =>  'textarea',
-            'title'     =>  esc_html__( 'Selectors 3', 'basictheme' ),
-            'desc'      =>  esc_html__( 'Import selectors. You can import one or multi selector.Example: #selector1,#selector2,.selector3', 'basictheme' ),
+            'title'     =>  esc_html__( 'Selectors 3', 'sungarden' ),
+            'desc'      =>  esc_html__( 'Import selectors. You can import one or multi selector.Example: #selector1,#selector2,.selector3', 'sungarden' ),
             'default'   =>  ''
         ),
 
@@ -665,34 +617,34 @@ Redux::set_section( $basictheme_opt_name, array(
 /* End Typography Options */
 
 /* Start 404 Options */
-Redux::set_section( $basictheme_opt_name, array(
-    'title'             =>  esc_html__( '404 Options', 'basictheme' ),
-    'id'                =>  'basictheme_404',
-    'desc'              =>  esc_html__( '404 page all config', 'basictheme' ),
+Redux::set_section( $sungarden_opt_name, array(
+    'title'             =>  esc_html__( '404 Options', 'sungarden' ),
+    'id'                =>  'sungarden_404',
+    'desc'              =>  esc_html__( '404 page all config', 'sungarden' ),
     'customizer_width'  =>  '400px',
     'icon'              =>  'el el-warning-sign',
     'fields'            =>  array(
 
         array(
-            'id'        =>  'basictheme_404_background',
+            'id'        =>  'sungarden_404_background',
             'type'      =>  'media',
             'url'       =>  true,
-            'title'     =>  esc_html__( '404 Background', 'basictheme' ),
+            'title'     =>  esc_html__( '404 Background', 'sungarden' ),
             'default'   =>  false,
         ),
 
         array(
-            'id'        =>  'basictheme_404_title',
+            'id'        =>  'sungarden_404_title',
             'type'      =>  'text',
-            'title'     =>  esc_html__( '404 Title', 'basictheme' ),
+            'title'     =>  esc_html__( '404 Title', 'sungarden' ),
             'default'   =>  'Awww...Do Not Cry',
         ),
 
         array(
-            'id'        =>  'basictheme_404_editor',
+            'id'        =>  'sungarden_404_editor',
             'type'      =>  'editor',
-            'title'     =>  esc_html__( '404 Content', 'basictheme' ),
-            'default'   =>  esc_html__( 'It is just a 404 Error! What you are looking for may have been misplaced in Long Term Memory.', 'basictheme' ),
+            'title'     =>  esc_html__( '404 Content', 'sungarden' ),
+            'default'   =>  esc_html__( 'It is just a 404 Error! What you are looking for may have been misplaced in Long Term Memory.', 'sungarden' ),
             'args'          =>  array(
                 'wpautop'       => false,
                 'media_buttons' => false,
@@ -707,25 +659,25 @@ Redux::set_section( $basictheme_opt_name, array(
 /* End 404 Options */
 
 /* Start Footer Options */
-Redux::set_section( $basictheme_opt_name, array(
-    'title'             =>  esc_html__( 'Footer Options', 'basictheme' ),
-    'id'                =>  'basictheme_footer',
-    'desc'              =>  esc_html__( 'Footer all config', 'basictheme' ),
+Redux::set_section( $sungarden_opt_name, array(
+    'title'             =>  esc_html__( 'Footer Options', 'sungarden' ),
+    'id'                =>  'sungarden_footer',
+    'desc'              =>  esc_html__( 'Footer all config', 'sungarden' ),
     'customizer_width'  =>  '400px',
     'icon'              =>  'el el-arrow-down'
 ));
 
 // Footer Sidebar Multi Column
-Redux::set_section( $basictheme_opt_name, array(
-    'title'         =>  esc_html__( 'Sidebar Footer Multi Column', 'basictheme' ),
-    'id'            =>  'basictheme_footer_sidebar_multi_column',
+Redux::set_section( $sungarden_opt_name, array(
+    'title'         =>  esc_html__( 'Sidebar Footer Multi Column', 'sungarden' ),
+    'id'            =>  'sungarden_footer_sidebar_multi_column',
     'subsection'    =>  true,
     'fields'        =>  array(
         array(
-            'id'        =>  'basictheme_footer_multi_column',
+            'id'        =>  'sungarden_footer_multi_column',
             'type'      =>  'image_select',
-            'title'     =>  esc_html__( 'Number of Footer Columns', 'basictheme' ),
-            'subtitle'  =>  esc_html__( 'Controls the number of columns in the footer', 'basictheme' ),
+            'title'     =>  esc_html__( 'Number of Footer Columns', 'sungarden' ),
+            'subtitle'  =>  esc_html__( 'Controls the number of columns in the footer', 'sungarden' ),
             'default'   =>  4,
             'options'   =>  array(
                 0 =>  array(
@@ -754,76 +706,76 @@ Redux::set_section( $basictheme_opt_name, array(
         ),
 
         array(
-            'id'            =>  'basictheme_footer_multi_column_1',
+            'id'            =>  'sungarden_footer_multi_column_1',
             'type'          =>  'slider',
-            'title'         =>  esc_html__( 'Column width 1', 'basictheme' ),
-            'subtitle'      =>  esc_html__( 'Select the number of columns to display in the footer', 'basictheme' ),
-            'desc'          =>  esc_html__( 'Min: 1, max: 12, default value: 1', 'basictheme' ),
+            'title'         =>  esc_html__( 'Column width 1', 'sungarden' ),
+            'subtitle'      =>  esc_html__( 'Select the number of columns to display in the footer', 'sungarden' ),
+            'desc'          =>  esc_html__( 'Min: 1, max: 12, default value: 1', 'sungarden' ),
             'default'       =>  3,
             'min'           =>  1,
             'step'          =>  1,
             'max'           =>  12,
             'display_value' =>  'label',
             'required'      =>  array(
-                array( 'basictheme_footer_multi_column', 'equals','1', '2', '3', '4' ),
-                array( 'basictheme_footer_multi_column', '!=', '0' ),
+                array( 'sungarden_footer_multi_column', 'equals','1', '2', '3', '4' ),
+                array( 'sungarden_footer_multi_column', '!=', '0' ),
             )
         ),
 
         array(
-            'id'            =>  'basictheme_footer_multi_column_2',
+            'id'            =>  'sungarden_footer_multi_column_2',
             'type'          =>  'slider',
-            'title'         =>  esc_html__( 'Column width 2', 'basictheme' ),
-            'subtitle'      =>  esc_html__( 'Select the number of columns to display in the footer', 'basictheme' ),
-            'desc'          =>  esc_html__( 'Min: 1, max: 12, default value: 1', 'basictheme' ),
+            'title'         =>  esc_html__( 'Column width 2', 'sungarden' ),
+            'subtitle'      =>  esc_html__( 'Select the number of columns to display in the footer', 'sungarden' ),
+            'desc'          =>  esc_html__( 'Min: 1, max: 12, default value: 1', 'sungarden' ),
             'default'       =>  3,
             'min'           =>  1,
             'step'          =>  1,
             'max'           =>  12,
             'display_value' =>  'label',
             'required'      =>  array(
-                array( 'basictheme_footer_multi_column', 'equals', '2', '3', '4' ),
-                array( 'basictheme_footer_multi_column', '!=', '1' ),
-                array( 'basictheme_footer_multi_column', '!=', '0' ),
+                array( 'sungarden_footer_multi_column', 'equals', '2', '3', '4' ),
+                array( 'sungarden_footer_multi_column', '!=', '1' ),
+                array( 'sungarden_footer_multi_column', '!=', '0' ),
             )
         ),
 
         array(
-            'id'            =>  'basictheme_footer_multi_column_3',
+            'id'            =>  'sungarden_footer_multi_column_3',
             'type'          =>  'slider',
-            'title'         =>  esc_html__( 'Column width 3', 'basictheme' ),
-            'subtitle'      =>  esc_html__( 'Select the number of columns to display in the footer', 'basictheme' ),
-            'desc'          =>  esc_html__( 'Min: 1, max: 12, default value: 1', 'basictheme' ),
+            'title'         =>  esc_html__( 'Column width 3', 'sungarden' ),
+            'subtitle'      =>  esc_html__( 'Select the number of columns to display in the footer', 'sungarden' ),
+            'desc'          =>  esc_html__( 'Min: 1, max: 12, default value: 1', 'sungarden' ),
             'default'       =>  3,
             'min'           =>  1,
             'step'          =>  1,
             'max'           =>  12,
             'display_value' =>  'label',
             'required'      =>  array(
-                array( 'basictheme_footer_multi_column', 'equals', '3', '4' ),
-                array( 'basictheme_footer_multi_column', '!=', '1' ),
-                array( 'basictheme_footer_multi_column', '!=', '2' ),
-                array( 'basictheme_footer_multi_column', '!=', '0' ),
+                array( 'sungarden_footer_multi_column', 'equals', '3', '4' ),
+                array( 'sungarden_footer_multi_column', '!=', '1' ),
+                array( 'sungarden_footer_multi_column', '!=', '2' ),
+                array( 'sungarden_footer_multi_column', '!=', '0' ),
             )
         ),
 
         array(
-            'id'            =>  'basictheme_footer_multi_column_4',
+            'id'            =>  'sungarden_footer_multi_column_4',
             'type'          =>  'slider',
-            'title'         =>  esc_html__( 'Column width 4', 'basictheme' ),
-            'subtitle'      =>  esc_html__( 'Select the number of columns to display in the footer', 'basictheme' ),
-            'desc'          =>  esc_html__( 'Min: 1, max: 12, default value: 1', 'basictheme' ),
+            'title'         =>  esc_html__( 'Column width 4', 'sungarden' ),
+            'subtitle'      =>  esc_html__( 'Select the number of columns to display in the footer', 'sungarden' ),
+            'desc'          =>  esc_html__( 'Min: 1, max: 12, default value: 1', 'sungarden' ),
             'default'       =>  3,
             'min'           =>  1,
             'step'          =>  1,
             'max'           =>  12,
             'display_value' =>  'label',
             'required'      =>  array(
-                array( 'basictheme_footer_multi_column',  'equals', '4' ),
-                array( 'basictheme_footer_multi_column', '!=', '1' ),
-                array( 'basictheme_footer_multi_column', '!=', '2' ),
-                array( 'basictheme_footer_multi_column', '!=', '3' ),
-                array( 'basictheme_footer_multi_column', '!=', '0' ),
+                array( 'sungarden_footer_multi_column',  'equals', '4' ),
+                array( 'sungarden_footer_multi_column', '!=', '1' ),
+                array( 'sungarden_footer_multi_column', '!=', '2' ),
+                array( 'sungarden_footer_multi_column', '!=', '3' ),
+                array( 'sungarden_footer_multi_column', '!=', '0' ),
             )
         ),
     )
@@ -831,16 +783,16 @@ Redux::set_section( $basictheme_opt_name, array(
 ));
 
 //Copyright
-Redux::set_section( $basictheme_opt_name, array(
-    'title'         =>  esc_html__( 'Copyright', 'basictheme' ),
-    'id'            =>  'basictheme_footer_copyright',
-    'desc'          =>  esc_html__( '', 'basictheme' ),
+Redux::set_section( $sungarden_opt_name, array(
+    'title'         =>  esc_html__( 'Copyright', 'sungarden' ),
+    'id'            =>  'sungarden_footer_copyright',
+    'desc'          =>  esc_html__( '', 'sungarden' ),
     'subsection'    =>  true,
     'fields'        =>  array(
         array(
-            'id'            =>  'basictheme_footer_copyright_editor',
+            'id'            =>  'sungarden_footer_copyright_editor',
             'type'          =>  'editor',
-            'title'         =>  esc_html__( 'Enter content copyright', 'basictheme' ),
+            'title'         =>  esc_html__( 'Enter content copyright', 'sungarden' ),
             'full_width'    =>  true,
             'default'       =>  'Copyright &amp; DiepLK',
             'args'          =>  array(

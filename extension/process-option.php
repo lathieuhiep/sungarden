@@ -6,18 +6,18 @@
     */
     if( !is_admin() ):
 
-        add_action( 'wp_head','basictheme_config_theme' );
+        add_action( 'wp_head','sungarden_config_theme' );
 
-        function basictheme_config_theme() {
+        function sungarden_config_theme() {
 
             if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) :
 
-                    global $basictheme_options;
-                    $basictheme_favicon = $basictheme_options['basictheme_favicon_upload']['url'];
+                    global $sungarden_options;
+                    $sungarden_favicon = $sungarden_options['sungarden_favicon_upload']['url'];
 
-                    if( $basictheme_favicon != '' ) :
+                    if( $sungarden_favicon != '' ) :
 
-                        echo '<link rel="shortcut icon" href="' . esc_url( $basictheme_favicon ) . '" type="image/x-icon" />';
+                        echo '<link rel="shortcut icon" href="' . esc_url( $sungarden_favicon ) . '" type="image/x-icon" />';
 
                     endif;
 
@@ -32,24 +32,24 @@
          * @see wp_add_inline_style()
          */
 
-        add_action( 'wp_enqueue_scripts', 'basictheme_custom_css', 99 );
+        add_action( 'wp_enqueue_scripts', 'sungarden_custom_css', 99 );
 
-        function basictheme_custom_css() {
+        function sungarden_custom_css() {
 
-            global $basictheme_options;
+            global $sungarden_options;
 
-            $basictheme_typo_selecter_1   =   $basictheme_options['basictheme_custom_typography_1_selector'];
+            $sungarden_typo_selecter_1   =   $sungarden_options['sungarden_custom_typography_1_selector'];
 
-            $basictheme_typo1_font_family   =   $basictheme_options['basictheme_custom_typography_1']['font-family'] == '' ? '' : $basictheme_options['basictheme_custom_typography_1']['font-family'];
+            $sungarden_typo1_font_family   =   $sungarden_options['sungarden_custom_typography_1']['font-family'] == '' ? '' : $sungarden_options['sungarden_custom_typography_1']['font-family'];
 
-            $basictheme_css_style = '';
+            $sungarden_css_style = '';
 
-            if ( $basictheme_typo1_font_family != '' ) :
-                $basictheme_css_style .= ' '.esc_attr( $basictheme_typo_selecter_1 ).' { font-family: '.balanceTags( $basictheme_typo1_font_family, true ).' }';
+            if ( $sungarden_typo1_font_family != '' ) :
+                $sungarden_css_style .= ' '.esc_attr( $sungarden_typo_selecter_1 ).' { font-family: '.balanceTags( $sungarden_typo1_font_family, true ).' }';
             endif;
 
-            if ( $basictheme_css_style != '' ) :
-                wp_add_inline_style( 'basictheme-style', $basictheme_css_style );
+            if ( $sungarden_css_style != '' ) :
+                wp_add_inline_style( 'sungarden-style', $sungarden_css_style );
             endif;
 
         }

@@ -1,10 +1,10 @@
 <?php
 
-$basictheme_gallery_post = get_post_meta( get_the_ID(),'basictheme_gallery_post', false );
+$sungarden_gallery_post = get_post_meta( get_the_ID(),'sungarden_gallery_post', false );
 
-if( !empty( $basictheme_gallery_post ) ) :
+if( !empty( $sungarden_gallery_post ) ) :
 
-    $basictheme_slider_settings =   [
+    $sungarden_slider_settings =   [
 	    'items'         =>  1,
         'loop'          =>  true,
         'nav'           =>  true,
@@ -14,9 +14,9 @@ if( !empty( $basictheme_gallery_post ) ) :
 
 ?>
 
-    <div class="site-post-slides owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $basictheme_slider_settings ); ?>'>
+    <div class="site-post-slides owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $sungarden_slider_settings ); ?>'>
 
-        <?php foreach( $basictheme_gallery_post as $item ) : ?>
+        <?php foreach( $sungarden_gallery_post as $item ) : ?>
 
             <div class="site-post-slides__item">
                 <?php echo wp_get_attachment_image( $item, 'full' ); ?>

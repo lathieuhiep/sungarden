@@ -1,7 +1,7 @@
 <?php
-global $basictheme_options;
+global $sungarden_options;
 
-$basictheme_logo_image_id    =   $basictheme_options['basictheme_logo_image']['id'];
+$sungarden_logo_image_id    =   $sungarden_options['sungarden_logo_image']['id'];
 ?>
 
 <nav id="site-navigation" class="main-navigation">
@@ -11,8 +11,8 @@ $basictheme_logo_image_id    =   $basictheme_options['basictheme_logo_image']['i
                 <div class="site-logo d-flex align-items-center">
                     <a href="<?php echo esc_url( get_home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
                         <?php
-                            if ( !empty( $basictheme_logo_image_id ) ) :
-                                echo wp_get_attachment_image( $basictheme_logo_image_id, 'full' );
+                            if ( !empty( $sungarden_logo_image_id ) ) :
+                                echo wp_get_attachment_image( $sungarden_logo_image_id, 'full' );
                             else :
                                 echo'<img class="logo-default" src="'.esc_url( get_theme_file_uri( '/assets/images/logo.png' ) ).'" alt="'.get_bloginfo('title').'" />';
                             endif;
@@ -43,7 +43,7 @@ $basictheme_logo_image_id    =   $basictheme_options['basictheme_logo_image']['i
                         <ul class="main-menu">
                             <li>
                                 <a href="<?php echo get_admin_url().'/nav-menus.php'; ?>">
-                                    <?php esc_html_e( 'ADD TO MENU','basictheme' ); ?>
+                                    <?php esc_html_e( 'ADD TO MENU','sungarden' ); ?>
                                 </a>
                             </li>
                         </ul>
@@ -51,18 +51,6 @@ $basictheme_logo_image_id    =   $basictheme_options['basictheme_logo_image']['i
                     <?php endif; ?>
 
                 </div>
-
-                <?php if ( class_exists('Woocommerce') ) : ?>
-
-                    <div class="shop-cart-view d-flex align-items-center">
-                        <?php
-                        do_action( 'basictheme_woo_shopping_cart' );
-
-                        the_widget( 'WC_Widget_Cart', '' );
-                        ?>
-                    </div>
-
-                <?php endif; ?>
             </div>
         </div>
     </div>

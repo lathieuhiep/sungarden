@@ -4,18 +4,18 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class basictheme_widget_post_grid extends Widget_Base {
+class sungarden_widget_post_grid extends Widget_Base {
 
     public function get_categories() {
-        return array( 'basictheme_widgets' );
+        return array( 'sungarden_widgets' );
     }
 
     public function get_name() {
-        return 'basictheme-post-grid';
+        return 'sungarden-post-grid';
     }
 
     public function get_title() {
-        return esc_html__( 'Posts Grid', 'basictheme' );
+        return esc_html__( 'Posts Grid', 'sungarden' );
     }
 
     public function get_icon() {
@@ -28,16 +28,16 @@ class basictheme_widget_post_grid extends Widget_Base {
         $this->start_controls_section(
             'section_query',
             [
-                'label' =>  esc_html__( 'Query', 'basictheme' )
+                'label' =>  esc_html__( 'Query', 'sungarden' )
             ]
         );
 
         $this->add_control(
             'select_cat',
             [
-                'label'         =>  esc_html__( 'Select Category', 'basictheme' ),
+                'label'         =>  esc_html__( 'Select Category', 'sungarden' ),
                 'type'          =>  Controls_Manager::SELECT2,
-                'options'       =>  basictheme_check_get_cat( 'category' ),
+                'options'       =>  sungarden_check_get_cat( 'category' ),
                 'multiple'      =>  true,
                 'label_block'   =>  true
             ]
@@ -46,7 +46,7 @@ class basictheme_widget_post_grid extends Widget_Base {
         $this->add_control(
             'limit',
             [
-                'label'     =>  esc_html__( 'Number of Posts', 'basictheme' ),
+                'label'     =>  esc_html__( 'Number of Posts', 'sungarden' ),
                 'type'      =>  Controls_Manager::NUMBER,
                 'default'   =>  6,
                 'min'       =>  1,
@@ -58,15 +58,15 @@ class basictheme_widget_post_grid extends Widget_Base {
         $this->add_control(
             'order_by',
             [
-                'label'     =>  esc_html__( 'Order By', 'basictheme' ),
+                'label'     =>  esc_html__( 'Order By', 'sungarden' ),
                 'type'      =>  Controls_Manager::SELECT,
                 'default'   =>  'id',
                 'options'   =>  [
-                    'id'            =>  esc_html__( 'Post ID', 'basictheme' ),
-                    'author'        =>  esc_html__( 'Post Author', 'basictheme' ),
-                    'title'         =>  esc_html__( 'Title', 'basictheme' ),
-                    'date'          =>  esc_html__( 'Date', 'basictheme' ),
-                    'rand'          =>  esc_html__( 'Random', 'basictheme' ),
+                    'id'            =>  esc_html__( 'Post ID', 'sungarden' ),
+                    'author'        =>  esc_html__( 'Post Author', 'sungarden' ),
+                    'title'         =>  esc_html__( 'Title', 'sungarden' ),
+                    'date'          =>  esc_html__( 'Date', 'sungarden' ),
+                    'rand'          =>  esc_html__( 'Random', 'sungarden' ),
                 ],
             ]
         );
@@ -74,12 +74,12 @@ class basictheme_widget_post_grid extends Widget_Base {
         $this->add_control(
             'order',
             [
-                'label'     =>  esc_html__( 'Order', 'basictheme' ),
+                'label'     =>  esc_html__( 'Order', 'sungarden' ),
                 'type'      =>  Controls_Manager::SELECT,
                 'default'   =>  'ASC',
                 'options'   =>  [
-                    'ASC'   =>  esc_html__( 'Ascending', 'basictheme' ),
-                    'DESC'  =>  esc_html__( 'Descending', 'basictheme' ),
+                    'ASC'   =>  esc_html__( 'Ascending', 'sungarden' ),
+                    'DESC'  =>  esc_html__( 'Descending', 'sungarden' ),
                 ],
             ]
         );
@@ -90,21 +90,21 @@ class basictheme_widget_post_grid extends Widget_Base {
         $this->start_controls_section(
             'section_layout',
             [
-                'label' =>  esc_html__( 'Layout Settings', 'basictheme' )
+                'label' =>  esc_html__( 'Layout Settings', 'sungarden' )
             ]
         );
 
         $this->add_control(
             'column_number',
             [
-                'label'     =>  esc_html__( 'Column', 'basictheme' ),
+                'label'     =>  esc_html__( 'Column', 'sungarden' ),
                 'type'      =>  Controls_Manager::SELECT,
                 'default'   =>  3,
                 'options'   =>  [
-                    4   =>  esc_html__( '4 Column', 'basictheme' ),
-                    3   =>  esc_html__( '3 Column', 'basictheme' ),
-                    2   =>  esc_html__( '2 Column', 'basictheme' ),
-                    1   =>  esc_html__( '1 Column', 'basictheme' ),
+                    4   =>  esc_html__( '4 Column', 'sungarden' ),
+                    3   =>  esc_html__( '3 Column', 'sungarden' ),
+                    2   =>  esc_html__( '2 Column', 'sungarden' ),
+                    1   =>  esc_html__( '1 Column', 'sungarden' ),
                 ],
             ]
         );
@@ -121,15 +121,15 @@ class basictheme_widget_post_grid extends Widget_Base {
         $this->add_control(
             'show_excerpt',
             [
-                'label'     =>  esc_html__( 'Show excerpt', 'basictheme' ),
+                'label'     =>  esc_html__( 'Show excerpt', 'sungarden' ),
                 'type'      =>  Controls_Manager::CHOOSE,
                 'options'   =>  [
                     '1' => [
-                        'title' =>  esc_html__( 'Yes', 'basictheme' ),
+                        'title' =>  esc_html__( 'Yes', 'sungarden' ),
                         'icon'  =>  'fa fa-check',
                     ],
                     '0' => [
-                        'title' =>  esc_html__( 'No', 'basictheme' ),
+                        'title' =>  esc_html__( 'No', 'sungarden' ),
                         'icon'  =>  'fa fa-ban',
                     ]
                 ],
@@ -140,7 +140,7 @@ class basictheme_widget_post_grid extends Widget_Base {
         $this->add_control(
             'excerpt_length',
             [
-                'label'     =>  esc_html__( 'Excerpt Words', 'basictheme' ),
+                'label'     =>  esc_html__( 'Excerpt Words', 'sungarden' ),
                 'type'      =>  Controls_Manager::NUMBER,
                 'default'   =>  '10',
                 'condition' =>  [
@@ -155,7 +155,7 @@ class basictheme_widget_post_grid extends Widget_Base {
         $this->start_controls_section(
             'section_style_post',
             [
-                'label' => esc_html__( 'Color & Typography', 'basictheme' ),
+                'label' => esc_html__( 'Color & Typography', 'sungarden' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
@@ -164,7 +164,7 @@ class basictheme_widget_post_grid extends Widget_Base {
         $this->add_control(
             'title_post_options',
             [
-                'label'     =>  esc_html__( 'Title Post', 'basictheme' ),
+                'label'     =>  esc_html__( 'Title Post', 'sungarden' ),
                 'type'      =>  Controls_Manager::HEADING,
                 'separator' =>  'before',
             ]
@@ -173,7 +173,7 @@ class basictheme_widget_post_grid extends Widget_Base {
         $this->add_control(
             'title_post_color',
             [
-                'label'     =>  esc_html__( 'Color', 'basictheme' ),
+                'label'     =>  esc_html__( 'Color', 'sungarden' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'default'   =>  '',
                 'selectors' =>  [
@@ -185,7 +185,7 @@ class basictheme_widget_post_grid extends Widget_Base {
         $this->add_control(
             'title_post_color_hover',
             [
-                'label'     =>  esc_html__( 'Color Hover', 'basictheme' ),
+                'label'     =>  esc_html__( 'Color Hover', 'sungarden' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'default'   =>  '',
                 'selectors' =>  [
@@ -205,23 +205,23 @@ class basictheme_widget_post_grid extends Widget_Base {
         $this->add_control(
             'title_post_alignment',
             [
-                'label'     =>  esc_html__( 'Title Alignment', 'basictheme' ),
+                'label'     =>  esc_html__( 'Title Alignment', 'sungarden' ),
                 'type'      =>  Controls_Manager::CHOOSE,
                 'options'   =>  [
                     'left'  =>  [
-                        'title' =>  esc_html__( 'Left', 'basictheme' ),
+                        'title' =>  esc_html__( 'Left', 'sungarden' ),
                         'icon'  =>  'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' =>  esc_html__( 'Center', 'basictheme' ),
+                        'title' =>  esc_html__( 'Center', 'sungarden' ),
                         'icon'  =>  'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' =>  esc_html__( 'Right', 'basictheme' ),
+                        'title' =>  esc_html__( 'Right', 'sungarden' ),
                         'icon'  =>  'fa fa-align-right',
                     ],
                     'justify'=> [
-                        'title' =>  esc_html__( 'Justified', 'basictheme' ),
+                        'title' =>  esc_html__( 'Justified', 'sungarden' ),
                         'icon'  =>  'fa fa-align-justify',
                     ],
                 ],
@@ -236,7 +236,7 @@ class basictheme_widget_post_grid extends Widget_Base {
         $this->add_control(
             'excerpt_post_options',
             [
-                'label'     =>  esc_html__( 'Excerpt Post', 'basictheme' ),
+                'label'     =>  esc_html__( 'Excerpt Post', 'sungarden' ),
                 'type'      =>  Controls_Manager::HEADING,
                 'separator' =>  'before',
             ]
@@ -245,7 +245,7 @@ class basictheme_widget_post_grid extends Widget_Base {
         $this->add_control(
             'excerpt_color',
             [
-                'label'     =>  esc_html__( 'Color', 'basictheme' ),
+                'label'     =>  esc_html__( 'Color', 'sungarden' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'default'   =>  '',
                 'selectors' =>  [
@@ -265,23 +265,23 @@ class basictheme_widget_post_grid extends Widget_Base {
         $this->add_control(
             'excerpt_alignment',
             [
-                'label'     =>  esc_html__( 'Excerpt Alignment', 'basictheme' ),
+                'label'     =>  esc_html__( 'Excerpt Alignment', 'sungarden' ),
                 'type'      =>  Controls_Manager::CHOOSE,
                 'options'   =>  [
                     'left'  =>  [
-                        'title' =>  esc_html__( 'Left', 'basictheme' ),
+                        'title' =>  esc_html__( 'Left', 'sungarden' ),
                         'icon'  =>  'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' =>  esc_html__( 'Center', 'basictheme' ),
+                        'title' =>  esc_html__( 'Center', 'sungarden' ),
                         'icon'  =>  'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' =>  esc_html__( 'Right', 'basictheme' ),
+                        'title' =>  esc_html__( 'Right', 'sungarden' ),
                         'icon'  =>  'fa fa-align-right',
                     ],
                     'justify'=> [
-                        'title' =>  esc_html__( 'Justified', 'basictheme' ),
+                        'title' =>  esc_html__( 'Justified', 'sungarden' ),
                         'icon'  =>  'fa fa-align-justify',
                     ],
                 ],
@@ -390,4 +390,4 @@ class basictheme_widget_post_grid extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new basictheme_widget_post_grid );
+Plugin::instance()->widgets_manager->register_widget_type( new sungarden_widget_post_grid );

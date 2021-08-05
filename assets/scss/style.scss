@@ -1,14 +1,14 @@
 /*
-Theme Name: BasicTheme
-Theme URI: http://hungkv.com/
+Theme Name: SunGarden
+Theme URI: https://uxui.vn/
 Author: DiepLK
 Author URI: https://www.facebook.com/lathieuhiep
 Version: 1.0.0
-Description: Basic Theme
+Description: SunGarden Theme
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: one-column, two-columns, three-columns, four-columns, right-sidebar,  theme-options
-Text Domain: basictheme
+Text Domain: sungarden
 */
 
 /**
@@ -29,12 +29,6 @@ Text Domain: basictheme
   ## Slider
   ## Posts Grid
   ## Posts Carousel
-# Woocommerce
-  ## Archive shop
-  ## Single Shop
-  ## Other Page Shop
-  ## Sidebar Shop
-  ## Quick View Product
 # Contact Form 7
 # Footer
 # Responsive
@@ -76,11 +70,6 @@ Text Domain: basictheme
 # Elementor
 -----------------------------------------------------------------------------*/
 @import "elementor/elementor";
-
-/**
-# Woocommerce
------------------------------------------------------------------------------*/
-@import "shop/shop";
 
 /**
 # Contact Form 7

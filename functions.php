@@ -7,9 +7,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  *constants
  */
-if ( ! function_exists( 'basictheme_setup' ) ):
+if ( ! function_exists( 'sungarden_setup' ) ):
 
-	function basictheme_setup() {
+	function sungarden_setup() {
 
 		/**
 		 * Set the content width based on the theme's design and stylesheet.
@@ -23,7 +23,7 @@ if ( ! function_exists( 'basictheme_setup' ) ):
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 */
-		load_theme_textdomain( 'basictheme', get_parent_theme_file_path( '/languages' ) );
+		load_theme_textdomain( 'sungarden', get_parent_theme_file_path( '/languages' ) );
 
 		/**
 		 * Set up theme defaults and registers support for various WordPress features.
@@ -54,7 +54,7 @@ if ( ! function_exists( 'basictheme_setup' ) ):
 		add_theme_support( 'post-formats', array( 'gallery', 'video', 'audio' ) );
 	}
 
-	add_action( 'after_setup_theme', 'basictheme_setup' );
+	add_action( 'after_setup_theme', 'sungarden_setup' );
 
 endif;
 
@@ -100,20 +100,9 @@ if ( did_action( 'elementor/loaded' ) ) :
 endif;
 
 /* Require Widgets */
-foreach ( glob( get_parent_theme_file_path( '/extension/widgets/*.php' ) ) as $basictheme_file_widgets ) {
-	require $basictheme_file_widgets;
+foreach ( glob( get_parent_theme_file_path( '/extension/widgets/*.php' ) ) as $sungarden_file_widgets ) {
+	require $sungarden_file_widgets;
 }
-
-if ( class_exists( 'Woocommerce' ) ) :
-	/*
-	 * Required: Woocommerce
-	 */
-    require get_parent_theme_file_path( '/extension/woocommerce/woo-scripts.php' );
-	require get_parent_theme_file_path( '/extension/woocommerce/woo-quick-view.php' );
-	require get_parent_theme_file_path( '/extension/woocommerce/woo-template-hooks.php' );
-	require get_parent_theme_file_path( '/extension/woocommerce/woo-template-functions.php' );
-
-endif;
 
 /**
  * Required: Register Sidebar
@@ -126,7 +115,7 @@ require get_parent_theme_file_path( '/includes/register-sidebar.php' );
 require get_parent_theme_file_path( '/includes/theme-scripts.php' );
 
 /* post formats */
-function basictheme_post_formats() {
+function sungarden_post_formats() {
 
 	if ( has_post_format( 'audio' ) || has_post_format( 'video' ) ):
 		get_template_part( 'template-parts/post/content', 'video' );
@@ -141,11 +130,11 @@ function basictheme_post_formats() {
 /**
  * Show full editor
  */
-if ( ! function_exists( 'basictheme_ilc_mce_buttons' ) ) :
+if ( ! function_exists( 'sungarden_ilc_mce_buttons' ) ) :
 
-	function basictheme_ilc_mce_buttons( $basictheme_buttons_TinyMCE ) {
+	function sungarden_ilc_mce_buttons( $sungarden_buttons_TinyMCE ) {
 
-		array_push( $basictheme_buttons_TinyMCE,
+		array_push( $sungarden_buttons_TinyMCE,
 			"backcolor",
 			"anchor",
 			"hr",
@@ -157,62 +146,62 @@ if ( ! function_exists( 'basictheme_ilc_mce_buttons' ) ) :
 			"cleanup"
 		);
 
-		return $basictheme_buttons_TinyMCE;
+		return $sungarden_buttons_TinyMCE;
 
 	}
 
-	add_filter( "mce_buttons_2", "basictheme_ilc_mce_buttons" );
+	add_filter( "mce_buttons_2", "sungarden_ilc_mce_buttons" );
 
 endif;
 
 // Start Customize mce editor font sizes
-if ( ! function_exists( 'basictheme_mce_text_sizes' ) ) :
+if ( ! function_exists( 'sungarden_mce_text_sizes' ) ) :
 
-	function basictheme_mce_text_sizes( $basictheme_font_size_text ) {
-		$basictheme_font_size_text['fontsize_formats'] = "9px 10px 12px 13px 14px 16px 17px 18px 19px 20px 21px 24px 28px 32px 36px";
+	function sungarden_mce_text_sizes( $sungarden_font_size_text ) {
+		$sungarden_font_size_text['fontsize_formats'] = "9px 10px 12px 13px 14px 16px 17px 18px 19px 20px 21px 24px 28px 32px 36px";
 
-		return $basictheme_font_size_text;
+		return $sungarden_font_size_text;
 	}
 
-	add_filter( 'tiny_mce_before_init', 'basictheme_mce_text_sizes' );
+	add_filter( 'tiny_mce_before_init', 'sungarden_mce_text_sizes' );
 
 endif;
 // End Customize mce editor font sizes
 
 /* callback comment list */
-function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $basictheme_comment_depth ) {
+function sungarden_comments( $sungarden_comment, $sungarden_comment_args, $sungarden_comment_depth ) {
 
-	if ( 'div' === $basictheme_comment_args['style'] ) :
+	if ( 'div' === $sungarden_comment_args['style'] ) :
 
-		$basictheme_comment_tag       = 'div';
-		$basictheme_comment_add_below = 'comment';
+		$sungarden_comment_tag       = 'div';
+		$sungarden_comment_add_below = 'comment';
 
 	else :
 
-		$basictheme_comment_tag       = 'li';
-		$basictheme_comment_add_below = 'div-comment';
+		$sungarden_comment_tag       = 'li';
+		$sungarden_comment_add_below = 'div-comment';
 
 	endif;
 
 	?>
-    <<?php echo $basictheme_comment_tag ?><?php comment_class( empty( $basictheme_comment_args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
+    <<?php echo $sungarden_comment_tag ?><?php comment_class( empty( $sungarden_comment_args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
 
-	<?php if ( 'div' != $basictheme_comment_args['style'] ) : ?>
+	<?php if ( 'div' != $sungarden_comment_args['style'] ) : ?>
 
         <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
 
 	<?php endif; ?>
 
     <div class="comment-author vcard">
-		<?php if ( $basictheme_comment_args['avatar_size'] != 0 ) {
-			echo get_avatar( $basictheme_comment, $basictheme_comment_args['avatar_size'] );
+		<?php if ( $sungarden_comment_args['avatar_size'] != 0 ) {
+			echo get_avatar( $sungarden_comment, $sungarden_comment_args['avatar_size'] );
 		} ?>
 
     </div>
 
-	<?php if ( $basictheme_comment->comment_approved == '0' ) : ?>
+	<?php if ( $sungarden_comment->comment_approved == '0' ) : ?>
         <em class="comment-awaiting-moderation">
-			<?php esc_html_e( 'Your comment is awaiting moderation.', 'basictheme' ); ?>
+			<?php esc_html_e( 'Your comment is awaiting moderation.', 'sungarden' ); ?>
         </em>
 	<?php endif; ?>
 
@@ -225,12 +214,12 @@ function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $ba
                 <?php comment_date(); ?>
             </span>
 
-			<?php edit_comment_link( esc_html__( 'Edit ', 'basictheme' ) ); ?>
+			<?php edit_comment_link( esc_html__( 'Edit ', 'sungarden' ) ); ?>
 
-			<?php comment_reply_link( array_merge( $basictheme_comment_args, array(
-				'add_below' => $basictheme_comment_add_below,
-				'depth'     => $basictheme_comment_depth,
-				'max_depth' => $basictheme_comment_args['max_depth']
+			<?php comment_reply_link( array_merge( $sungarden_comment_args, array(
+				'add_below' => $sungarden_comment_add_below,
+				'depth'     => $sungarden_comment_depth,
+				'max_depth' => $sungarden_comment_args['max_depth']
 			) ) ); ?>
 
         </div>
@@ -240,7 +229,7 @@ function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $ba
         </div>
     </div>
 
-	<?php if ( 'div' != $basictheme_comment_args['style'] ) : ?>
+	<?php if ( 'div' != $sungarden_comment_args['style'] ) : ?>
         </div>
 	<?php endif; ?>
 
@@ -253,25 +242,25 @@ function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $ba
  * Content Nav
  */
 
-if ( ! function_exists( 'basictheme_comment_nav' ) ) :
+if ( ! function_exists( 'sungarden_comment_nav' ) ) :
 
-	function basictheme_comment_nav() {
+	function sungarden_comment_nav() {
 		// Are there comments to navigate through?
 		if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
 
 			?>
             <nav class="navigation comment-navigation">
                 <h2 class="screen-reader-text">
-					<?php esc_html_e( 'Comment navigation', 'basictheme' ); ?>
+					<?php esc_html_e( 'Comment navigation', 'sungarden' ); ?>
                 </h2>
 
                 <div class="nav-links">
 					<?php
-					if ( $prev_link = get_previous_comments_link( esc_html__( 'Older Comments', 'basictheme' ) ) ) :
+					if ( $prev_link = get_previous_comments_link( esc_html__( 'Older Comments', 'sungarden' ) ) ) :
 						printf( '<div class="nav-previous">%s</div>', $prev_link );
 					endif;
 
-					if ( $next_link = get_next_comments_link( esc_html__( 'Newer Comments', 'basictheme' ) ) ) :
+					if ( $next_link = get_next_comments_link( esc_html__( 'Newer Comments', 'sungarden' ) ) ) :
 						printf( '<div class="nav-next">%s</div>', $next_link );
 					endif;
 					?>
@@ -285,20 +274,20 @@ if ( ! function_exists( 'basictheme_comment_nav' ) ) :
 endif;
 
 /* Start Social Network */
-function basictheme_get_social_url() {
+function sungarden_get_social_url() {
 
-	global $basictheme_options;
-	$basictheme_social_networks = basictheme_get_social_network();
+	global $sungarden_options;
+	$sungarden_social_networks = sungarden_get_social_network();
 
-	foreach ( $basictheme_social_networks as $basictheme_social ) :
-		$basictheme_social_url = $basictheme_options[ 'basictheme_social_network_' . $basictheme_social['id'] ];
+	foreach ( $sungarden_social_networks as $sungarden_social ) :
+		$sungarden_social_url = $sungarden_options[ 'sungarden_social_network_' . $sungarden_social['id'] ];
 
-		if ( $basictheme_social_url ) :
+		if ( $sungarden_social_url ) :
 			?>
 
-            <div class="social-network-item item-<?php echo esc_attr( $basictheme_social['id'] ); ?>">
-                <a href="<?php echo esc_url( $basictheme_social_url ); ?>">
-                    <i class="<?php echo esc_attr( $basictheme_social['icon'] ); ?>" aria-hidden="true"></i>
+            <div class="social-network-item item-<?php echo esc_attr( $sungarden_social['id'] ); ?>">
+                <a href="<?php echo esc_url( $sungarden_social_url ); ?>">
+                    <i class="<?php echo esc_attr( $sungarden_social['icon'] ); ?>" aria-hidden="true"></i>
                 </a>
             </div>
 
@@ -309,7 +298,7 @@ function basictheme_get_social_url() {
 	endforeach;
 }
 
-function basictheme_get_social_network() {
+function sungarden_get_social_network() {
 	return array(
 
 		array( 'id' => 'facebook', 'icon' => 'fab fa-facebook-f' ),
@@ -323,38 +312,38 @@ function basictheme_get_social_network() {
 /* End Social Network */
 
 /* Start pagination */
-function basictheme_pagination() {
+function sungarden_pagination() {
 
 	the_posts_pagination( array(
 		'type'               => 'list',
 		'mid_size'           => 2,
-		'prev_text'          => esc_html__( 'Previous', 'basictheme' ),
-		'next_text'          => esc_html__( 'Next', 'basictheme' ),
+		'prev_text'          => esc_html__( 'Previous', 'sungarden' ),
+		'next_text'          => esc_html__( 'Next', 'sungarden' ),
 		'screen_reader_text' => '&nbsp;',
 	) );
 
 }
 
 // pagination nav query
-function basictheme_paging_nav_query( $basictheme_querry ) {
+function sungarden_paging_nav_query( $sungarden_querry ) {
 
-	$basictheme_pagination_args = array(
+	$sungarden_pagination_args = array(
 
-		'prev_text' => '<i class="fa fa-angle-double-left"></i>' . esc_html__( ' Previous', 'basictheme' ),
-		'next_text' => esc_html__( 'Next', 'basictheme' ) . '<i class="fa fa-angle-double-right"></i>',
+		'prev_text' => '<i class="fa fa-angle-double-left"></i>' . esc_html__( ' Previous', 'sungarden' ),
+		'next_text' => esc_html__( 'Next', 'sungarden' ) . '<i class="fa fa-angle-double-right"></i>',
 		'current'   => max( 1, get_query_var( 'paged' ) ),
-		'total'     => $basictheme_querry->max_num_pages,
+		'total'     => $sungarden_querry->max_num_pages,
 		'type'      => 'list',
 
 	);
 
-	$basictheme_paginate_links = paginate_links( $basictheme_pagination_args );
+	$sungarden_paginate_links = paginate_links( $sungarden_pagination_args );
 
-	if ( $basictheme_paginate_links ) :
+	if ( $sungarden_paginate_links ) :
 
 		?>
         <nav class="pagination">
-			<?php echo $basictheme_paginate_links; ?>
+			<?php echo $sungarden_paginate_links; ?>
         </nav>
 
 	<?php
@@ -365,19 +354,19 @@ function basictheme_paging_nav_query( $basictheme_querry ) {
 /* End pagination */
 
 // Sanitize Pagination
-add_action( 'navigation_markup_template', 'basictheme_sanitize_pagination' );
-function basictheme_sanitize_pagination( $basictheme_content ) {
+add_action( 'navigation_markup_template', 'sungarden_sanitize_pagination' );
+function sungarden_sanitize_pagination( $sungarden_content ) {
 	// Remove role attribute
-	$basictheme_content = str_replace( 'role="navigation"', '', $basictheme_content );
+	$sungarden_content = str_replace( 'role="navigation"', '', $sungarden_content );
 
 	// Remove h2 tag
-	$basictheme_content = preg_replace( '#<h2.*?>(.*?)<\/h2>#si', '', $basictheme_content );
+	$sungarden_content = preg_replace( '#<h2.*?>(.*?)<\/h2>#si', '', $sungarden_content );
 
-	return $basictheme_content;
+	return $sungarden_content;
 }
 
 /* Start Get col global */
-function basictheme_col_use_sidebar( $option_sidebar, $active_sidebar ) {
+function sungarden_col_use_sidebar( $option_sidebar, $active_sidebar ) {
 
 	if ( $option_sidebar != 'hide' && is_active_sidebar( $active_sidebar ) ):
 
@@ -395,7 +384,7 @@ function basictheme_col_use_sidebar( $option_sidebar, $active_sidebar ) {
 	return $class_col_content;
 }
 
-function basictheme_col_sidebar() {
+function sungarden_col_sidebar() {
 	$class_col_sidebar = 'col-12 col-md-4 col-lg-3';
 
 	return $class_col_sidebar;
@@ -404,12 +393,12 @@ function basictheme_col_sidebar() {
 /* End Get col global */
 
 /* Start Post Meta */
-function basictheme_post_meta() {
+function sungarden_post_meta() {
 	?>
 
     <div class="site-post-meta">
         <span class="site-post-author">
-            <?php esc_html_e( 'Author:', 'basictheme' ); ?>
+            <?php esc_html_e( 'Author:', 'sungarden' ); ?>
 
             <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
                 <?php the_author(); ?>
@@ -417,13 +406,13 @@ function basictheme_post_meta() {
         </span>
 
         <span class="site-post-date">
-            <?php esc_html_e( 'Post date: ', 'basictheme' );
+            <?php esc_html_e( 'Post date: ', 'sungarden' );
             the_date(); ?>
         </span>
 
         <span class="site-post-comments">
             <?php
-            comments_popup_link( '0 ' . esc_html__( 'Comment', 'basictheme' ), '1 ' . esc_html__( 'Comment', 'basictheme' ), '% ' . esc_html__( 'Comments', 'basictheme' ) );
+            comments_popup_link( '0 ' . esc_html__( 'Comment', 'sungarden' ), '1 ' . esc_html__( 'Comment', 'sungarden' ), '% ' . esc_html__( 'Comments', 'sungarden' ) );
             ?>
         </span>
     </div>
@@ -434,10 +423,10 @@ function basictheme_post_meta() {
 /* End Post Meta */
 
 /* Start Link Pages */
-function basictheme_link_page() {
+function sungarden_link_page() {
 
 	wp_link_pages( array(
-		'before'      => '<div class="page-links">' . esc_html__( 'Pages:', 'basictheme' ),
+		'before'      => '<div class="page-links">' . esc_html__( 'Pages:', 'sungarden' ),
 		'after'       => '</div>',
 		'link_before' => '<span class="page-number">',
 		'link_after'  => '</span>',
@@ -448,7 +437,7 @@ function basictheme_link_page() {
 /* End Link Pages */
 
 /* Start comment */
-function basictheme_comment_form() {
+function sungarden_comment_form() {
 
 	if ( comments_open() || get_comments_number() ) :
 		?>
@@ -462,7 +451,7 @@ function basictheme_comment_form() {
 /* End comment */
 
 /* Start get Category check box */
-function basictheme_check_get_cat( $type_taxonomy ) {
+function sungarden_check_get_cat( $type_taxonomy ) {
 	$cat_check = array();
 	$category  = get_terms(
 		array(
@@ -485,7 +474,7 @@ function basictheme_check_get_cat( $type_taxonomy ) {
 /**
  *Start share
  */
-function basictheme_post_share() {
+function sungarden_post_share() {
 
 	?>
     <div class="site-post-share">
@@ -497,15 +486,15 @@ function basictheme_post_share() {
 }
 
 /* Start opengraph */
-function basictheme_doctype_opengraph( $output ) {
+function sungarden_doctype_opengraph( $output ) {
 	return $output . '
  xmlns:og="http://opengraphprotocol.org/schema/"
  xmlns:fb="http://www.facebook.com/2008/fbml"';
 }
 
-add_filter( 'language_attributes', 'basictheme_doctype_opengraph' );
+add_filter( 'language_attributes', 'sungarden_doctype_opengraph' );
 
-function basictheme_opengraph() {
+function sungarden_opengraph() {
 	global $post;
 
 	if ( is_single() ) :
@@ -538,11 +527,11 @@ function basictheme_opengraph() {
 	endif;
 }
 
-add_action( 'wp_head', 'basictheme_opengraph', 5 );
+add_action( 'wp_head', 'sungarden_opengraph', 5 );
 /* End opengraph */
 
 /* Start Facebook SDK */
-function basictheme_facebook_sdk() {
+function sungarden_facebook_sdk() {
 	if ( is_single() ) :
 		?>
         <div id="fb-root"></div>
@@ -553,7 +542,7 @@ function basictheme_facebook_sdk() {
 	endif;
 }
 
-add_action( 'wp_footer', 'basictheme_facebook_sdk' );
+add_action( 'wp_footer', 'sungarden_facebook_sdk' );
 /* End share */
 
 /**

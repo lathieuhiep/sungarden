@@ -14,13 +14,13 @@
             <?php
             the_content();
 
-            basictheme_link_page();
+            sungarden_link_page();
             ?>
 
         </div>
 
     <?php
-        basictheme_comment_form();
+        sungarden_comment_form();
 
     endwhile;
     ?>
