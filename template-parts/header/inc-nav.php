@@ -6,7 +6,7 @@ $sungarden_logo_image_id    =   $sungarden_options['sungarden_logo_image']['id']
 
 <nav id="site-navigation" class="main-navigation">
     <div class="site-navbar navbar-expand-lg">
-        <div class="container">
+        <div class="container-fluid">
             <div class="site-navigation_warp d-flex justify-content-lg-end">
                 <div class="site-logo d-flex align-items-center">
                     <a href="<?php echo esc_url( get_home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">

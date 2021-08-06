@@ -1,10 +1,18 @@
 .main-navigation {
   background-color: #ffffff;
-  @include box-shadow(0 3px 3px -3px rgba(0, 0, 0, 0.3));
+  @include box-shadow(0px 4px 4px rgba(0, 0, 0, 0.06));
 
   .site-navbar {
     position: relative;
   }
+
+  .site-navigation {
+    &_warp {
+      padding-left: 76px;
+      padding-right: 76px;
+    }
+  }
+
   button {
     &.navbar-toggler {
       padding: 0;
@@ -16,6 +24,7 @@
     }
   }
 }
+
 .site-logo {
   @include flex(0 0 auto);
 
@@ -25,6 +34,7 @@
     padding: 15px 0;
   }
 }
+
 .site-menu {
   @include flex(1);
 
@@ -36,43 +46,106 @@
       position: relative;
 
       a {
-        padding: 0 15px;
-        text-shadow: none;
         display: block;
+        position: relative;
+        text-shadow: none;
+        color: $color-title;
 
         &:hover {
           background-color: transparent;
           color: $color-hover;
         }
       }
+
+      &.current_page_item,
+      &.current-menu-parent {
+        > a {
+          color: $color-hover;
+
+          &:before {
+            opacity: 1;
+          }
+        }
+      }
+
       &:last-child {
         a {
           padding-right: 0;
         }
       }
+
       .sub-menu {
+        padding-top: 5px;
         min-width: 160px;
-        border-top: 1px solid $color-hover;
-        background-color: $border-color;
         position: absolute;
         top: 120%;
         left: 0;
         z-index: -1;
         visibility: hidden;
         opacity: 0;
+        border-radius: 4px;
+        @include box-shadow(0px 4px 4px rgba(0, 0, 0, 0.06));
         @include transition();
 
         li {
-          padding: 8px 0;
+          position: relative;
           display: block;
+          padding: 0 15px;
 
           a {
+            position: relative;
+            padding: 12px 0 12px 18px;
+            color: $color-three;
+            font-size: 16px;
             white-space: nowrap;
+            border-bottom: 1px solid #E3E3E3;
+            background-color: $background-submenu;
+
+            &:before,
+            &:after {
+              position: absolute;
+              content: "";
+              top: 50%;
+              border-radius: 50%;
+              background-color: $background-primary;
+              @include transform(translateY(-50%));
+            }
+
+            &:before {
+              left: 0;
+              width: 9px;
+              height: 9px;
+              opacity: 0.3;
+            }
+
+            &:after {
+              width: 5px;
+              height: 5px;
+              left: 2px;
+            }
+
+            &:hover {
+              color: $color-hover;
+            }
           }
+
+          &.current_page_item {
+            > a {
+              color: $color-hover;
+            }
+          }
+
+          &:last-child {
+            a {
+              border-bottom: 0;
+            }
+          }
+
           .sub-menu {
             left: 90%;
             top: -1px;
           }
+
           &:hover {
             > .sub-menu {
               left: 100%;
@@ -80,6 +153,7 @@
           }
         }
       }
+
       &:hover {
         > .sub-menu {
           top: 100%;
@@ -90,7 +164,44 @@
       }
     }
   }
+
+  > ul {
+    > li {
+      > a {
+        padding: 0 17px;
+        font-size: 17px;
+        font-weight: 700;
+        font-family: $font-family-second;
+        letter-spacing: -0.05em;
+        text-transform: uppercase;
+        height: 100%;
+        @include flexbox();
+        @include align-items(center);
+
+        &:before {
+          position: absolute;
+          content: "";
+          height: 1px;
+          top: 0;
+          left: 17px;
+          right: 17px;
+          opacity: 0;
+          background-color: $color-link;
+          @include transition();
+        }
+      }
+
+      &:hover {
+        > a {
+          &:before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
 }
+
 .icon_menu_item_mobile {
   display: none;
   position: absolute;
@@ -108,6 +219,7 @@
     font-style: normal;
     font-weight: 900;
   }
+
   &.icon_menu_item_mobile_active {
     &:after {
       content: "\f077";
