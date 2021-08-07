@@ -62,6 +62,10 @@
             }
           }
 
+          textarea {
+            height: 80px;
+          }
+
           .wpcf7-submit {
             font-size: 14px;
             font-weight: 500;
@@ -70,13 +74,6 @@
             padding: 8px 7px;
             border-radius: 3px;
             background-color: #FFE025;
-          }
-
-          .ajax-loader {
-            top: 50%;
-            left: 50%;
-            margin: 0;
-            @include transform(translateY(-50%));
           }
         }
       }

@@ -272,8 +272,10 @@ pre {
 
 /* Breadcrumbs */
 .breadcrumbs {
-  .breadcrumbs-col {
-    padding: 15px 0;
-    border-bottom: 1px solid #eeeeee;
+  text-align: center;
+
+  &__heading {
+    margin-bottom: 8px;
+    font-weight: 400;
   }
 }

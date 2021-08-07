@@ -477,6 +477,30 @@ function sungarden_check_get_cat( $type_taxonomy ): array {
 
 /* End get Category check box */
 
+/* Get Contact Form */
+function sungarden_get_form_cf7(): array {
+
+	$sungarden_contact_forms    =   array();
+	$sungarden_cf7              =   get_posts('post_type="wpcf7_contact_form"&numberposts=-1');
+
+	if ( $sungarden_cf7 ) :
+
+		foreach ( $sungarden_cf7 as $item ) :
+
+			$sungarden_contact_forms[$item->ID] = $item->post_title;
+
+		endforeach;
+
+	else :
+
+		$sungarden_contact_forms[esc_html__( "No contact forms found", "tz-gustoso-restaurant" )] = 0;
+
+	endif;
+
+	return $sungarden_contact_forms;
+
+}
+
 /**
  *Start share
  */

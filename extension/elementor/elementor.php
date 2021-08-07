@@ -49,10 +49,12 @@ final class sungarden_plugin_elementor_widgets {
     public function init_widgets() {
 
         $build_widgets_filename = [
+        	'breadcrumb-navxt',
             'slides',
             'post-grid',
             'post-carousel',
             'about-text',
+	        'contact-cf7'
         ];
         
         foreach ( $build_widgets_filename as $widget_filename ) :
