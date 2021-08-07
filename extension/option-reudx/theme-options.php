@@ -782,30 +782,6 @@ Redux::set_section( $sungarden_opt_name, array(
 
 ));
 
-//Copyright
-Redux::set_section( $sungarden_opt_name, array(
-    'title'         =>  esc_html__( 'Copyright', 'sungarden' ),
-    'id'            =>  'sungarden_footer_copyright',
-    'desc'          =>  esc_html__( '', 'sungarden' ),
-    'subsection'    =>  true,
-    'fields'        =>  array(
-        array(
-            'id'            =>  'sungarden_footer_copyright_editor',
-            'type'          =>  'editor',
-            'title'         =>  esc_html__( 'Enter content copyright', 'sungarden' ),
-            'full_width'    =>  true,
-            'default'       =>  'Copyright &amp; DiepLK',
-            'args'          =>  array(
-                'wpautop'       => false,
-                'media_buttons' => false,
-                'textarea_rows' => 10,
-                'teeny'         => false,
-                'quicktags'     => true,
-            )
-        ),
-    )
-));
-
 /* End Footer Options */
 
 

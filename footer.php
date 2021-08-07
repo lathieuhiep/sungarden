@@ -8,13 +8,7 @@
 
 <footer class="site-footer">
 
-    <?php
-
-    get_template_part( 'template-parts/footer/inc','multi-column' );
-
-    get_template_part( 'template-parts/footer/inc','copyright' );
-
-    ?>
+    <?php get_template_part( 'template-parts/footer/inc','multi-column' ); ?>
 
 </footer>
 

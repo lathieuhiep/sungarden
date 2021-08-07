@@ -13,7 +13,7 @@ if( is_active_sidebar( 'sungarden-sidebar-footer-multi-column-1' ) || is_active_
 ?>
 
     <div class="site-footer__multi--column">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <?php
                 for( $i = 0; $i < $multi_column; $i++ ):

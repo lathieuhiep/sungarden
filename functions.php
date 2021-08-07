@@ -45,7 +45,6 @@ if ( ! function_exists( 'sungarden_setup' ) ):
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menu( 'primary', 'Primary Menu' );
-		register_nav_menu( 'footer-menu', 'Footer Menu' );
 
 		// add theme support title-tag
 		add_theme_support( 'title-tag' );

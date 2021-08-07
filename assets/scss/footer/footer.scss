@@ -1,46 +1,96 @@
 .site-footer {
+  background-color: $background-footer;
+
   section {
     &.widget {
       margin-bottom: 15px;
-    }
-  }
-}
-.site-footer__multi--column {
-  border-top: 1px solid $border-color;
-  padding: 30px 0;
-}
-.site-footer__copyright {
-  border-top: 1px solid $border-color;
-  padding: 10px 0;
-}
-.site-copyright {
-  font-size: 12px;
+      color: #ffffff;
 
-  p {
-    &:last-child {
-      margin: 0;
-    }
-  }
-}
-.site-footer__menu {
-  text-align: right;
-  @include flex(1);
+      .widget-title {
+        position: relative;
+        color: #ffffff;
+        font-weight: 500;
+        font-size: 24px;
+        text-transform: none;
+        padding-bottom: 12px;
 
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    li {
-      display: inline-block;
-      padding: 0 5px;
-
-      &:last-child {
-        padding-right: 0;
+        &:after {
+          position: absolute;
+          content: "";
+          bottom: 0;
+          left: 0;
+          width: 30px;
+          height: 1px;
+          background-color: $background-primary;
+        }
       }
+
       a {
-        font-size: 12px;
+        &:hover {
+          color: #ffffff;
+        }
+      }
+
+      &.widget_nav_menu {
+        ul {
+          margin-left: 17px;
+          list-style: disc;
+
+          li {
+            a {
+              color: #ffffff;
+
+              &:hover {
+                color: $color-hover;
+              }
+            }
+          }
+        }
+      }
+
+      form {
+        &.wpcf7-form {
+          .wpcf7-form-control-wrap {
+            margin-bottom: 6px;
+
+            input,
+            .wpcf7-textarea {
+              padding: 6px 14px;
+              color: rgba(255,255,255,0.5);
+              border: 1px solid #5F5F5F;
+              background-color: transparent;
+            }
+          }
+
+          .wpcf7-submit {
+            font-size: 14px;
+            font-weight: 500;
+            color: $color-three;
+            width: 100%;
+            padding: 8px 7px;
+            border-radius: 3px;
+            background-color: #FFE025;
+          }
+
+          .ajax-loader {
+            top: 50%;
+            left: 50%;
+            margin: 0;
+            @include transform(translateY(-50%));
+          }
+        }
       }
     }
+  }
+}
+.site-footer {
+  &__multi--column {
+    border-top: 1px solid $border-color;
+    padding: 86px 0 90px;
+  }
+
+  &__copyright {
+    border-top: 1px solid $border-color;
+    padding: 10px 0;
   }
 }
