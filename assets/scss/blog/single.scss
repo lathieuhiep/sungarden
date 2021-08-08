@@ -3,18 +3,33 @@
   .page-links {
     margin-bottom: 30px;
   }
+
   .site-post-title {
-    margin-bottom: 15px;
-  }
-  .site-post-excerpt {
-    margin-bottom: 15px;
+    margin-bottom: 6px;
+    font-size: 28px;
+    font-weight: 500;
+    color: $color-title-second;
   }
 }
+
 .site-post-single-item {
-  .site-post-meta {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.site-post-meta {
+  margin-bottom: 12px;
+
+  p {
+    margin: 0 10px 0 0;
+    color: #515151;
+  }
+
+  a {
+    color: #515151;
+    text-decoration: underline;
   }
 }
+
 .site-post-slides {
   position: relative;
   margin-bottom: 30px;
@@ -29,13 +44,16 @@
         top: 50%;
         @include transform(translateY(-50%));
       }
+
       .owl-prev {
         left: 10px;
       }
+
       .owl-next {
         right: 10px;
       }
     }
+
     .owl-dots {
       position: absolute;
       padding: 0;
@@ -54,6 +72,7 @@
     }
   }
 }
+
 .site-post-cat-tag {
   margin-bottom: 20px;
 
@@ -72,6 +91,7 @@
       &:first-child {
         margin-left: 10px;
       }
+
       &:hover {
         color: #fff;
         background: $background-hover;
@@ -80,27 +100,41 @@
     }
   }
 }
-.site-post-share {
-  margin-bottom: 30px;
-}
-.site-single-post-related {
-  .title {
-    position: relative;
-    font-size: 18px;
-    margin-bottom: 30px;
-    padding-bottom: 15px;
 
-    &:after {
-      position: absolute;
-      content: "";
-      left: 0;
-      bottom: 0;
-      width: 30px;
-      height: 1px;
-      background-color: $background-hover;
-    }
+.site-post-share {
+  margin-bottom: 20px;
+}
+
+.site-single-post-related {
+  margin-top: 32px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(196,196,196,0.6);
+
+  .title {
+    color: $color-three;
   }
+
   .item {
-    margin-bottom: 15px;
+    margin-bottom: 26px;
+
+    .post-image {
+      height: 192px;
+      overflow: hidden;
+      margin-bottom: 12px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .title-post {
+      margin-bottom: 0;
+
+      a {
+        color: $color-title-second;
+      }
+    }
   }
 }

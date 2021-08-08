@@ -86,6 +86,7 @@ if ( class_exists( 'RW_Meta_Box' ) ) {
 	 * Required: Meta Box Framework
 	 */
 	require get_parent_theme_file_path( '/extension/meta-box/meta-box-options.php' );
+	require get_parent_theme_file_path( '/extension/meta-box/project-options.php' );
 
 }
 
@@ -403,25 +404,18 @@ function sungarden_col_sidebar(): string {
 function sungarden_post_meta() {
 	?>
 
-    <div class="site-post-meta">
-        <span class="site-post-author">
-            <?php esc_html_e( 'Author:', 'sungarden' ); ?>
+    <div class="site-post-meta d-flex">
+         <p class="site-post-date">
+	         <?php echo esc_html( get_the_date() ); ?>
+        </p>
+
+        <p class="site-post-author">
+            <?php esc_html_e( 'By', 'sungarden' ); ?>
 
             <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
                 <?php the_author(); ?>
             </a>
-        </span>
-
-        <span class="site-post-date">
-            <?php esc_html_e( 'Post date: ', 'sungarden' );
-            the_date(); ?>
-        </span>
-
-        <span class="site-post-comments">
-            <?php
-            comments_popup_link( '0 ' . esc_html__( 'Comment', 'sungarden' ), '1 ' . esc_html__( 'Comment', 'sungarden' ), '% ' . esc_html__( 'Comments', 'sungarden' ) );
-            ?>
-        </span>
+        </p>
     </div>
 
 	<?php

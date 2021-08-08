@@ -6,8 +6,6 @@ global $sungarden_options;
 $sungarden_blog_sidebar_single = !empty( $sungarden_options['sungarden_blog_sidebar_single'] ) ? $sungarden_options['sungarden_blog_sidebar_single'] : 'right';
 
 $sungarden_class_col_content = sungarden_col_use_sidebar( $sungarden_blog_sidebar_single, 'sungarden-sidebar-main' );
-
-get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
 ?>
 
 <div class="site-container site-single">

@@ -24,7 +24,7 @@ if ( !empty( $sungarden_term_cat_post ) ):
 
     <div class="site-single-post-related">
         <h3 class="title">
-            <?php esc_html_e( 'Related Post', 'sungarden' ); ?>
+            <?php esc_html_e( 'Các tin tức khác', 'sungarden' ); ?>
         </h3>
 
         <div class="row">
@@ -39,23 +39,13 @@ if ( !empty( $sungarden_term_cat_post ) ):
                             <?php the_post_thumbnail( 'medium' ); ?>
                         </figure>
 
-                        <h4 class="title-post">
+                        <?php sungarden_post_meta(); ?>
+
+                        <h6 class="title-post">
                             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                 <?php the_title(); ?>
                             </a>
-                        </h4>
-
-                        <div class="excerpt-post">
-                            <p>
-                                <?php
-                                if( has_excerpt() ) :
-                                    echo wp_trim_words( get_the_excerpt(), 15, '...' );
-                                else:
-                                    echo wp_trim_words( get_the_content(), 15, '...' );
-                                endif;
-                                ?>
-                            </p>
-                        </div>
+                        </h6>
                     </div>
                 </div>
 

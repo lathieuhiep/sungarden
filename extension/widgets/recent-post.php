@@ -20,7 +20,7 @@ class sungarden_recent_post_widget extends WP_Widget {
             'description'   =>  esc_html__( 'A widget show post', 'sungarden' ),
         );
 
-        parent::__construct( 'sungarden_recent_post_widget', 'Basic Theme: Recent Post', $widget_ops );
+        parent::__construct( 'sungarden_recent_post_widget', 'Sungarden Theme: Recent Post', $widget_ops );
 
     }
 
@@ -38,13 +38,14 @@ class sungarden_recent_post_widget extends WP_Widget {
             echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
         }
 
-        $limit      =   isset( $instance['number'] ) ? $instance['number'] : 5;
+        $limit      = $instance['number'] ?? 5;
         $cat_ids    =   !empty( $instance['select_cat'] ) ? $instance['select_cat'] : array( '0' );
 
         if ( in_array( 0, $cat_ids ) ) :
 
             $post_arg = array(
                 'post_type'             =>  'post',
+                'post__not_in'          =>  array( get_the_ID() ),
                 'posts_per_page'        =>  $limit,
                 'orderby'               =>  $instance['order_by'],
                 'order'                 =>  $instance['order'],
@@ -55,6 +56,7 @@ class sungarden_recent_post_widget extends WP_Widget {
 
             $post_arg = array(
                 'post_type'             =>  'post',
+                'post__not_in'          =>  array( get_the_ID() ),
                 'cat'                   =>  $cat_ids,
                 'posts_per_page'        =>  $limit,
                 'orderby'               =>  $instance['order_by'],
@@ -93,11 +95,6 @@ class sungarden_recent_post_widget extends WP_Widget {
                                     <?php the_title(); ?>
                                 </a>
                             </h4>
-
-                            <p class="item-meta">
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                <?php echo get_the_date(); ?>
-                            </p>
                         </div>
                     </div>
 

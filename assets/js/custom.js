@@ -53,6 +53,19 @@
         $( document ).general_owlCarousel_custom( '.site-post-slides' );
         /* End Gallery Single */
 
+        // Sticky sidebar
+        let sidebar = $('.sidebar');
+
+        if ( sidebar.length ) {
+            sidebar.stickySidebar({
+                topSpacing: 60,
+                bottomSpacing: 0,
+                innerWrapperSelector: '.sidebar__inner',
+                containerSelector: '.container',
+                resizeSensor: true
+            });
+        }
+
     });
 
     // loading

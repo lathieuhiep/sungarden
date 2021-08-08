@@ -39,7 +39,7 @@ final class sungarden_plugin_elementor_widgets {
         Plugin::instance()->elements_manager->add_category(
             'sungarden_widgets',
             [
-                'title' => esc_html__( 'Basic Theme Widgets', 'sungarden' ),
+                'title' => esc_html__( 'Sungarden Theme Widgets', 'sungarden' ),
                 'icon'  => 'icon-goes-here'
             ]
         );

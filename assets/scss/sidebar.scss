@@ -182,34 +182,150 @@ section {
       @include border-radius(50%);
     }
 
-    .post_widget_warp {
-      .post_widget__item {
-        margin-bottom: 15px;
+    &.sungarden_recent_post_widget {
+      padding: 20px 20px 34px;
+      background-color: #F7F7F5;
+      border-radius: 5px;
+      border: 1px solid rgba(114, 169, 90, 0.5);
 
-        &:last-child {
-          margin-bottom: 0;
+      .widget-title {
+        font-weight: 700;
+        color: $color-three;
+      }
+
+      .post_widget_warp {
+        .post_widget__item {
+          margin-bottom: 11px;
+          padding-bottom: 14px;
+          border-bottom: 1px solid #D5D5D5;
+
+          &:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: 0;
+          }
+
+          .item-image {
+            width: 99px;
+            height: 76px;
+            overflow: hidden;
+            @include flex(0 0 auto);
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+
+          .item-content {
+            padding-left: 11px;
+          }
+
+          .item-title {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 500;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+
+            a {
+              color: $color-three;
+
+              &:hover {
+                color: $color-hover;
+              }
+            }
+          }
+
+          .item-meta {
+            font-size: 12px;
+
+            i.fa {
+              margin-right: 5px;
+            }
+          }
         }
+      }
+    }
 
-        .item-image {
-          width: 110px;
-          @include flex(0 0 auto);
-        }
-
-        .item-content {
-          padding-left: 15px;
-        }
-
-        .item-title {
-          font-size: 14px;
-          margin-bottom: 10px;
+    &.sungarden_project_widget {
+      .post_widget_warp {
+        .item {
+          position: relative;
+          height: 214px;
           overflow: hidden;
-        }
+          border-radius: 5px;
+          margin-bottom: 10px;
 
-        .item-meta {
-          font-size: 12px;
+          &:last-child {
+            margin-bottom: 0;
+          }
 
-          i.fa {
-            margin-right: 5px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          .link-full {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            @include transition();
+          }
+
+          .box-title {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 50%;
+            background: rgba(0, 0, 0, 0.9);
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+            @include flexbox();
+            @include flex-direction(column);
+            @include justify-content(flex-end);
+            @include transition();
+
+            .box-content {
+              height: 65%;
+              @include flexbox();
+              @include flex-direction(column);
+              @include align-items(center);
+              @include justify-content(center);
+              @include transition();
+            }
+
+            .item-title {
+              margin-bottom: 0;
+              font-size: 16px;
+              color: #ffffff;
+              text-transform: uppercase;
+              overflow: hidden;
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+            }
+
+            .item-place {
+              color: #ffffff;
+              font-size: 14px;
+              font-weight: 500;
+              letter-spacing: -0.01em;
+            }
+          }
+
+          &:hover {
+            .box-title,
+            .box-content {
+              height: 100%;
+            }
           }
         }
       }

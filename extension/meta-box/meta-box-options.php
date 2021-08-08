@@ -2,10 +2,9 @@
 
 add_filter( 'rwmb_meta_boxes', 'sungarden_register_meta_boxes' );
 
-function sungarden_register_meta_boxes() {
+function sungarden_register_meta_boxes($sungarden_meta_boxes) {
 
-    /* Start meta box post */
-    $sungarden_meta_boxes[] = array(
+	$sungarden_meta_boxes[] = array(
         'id'         => 'post_format_option',
         'title'      => esc_html__( 'Post Format', 'sungarden' ),
         'post_types' => array( 'post' ),
@@ -31,8 +30,6 @@ function sungarden_register_meta_boxes() {
 
         )
     );
-    /* End meta box post */
 
     return $sungarden_meta_boxes;
-
 }

@@ -20,7 +20,7 @@ class sungarden_social_widget extends WP_Widget {
             'description'   =>  'A widget that displays your social icons',
         );
 
-        parent::__construct( 'sungarden_social_widget', 'Basic Theme: Social Icons', $sungarden_social_widget_ops );
+        parent::__construct( 'sungarden_social_widget', 'Sungarden Theme: Social Icons', $sungarden_social_widget_ops );
 
     }
 
