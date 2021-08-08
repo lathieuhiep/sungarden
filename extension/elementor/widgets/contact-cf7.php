@@ -19,7 +19,7 @@ class sungarden_widget_contact_cf7 extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-text-area';
+		return 'eicon-email-field';
 	}
 
 	protected function _register_controls() {

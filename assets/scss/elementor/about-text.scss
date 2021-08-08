@@ -1,0 +1,19 @@
+.element-about-text {
+  &__top {
+    margin-bottom: 23px;
+    @include flexbox();
+    @include align-items(center);
+  }
+
+  &__title {
+    margin: 0 20px 0 0;
+    font-size: 36px;
+    @include flex(0 0 auto);
+  }
+  &__line {
+    height: 1px;
+    background-color: $background-primary;
+    @include flex(1);
+    @include transform(translateY(3px));
+  }
+}

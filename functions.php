@@ -72,6 +72,7 @@ require get_parent_theme_file_path( '/extension/process-option.php' );
  */
 require get_parent_theme_file_path( '/extension/post-type/project.php' );
 require get_parent_theme_file_path( '/extension/post-type/product.php' );
+require get_parent_theme_file_path( '/extension/post-type/service.php' );
 
 if ( class_exists( 'ReduxFramework' ) ) {
 	/*

@@ -18,9 +18,9 @@ class sungarden_widget_about_text extends Widget_Base {
         return esc_html__( 'About Text', 'sungarden' );
     }
 
-    public function get_icon() {
-        return 'eicon-text-area';
-    }
+	public function get_icon() {
+		return 'eicon-text-area';
+	}
 
     protected function _register_controls() {
 
@@ -38,18 +38,6 @@ class sungarden_widget_about_text extends Widget_Base {
                 'type'          =>  Controls_Manager::TEXT,
                 'default'       =>  esc_html__( 'Title About Text', 'sungarden' ),
                 'label_block'   =>  true
-            ]
-        );
-
-        $this->add_control(
-            'icon',
-            [
-                'label'     =>  esc_html__( 'Icon', 'sungarden' ),
-                'type'      =>  Controls_Manager::ICON,
-                'default'   =>  [
-                    'value'     =>  'fas fa-star',
-                    'library'   =>  'solid',
-                ],
             ]
         );
 
@@ -127,19 +115,6 @@ class sungarden_widget_about_text extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'hide_line',
-            [
-                'label'     =>  esc_html__( 'Hide Line', 'sungarden' ),
-                'type'      =>  Controls_Manager::SELECT,
-                'default'   =>  'no',
-                'options'   =>  [
-                    'no'    =>  esc_html__( 'No', 'sungarden' ),
-                    'yes'   =>  esc_html__( 'Yes', 'sungarden' ),
-                ],
-            ]
-        );
-
         $this->add_responsive_control(
             'margin_bottom_line',
             [
@@ -157,9 +132,6 @@ class sungarden_widget_about_text extends Widget_Base {
                 'selectors' =>  [
                     '{{WRAPPER}} .element-about-text__line' => 'margin-bottom: {{SIZE}}{{UNIT}};',
                 ],
-                'condition'     =>  [
-                    'hide_line' =>  'no',
-                ],
             ]
         );
 
@@ -169,24 +141,18 @@ class sungarden_widget_about_text extends Widget_Base {
 
     protected function render() {
 
-        $settings       =   $this->get_settings_for_display();
+        $settings = $this->get_settings_for_display();
 
         ?>
 
         <div class="element-about-text">
-            <h2 class="element-about-text__title">
-                <?php echo wp_kses_post( $settings['widget_title'] ); ?>
-            </h2>
-
-            <div class="icon">
-                <?php Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>
-            </div>
-
-            <?php if ( $settings['hide_line'] == 'no' ) : ?>
+            <div class="element-about-text__top">
+                <h2 class="element-about-text__title">
+		            <?php echo wp_kses_post( $settings['widget_title'] ); ?>
+                </h2>
 
                 <span class="element-about-text__line">&nbsp;</span>
-
-            <?php endif; ?>
+            </div>
 
             <?php if ( !empty( $settings['widget_description'] ) ) : ?>
 
@@ -204,24 +170,14 @@ class sungarden_widget_about_text extends Widget_Base {
     protected function _content_template() {
 
         ?>
-        <#
-        var iconHTML = elementor.helpers.renderIcon( view, settings.selected_icon, { 'aria-hidden': true }, 'i' , 'object' );
-        #>
-
         <div class="element-about-text">
-            <h2 class="element-about-text__title">
-                {{{ settings.widget_title }}}
-            </h2>
+            <div class="element-about-text__top">
+                <h2 class="element-about-text__title">
+                    {{{ settings.widget_title }}}
+                </h2>
 
-            <div class="icon">
-                {{{ iconHTML.value }}}
+                <span class="element-about-text__line">&nbsp;</span>
             </div>
-
-            <# if ( settings.hide_line == 0 ) {#>
-
-            <span class="element-about-text__line">&nbsp;</span>
-
-            <# } #>
 
             <# if ( '' !== settings.widget_description ) {#>
 
