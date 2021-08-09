@@ -2,32 +2,49 @@
   display: block;
   float: none;
   text-align: center;
-  margin-top: 50px;
+  margin: 30px 0 50px;
 }
+
 .page-numbers {
   list-style: none;
   margin: 0;
   padding: 0;
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
 
   li {
     display: inline-block;
+    margin: 0 5px;
 
-    span,
-    a {
+    .page-numbers {
       display: block;
       cursor: pointer;
-      border: 1px solid #ddd;
-      padding: 5px 12px;
-      position: relative;
-      -webkit-border-radius: 2px;
-      -moz-border-radius: 2px;
-      border-radius: 2px;
-    }
-    span.current,
-    a:hover {
-      background: $background-hover;
-      border-color: $background-hover;
-      color: #ffffff;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      color: $color-title-second;
+      border-radius: 50%;
+      overflow: hidden;
+      @include transition();
+
+      &:hover,
+      &.current {
+        color: #ffffff;
+        background-color: $background-primary;
+      }
+
+      &.prev,
+      &.next {
+        width: auto;
+        height: auto;
+        text-decoration: underline;
+
+        &:hover {
+          color: $color-hover;
+          background-color: transparent;
+        }
+      }
     }
   }
 }

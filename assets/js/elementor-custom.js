@@ -17,6 +17,9 @@
         /* Element post carousel */
         elementorFrontend.hooks.addAction( 'frontend/element_ready/sungarden-post-carousel.default', ElementCarouselSlider );
 
+        /* Element project carousel */
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/sungarden-project-carousel.default', ElementCarouselSlider );
+
     } );
 
 })( jQuery );

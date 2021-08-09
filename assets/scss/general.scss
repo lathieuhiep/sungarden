@@ -250,25 +250,26 @@ pre {
     margin-top: 15px;
 
     button {
-      &.owl-next,
+      position: relative;
+
+      &.owl-next {
+        display: inline-block;
+        margin-left: 10px;
+      }
       &.owl-prev {
         display: inline-block;
-        margin: 0 5px;
-        padding: 5px 15px !important;
-        background-color: $background-hover;
-        @include border-radius(5px);
+        margin-right: 10px;
+      }
+
+      i {
+        color: $color-three;
+        font-size: 24px;
+        line-height: inherit;
         @include transition();
 
         &:hover {
-          background-color: #333333;
+          color: $color-hover;
         }
-      }
-
-      i.fa {
-        color: #ffffff;
-        font-size: 20px;
-        line-height: inherit;
-        @include transition();
       }
     }
   }

@@ -46,7 +46,7 @@ class sungarden_project_widget extends WP_Widget {
 		else:
 			$tax_query = array(
 				array(
-					'taxonomy' => 'event_cat',
+					'taxonomy' => 'sungarden_project_cat',
 					'field'    => 'id',
 					'terms'    => $cat_ids
 				),

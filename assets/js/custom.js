@@ -66,6 +66,20 @@
             });
         }
 
+        // custom fancybox
+        Fancybox.bind('[data-fancybox="gallery"]', {
+            Thumbs: false,
+            Toolbar: false,
+            closeButton: "top",
+            selector: '.owl-item:not(.cloned) .item-fancybox',
+            backFocus: false,
+            on: {
+                "Carousel.createSlide": (fancybox, carousel, slide) => {
+                    console.log(slide.$el);
+                },
+            },
+        });
+
     });
 
     // loading
@@ -114,7 +128,7 @@
                         navSpeed: 800,
                         dotsSpeed: 800,
                         autoHeight: false,
-                        navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+                        navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
                     };
 
                     let config = $.extend( defaults, slider.data( 'settings-owl') );

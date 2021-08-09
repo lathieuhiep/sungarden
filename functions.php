@@ -336,8 +336,8 @@ function sungarden_paging_nav_query( $sungarden_querry ) {
 
 	$sungarden_pagination_args = array(
 
-		'prev_text' => '<i class="fa fa-angle-double-left"></i>' . esc_html__( ' Previous', 'sungarden' ),
-		'next_text' => esc_html__( 'Next', 'sungarden' ) . '<i class="fa fa-angle-double-right"></i>',
+		'prev_text' => esc_html__( ' Previous', 'sungarden' ),
+		'next_text' => esc_html__( 'Next', 'sungarden' ),
 		'current'   => max( 1, get_query_var( 'paged' ) ),
 		'total'     => $sungarden_querry->max_num_pages,
 		'type'      => 'list',

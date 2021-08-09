@@ -55,7 +55,8 @@ final class sungarden_plugin_elementor_widgets {
             'post-carousel',
             'about-text',
 	        'contact-cf7',
-	        'service'
+	        'service',
+	        'project-carousel'
         ];
         
         foreach ( $build_widgets_filename as $widget_filename ) :
