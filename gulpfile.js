@@ -29,7 +29,6 @@ gulp.task('sass-library-theme', function () {
             outputStyle: 'expanded'
         }).on('error', sass.logError))
         .pipe(minifyCss({
-            compatibility: 'ie8',
             level: {1: {specialComments: 0}}
         }))
         .pipe(rename('library.min.css'))
@@ -43,7 +42,7 @@ gulp.task('compress-js', function () {
         './node_modules/bootstrap/dist/js/bootstrap.js',
         './node_modules/owl.carousel/dist/owl.carousel.js',
         './node_modules/sticky-sidebar-v2/dist/jquery.sticky-sidebar.js',
-        './node_modules/@fancyapps/ui/dist/fancybox.umd.js'
+        './node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js'
     ],  { allowEmpty: true } )
         .pipe(concat('library.min.js'))
         .pipe(uglify())

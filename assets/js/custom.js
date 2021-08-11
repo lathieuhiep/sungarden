@@ -67,18 +67,37 @@
         }
 
         // custom fancybox
-        Fancybox.bind('[data-fancybox="gallery"]', {
-            Thumbs: false,
-            Toolbar: false,
-            closeButton: "top",
-            selector: '.owl-item:not(.cloned) .item-fancybox',
-            backFocus: false,
-            on: {
-                "Carousel.createSlide": (fancybox, carousel, slide) => {
-                    console.log(slide.$el);
+        let projectGallery = $('.project-gallery');
+
+        if ( projectGallery.length ) {
+            projectGallery.fancybox({
+                transitionEffect: "slide",
+                slideClass: "abc",
+                baseClass: "projec-fancybox-custom",
+                clickContent: false,
+                hash : false,
+                caption : function( instance, item ) {
+                    let caption = $(this).data('caption') || '';
+
+                    if ( item.type === 'image' ) {
+                        caption = '<div class="project-caption-item">' +
+                            '<h4 class="title-item">'+ caption.title +'</h4>' +
+                            '<a href="'+ caption.link +'">'+ caption.textLink +'</a>' +
+                            '</div>';
+                    }
+
+                    return caption;
                 },
-            },
-        });
+                afterShow: function (instance, item) {
+                    if (instance.$caption) {
+                        const dataCaption = instance.$caption;
+
+                        item.$content.append(dataCaption);
+                        $('.project-caption-item').fadeIn();
+                    }
+                }
+            });
+        }
 
     });
 

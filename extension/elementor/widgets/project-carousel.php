@@ -560,34 +560,29 @@ class sungarden_widget_project_carousel extends Widget_Base {
             <div class="custom-owl-carousel custom-equal-height-owl owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ) ; ?>'>
                 <?php
                 while ( $query->have_posts() ): $query->the_post();
-	                $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
+	                if (  has_post_thumbnail() ) :
+		                $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
+	                else:
+		                $featured_img_url = get_theme_file_uri( '/assets/images/no-image.png' );
+	                endif;
+
+	                $dataCaption = [
+                        'title' => get_the_title(),
+                        'link' => get_the_permalink(),
+                        'textLink' => esc_html__('Chi tiết dự án', 'sungarden')
+                    ];
                 ?>
-                    <div class="item-post" data-fancybox="gallery" data-src="<?php echo esc_url( $featured_img_url ); ?>">
-                        <div class="item-post__thumbnail">
-                            <a
-                                class="item-fancybox"
-                                href="#" data-fancybox="gallery"
-                                data-src="<?php echo esc_url( $featured_img_url ); ?>"
-                                data-title="<?php the_title(); ?>"
-                            >
-	                            <?php
-	                            if ( has_post_thumbnail() ) :
-		                            the_post_thumbnail( 'large' );
-	                            else:
-		                            ?>
+                    <div class="item-post">
+                        <div class="item-post__thumbnail project-gallery" data-src="<?php echo esc_url( $featured_img_url ); ?>" data-fancybox="gallery" data-caption='<?php echo wp_json_encode( $dataCaption ) ; ?>'>
+	                        <?php
+	                        if ( has_post_thumbnail() ) :
+		                        the_post_thumbnail( 'large' );
+	                        else:
+		                        ?>
 
-                                    <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>" />
+                                <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>" />
 
-	                            <?php endif; ?>
-                            </a>
-                        </div>
-
-                        <div class="item-post__caption">
-                            <h4>
-                                <a href="<?php the_permalink(); ?>">
-                                    <?php the_title(); ?>
-                                </a>
-                            </h4>
+	                        <?php endif; ?>
                         </div>
                     </div>
                 <?php endwhile; wp_reset_postdata(); ?>
