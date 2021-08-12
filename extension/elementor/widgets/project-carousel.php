@@ -109,37 +109,6 @@ class sungarden_widget_project_carousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'show_excerpt',
-            [
-                'label'     =>  esc_html__( 'Show excerpt', 'sungarden' ),
-                'type'      =>  Controls_Manager::CHOOSE,
-                'options'   =>  [
-                    '1' => [
-                        'title' =>  esc_html__( 'Yes', 'sungarden' ),
-                        'icon'  =>  'fa fa-check',
-                    ],
-                    '0' => [
-                        'title' =>  esc_html__( 'No', 'sungarden' ),
-                        'icon'  =>  'fa fa-ban',
-                    ]
-                ],
-                'default' => '1'
-            ]
-        );
-
-        $this->add_control(
-            'excerpt_length',
-            [
-                'label'     =>  esc_html__( 'Excerpt Words', 'sungarden' ),
-                'type'      =>  Controls_Manager::NUMBER,
-                'default'   =>  '10',
-                'condition' =>  [
-                    'show_excerpt' => '1',
-                ],
-            ]
-        );
-
         $this->end_controls_section();
 
         /* Section Layout */

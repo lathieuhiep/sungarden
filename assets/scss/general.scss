@@ -67,7 +67,7 @@ a {
 }
 
 p {
-  margin: 0 0 18px;
+  margin: 0 0 15px;
 
   &:last-child {
     margin-bottom: 0;
@@ -157,6 +157,17 @@ pre {
   &:hover {
     background-color: $background-primary;
   }
+}
+
+.custom-row {
+  margin-left: -4px;
+  margin-right: -4px;
+}
+
+.custom-col {
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-bottom: 8px;
 }
 
 /* Social network */
@@ -318,8 +329,29 @@ pre {
 .breadcrumbs {
   text-align: center;
 
-  &__heading {
-    margin-bottom: 8px;
+  .heading {
+    margin-bottom: 0;
     font-weight: 400;
+  }
+
+  &.breadcrumbs-type {
+    padding: 84px 12px 84px 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("assets/images/bk-bredcrumbs.jpg");
+
+    .heading {
+      color: #ffffff;
+    }
+
+    .breadcrumbs-col {
+      color: rgba(255,255,255,0.7);
+
+      span,
+      a {
+        color: rgba(255,255,255,0.7);
+      }
+    }
   }
 }

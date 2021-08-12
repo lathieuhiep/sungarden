@@ -68,7 +68,6 @@
 
         // custom fancybox
         let projectGallery = $('.project-gallery');
-
         if ( projectGallery.length ) {
             projectGallery.fancybox({
                 transitionEffect: "slide",
@@ -95,6 +94,20 @@
                         item.$content.append(dataCaption);
                         $('.project-caption-item').fadeIn();
                     }
+                }
+            });
+        }
+
+        // popup video
+        let playVideo = $('.play-video');
+        if ( playVideo.length ) {
+            playVideo.fancybox({
+                youtube : {
+                    controls : 1,
+                    showinfo : 1
+                },
+                vimeo : {
+                    color : 'f00'
                 }
             });
         }

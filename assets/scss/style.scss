@@ -25,14 +25,18 @@ Text Domain: sungarden
   ## Single
   ## Pagination
   ## Comment
+# Project
+  ## Single
 # Elementor
-  ## Breadcrumbs
   ## Slider
   ## Posts Grid
   ## Posts Carousel
   ## About Text
   ## Service
   ## Project Carousel
+  ## Project Grid
+  ## Videos
+  ## Testimonial Carousel
 # Contact Form 7
 # Footer
 # Responsive
@@ -69,6 +73,11 @@ Text Domain: sungarden
 # Blog
 -----------------------------------------------------------------------------*/
 @import "blog/blog";
+
+/**
+# Project
+-----------------------------------------------------------------------------*/
+@import "project/project";
 
 /**
 # Elementor

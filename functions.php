@@ -73,6 +73,7 @@ require get_parent_theme_file_path( '/extension/process-option.php' );
 require get_parent_theme_file_path( '/extension/post-type/project.php' );
 require get_parent_theme_file_path( '/extension/post-type/product.php' );
 require get_parent_theme_file_path( '/extension/post-type/service.php' );
+require get_parent_theme_file_path( '/extension/post-type/video.php' );
 
 if ( class_exists( 'ReduxFramework' ) ) {
 	/*
@@ -87,6 +88,7 @@ if ( class_exists( 'RW_Meta_Box' ) ) {
 	 */
 	require get_parent_theme_file_path( '/extension/meta-box/meta-box-options.php' );
 	require get_parent_theme_file_path( '/extension/meta-box/project-options.php' );
+	require get_parent_theme_file_path( '/extension/meta-box/video-options.php' );
 
 }
 

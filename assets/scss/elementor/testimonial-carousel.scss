@@ -1,0 +1,61 @@
+.element-testimonial-carousel {
+  .heading {
+    font-size: 34px;
+    margin-bottom: 47px;
+    color: $color-three;
+  }
+
+  .item-box {
+    @include flexbox();
+
+    .item-img {
+      width: 230px;
+      height: 230px;
+      overflow: hidden;
+      border-radius: 15px;
+      @include flex(0 0 auto);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .item-content {
+      padding-left: 20px;
+      @include flex(1);
+
+      .name {
+        margin-bottom: 0;
+        font-size: 24px;
+        color: $color-three;
+      }
+
+      .position {
+        margin-bottom: 18px;
+        color: rgba(0,0,0,0.4);
+      }
+    }
+  }
+
+  .owl-carousel {
+    .owl-nav {
+      margin: 0;
+
+      button {
+        position: absolute;
+        bottom: 12%;
+        margin: 0;
+
+        &.owl-prev {
+          left: -43px;
+        }
+
+        &.owl-next {
+          right: -43px;
+        }
+      }
+    }
+  }
+}

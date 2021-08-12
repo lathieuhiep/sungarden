@@ -20,6 +20,9 @@
         /* Element project carousel */
         elementorFrontend.hooks.addAction( 'frontend/element_ready/sungarden-project-carousel.default', ElementCarouselSlider );
 
+        /* Element testimonial carousel */
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/sungarden-testimonial-carousel.default', ElementCarouselSlider );
+
     } );
 
 })( jQuery );
