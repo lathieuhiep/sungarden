@@ -7,13 +7,25 @@
 
   &__title {
     margin: 0 20px 0 0;
-    font-size: 36px;
+    font-size: 34px;
     @include flex(0 0 auto);
   }
+
   &__line {
     height: 1px;
     background-color: $background-primary;
     @include flex(1);
     @include transform(translateY(3px));
+  }
+
+  &__description {
+    .image-text {
+      padding-right: 1.5em;
+
+      img {
+        height: 100%;
+        object-fit: contain;
+      }
+    }
   }
 }

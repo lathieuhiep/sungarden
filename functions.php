@@ -87,6 +87,7 @@ if ( class_exists( 'RW_Meta_Box' ) ) {
 	 * Required: Meta Box Framework
 	 */
 	require get_parent_theme_file_path( '/extension/meta-box/meta-box-options.php' );
+	require get_parent_theme_file_path( '/extension/meta-box/product-options.php' );
 	require get_parent_theme_file_path( '/extension/meta-box/project-options.php' );
 	require get_parent_theme_file_path( '/extension/meta-box/video-options.php' );
 
@@ -105,6 +106,7 @@ if ( did_action( 'elementor/loaded' ) ) :
 	 * Required: Elementor
 	 */
 	require get_parent_theme_file_path( '/extension/elementor/elementor.php' );
+	require get_parent_theme_file_path( '/extension/elementor/elementor-function.php' );
 
 endif;
 
@@ -334,19 +336,18 @@ function sungarden_pagination() {
 }
 
 // pagination nav query
-function sungarden_paging_nav_query( $sungarden_querry ) {
+function sungarden_paging_nav_query( $query ) {
 
-	$sungarden_pagination_args = array(
-
+    $args = array(
 		'prev_text' => esc_html__( ' Previous', 'sungarden' ),
 		'next_text' => esc_html__( 'Next', 'sungarden' ),
 		'current'   => max( 1, get_query_var( 'paged' ) ),
-		'total'     => $sungarden_querry->max_num_pages,
+		'total'     => $query->max_num_pages,
+		'mid_size'  => '5',
 		'type'      => 'list',
-
 	);
 
-	$sungarden_paginate_links = paginate_links( $sungarden_pagination_args );
+	$sungarden_paginate_links = paginate_links( $args );
 
 	if ( $sungarden_paginate_links ) :
 
@@ -360,7 +361,42 @@ function sungarden_paging_nav_query( $sungarden_querry ) {
 	endif;
 }
 
-/* End pagination */
+// pagination nav query ajax
+function sungarden_paging_nav_query_ajax( $query, $paged = 1, $options = null ) {
+	global $wp_query, $wp_rewrite;
+
+	if ( $query ) {
+		$main_query = $query;
+    } else {
+		$main_query = $wp_query;
+    }
+
+	$total = $main_query->max_num_pages ?? '';
+
+	$args = array(
+		'base'     => trailingslashit( home_url() ) . "{$wp_rewrite->pagination_base}/%#%/",
+		'format'   => '?paged=%#%',
+		'current'  => max( 1, $paged ),
+		'prev_text' => esc_html__( ' Previous', 'sungarden' ),
+		'next_text' => esc_html__( 'Next', 'sungarden' ),
+		'total'     => $total,
+		'mid_size'  => '5',
+		'type'      => 'list',
+	);
+
+	$sungarden_paginate_links = paginate_links( $args );
+
+	if ( $sungarden_paginate_links ) :
+
+?>
+        <nav class="pagination pagination-ajax" data-options='<?php echo wp_json_encode( $options ) ; ?>'>
+			<?php echo $sungarden_paginate_links; ?>
+        </nav>
+
+	<?php
+
+	endif;
+}
 
 // Sanitize Pagination
 add_action( 'navigation_markup_template', 'sungarden_sanitize_pagination' );
@@ -370,9 +406,7 @@ function sungarden_sanitize_pagination( $sungarden_content ): string {
 	$sungarden_content = str_replace( 'role="navigation"', '', $sungarden_content );
 
 	// Remove h2 tag
-	$sungarden_content = preg_replace( '#<h2.*?>(.*?)<\/h2>#si', '', $sungarden_content );
-
-	return $sungarden_content;
+	return preg_replace( '#<h2.*?>(.*?)<\/h2>#si', '', $sungarden_content );
 }
 
 /* Start Get col global */

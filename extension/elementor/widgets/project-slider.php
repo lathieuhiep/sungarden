@@ -6,18 +6,18 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 use Elementor\Core\Schemes;
 
-class sungarden_widget_project_carousel extends Widget_Base {
+class sungarden_widget_project_slider extends Widget_Base {
 
     public function get_categories() {
         return array( 'sungarden_widgets' );
     }
 
     public function get_name() {
-        return 'sungarden-project-carousel';
+        return 'sungarden-project-slider';
     }
 
     public function get_title() {
-        return esc_html__( 'Project Carousel', 'sungarden' );
+        return esc_html__( 'Project Slider', 'sungarden' );
     }
 
     public function get_icon() {
@@ -43,7 +43,7 @@ class sungarden_widget_project_carousel extends Widget_Base {
 		    [
 			    'label'       => esc_html__( 'Heading', 'sungarden' ),
 			    'type'        => Controls_Manager::TEXT,
-			    'default'     => esc_html__( 'Xem nhanh dự án', 'sungarden' ),
+			    'default'     => esc_html__( 'Hình ảnh dự án', 'sungarden' ),
 			    'label_block' => true
 		    ]
 	    );
@@ -151,7 +151,7 @@ class sungarden_widget_project_carousel extends Widget_Base {
 			    'label_on'      =>  esc_html__('Yes', 'sungarden'),
 			    'label_off'     =>  esc_html__('No', 'sungarden'),
 			    'return_value'  =>  'yes',
-			    'default'       =>  'yes',
+			    'default'       =>  'no',
 		    ]
 	    );
 
@@ -163,7 +163,7 @@ class sungarden_widget_project_carousel extends Widget_Base {
 			    'label_on'      =>  esc_html__('Yes', 'sungarden'),
 			    'label_off'     =>  esc_html__('No', 'sungarden'),
 			    'return_value'  =>  'yes',
-			    'default'       =>  'yes',
+			    'default'       =>  'no',
 		    ]
 	    );
 
@@ -172,7 +172,7 @@ class sungarden_widget_project_carousel extends Widget_Base {
 		    [
 			    'label'     =>  esc_html__( 'Space Between Item', 'sungarden' ),
 			    'type'      =>  Controls_Manager::NUMBER,
-			    'default'   =>  30,
+			    'default'   =>  8,
 			    'min'       =>  0,
 			    'max'       =>  100,
 			    'step'      =>  1,
@@ -268,7 +268,7 @@ class sungarden_widget_project_carousel extends Widget_Base {
 		    [
 			    'label'     =>  esc_html__( 'Space Between Item', 'sungarden' ),
 			    'type'      =>  Controls_Manager::NUMBER,
-			    'default'   =>  15,
+			    'default'   =>  8,
 			    'min'       =>  0,
 			    'max'       =>  100,
 			    'step'      =>  1,
@@ -310,162 +310,55 @@ class sungarden_widget_project_carousel extends Widget_Base {
 
         $this->end_controls_section();
 
-        /* Section style post */
-        $this->start_controls_section(
-            'section_style_post',
-            [
-                'label' => esc_html__( 'Color & Typography', 'sungarden' ),
-                'tab' => Controls_Manager::TAB_STYLE
-            ]
-        );
+	    /* Section Link */
+	    $this->start_controls_section(
+		    'section_link',
+		    [
+			    'label' => esc_html__( 'Link Settings', 'sungarden' )
+		    ]
+	    );
 
-        // Style title post
-        $this->add_control(
-            'title_post_options',
-            [
-                'label'     =>  esc_html__( 'Title Post', 'sungarden' ),
-                'type'      =>  Controls_Manager::HEADING,
-                'separator' =>  'before',
-            ]
-        );
+	    $this->add_control(
+		    'link',
+		    [
+			    'label' => esc_html__( 'Link', 'sungarden' ),
+			    'type' => Controls_Manager::URL,
+			    'placeholder' => esc_html__( 'https://your-link.com', 'sungarden' ),
+			    'show_external' => true,
+			    'default' => [
+				    'url' => '',
+				    'is_external' => true,
+				    'nofollow' => false,
+			    ],
+		    ]
+	    );
 
-        $this->add_control(
-            'title_post_color',
-            [
-                'label'     =>  esc_html__( 'Color', 'sungarden' ),
-                'type'      =>  Controls_Manager::COLOR,
-                'default'   =>  '',
-                'selectors' =>  [
-                    '{{WRAPPER}} .element-post-carousel .item-post__title a'   =>  'color: {{VALUE}};',
-                ],
-            ]
-        );
+	    $this->add_control(
+		    'text_link', [
+			    'label' => esc_html__( 'Text Link', 'sungarden' ),
+			    'type' => Controls_Manager::TEXT,
+			    'default' => esc_html__( 'Xem thêm những dự án khác' , 'sungarden' ),
+			    'label_block' => true,
+		    ]
+	    );
 
-        $this->add_control(
-            'title_post_color_hover',
-            [
-                'label'     =>  esc_html__( 'Color Hover', 'sungarden' ),
-                'type'      =>  Controls_Manager::COLOR,
-                'default'   =>  '',
-                'selectors' =>  [
-                    '{{WRAPPER}} .element-post-carousel .item-post__title a:hover'   =>  'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'title_post_typography',
-                'selector' => '{{WRAPPER}} .element-post-carousel .item-post .item-post__title',
-            ]
-        );
-
-        $this->add_control(
-            'title_post_alignment',
-            [
-                'label'     =>  esc_html__( 'Title Alignment', 'sungarden' ),
-                'type'      =>  Controls_Manager::CHOOSE,
-                'options'   =>  [
-                    'left'  =>  [
-                        'title' =>  esc_html__( 'Left', 'sungarden' ),
-                        'icon'  =>  'fa fa-align-left',
-                    ],
-                    'center' => [
-                        'title' =>  esc_html__( 'Center', 'sungarden' ),
-                        'icon'  =>  'fa fa-align-center',
-                    ],
-                    'right' => [
-                        'title' =>  esc_html__( 'Right', 'sungarden' ),
-                        'icon'  =>  'fa fa-align-right',
-                    ],
-                    'justify'=> [
-                        'title' =>  esc_html__( 'Justified', 'sungarden' ),
-                        'icon'  =>  'fa fa-align-justify',
-                    ],
-                ],
-                'toggle'    =>  true,
-                'selectors' =>  [
-                    '{{WRAPPER}} .element-post-carousel .item-post .item-post__title'   =>  'text-align: {{VALUE}};',
-                ]
-            ]
-        );
-
-        // Style excerpt post
-        $this->add_control(
-            'excerpt_post_options',
-            [
-                'label'     =>  esc_html__( 'Excerpt Post', 'sungarden' ),
-                'type'      =>  Controls_Manager::HEADING,
-                'separator' =>  'before',
-            ]
-        );
-
-        $this->add_control(
-            'excerpt_color',
-            [
-                'label'     =>  esc_html__( 'Color', 'sungarden' ),
-                'type'      =>  Controls_Manager::COLOR,
-                'default'   =>  '',
-                'selectors' =>  [
-                    '{{WRAPPER}} .element-post-carousel .item-post .item-post__content p'   =>  'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'excerpt_typography',
-                'selector' => '{{WRAPPER}} .element-post-carousel .item-post .item-post__content p',
-            ]
-        );
-
-        $this->add_control(
-            'excerpt_alignment',
-            [
-                'label'     =>  esc_html__( 'Excerpt Alignment', 'sungarden' ),
-                'type'      =>  Controls_Manager::CHOOSE,
-                'options'   =>  [
-                    'left'  =>  [
-                        'title' =>  esc_html__( 'Left', 'sungarden' ),
-                        'icon'  =>  'fa fa-align-left',
-                    ],
-                    'center' => [
-                        'title' =>  esc_html__( 'Center', 'sungarden' ),
-                        'icon'  =>  'fa fa-align-center',
-                    ],
-                    'right' => [
-                        'title' =>  esc_html__( 'Right', 'sungarden' ),
-                        'icon'  =>  'fa fa-align-right',
-                    ],
-                    'justify'=> [
-                        'title' =>  esc_html__( 'Justified', 'sungarden' ),
-                        'icon'  =>  'fa fa-align-justify',
-                    ],
-                ],
-                'toggle'    =>  true,
-                'selectors' =>  [
-                    '{{WRAPPER}} .element-post-carousel .item-post .item-post__content p'   =>  'text-align: {{VALUE}};',
-                ]
-            ]
-        );
-
-        $this->end_controls_section();
+	    $this->end_controls_section();
 
     }
 
     protected function render() {
 
-        $settings       =   $this->get_settings_for_display();
-        $cat_post       =   $settings['select_cat'];
-        $limit_post     =   $settings['limit'];
-        $order_by_post  =   $settings['order_by'];
-        $order_post     =   $settings['order'];
+	    $settings      = $this->get_settings_for_display();
+	    $cat_post      = $settings['select_cat'];
+	    $limit_post    = $settings['limit'];
+	    $order_by_post = $settings['order_by'];
+	    $order_post    = $settings['order'];
+	    $target        = $settings['link']['is_external'] ? ' target=_blank' : '';
+	    $nofollow      = $settings['link']['nofollow'] ? ' rel=nofollow' : '';
 
 	    $data_settings_owl  =   [
 		    'loop'          =>  ( 'yes' === $settings['loop'] ),
-		    'nav'           =>  ( 'yes' === $settings['nav'] ),
+		    'nav'           =>  false,
 		    'dots'          =>  ( 'yes' === $settings['dots'] ),
 		    'margin'        =>  $settings['margin_item'],
 		    'autoplay'      =>  ( 'yes' === $settings['autoplay'] ),
@@ -517,44 +410,70 @@ class sungarden_widget_project_carousel extends Widget_Base {
 
     ?>
 
-        <div class="element-project-carousel">
-            <div class="top-box d-flex align-items-center">
+        <div class="element-project-slider element-project-style owl-event-style">
+            <div class="top-box top-box-style d-flex align-items-center">
                 <h3 class="heading flex-grow-0">
 		            <?php echo esc_html( $settings['heading'] ); ?>
                 </h3>
 
+                <div class="owl-nav-custom d-flex align-items-center">
+                    <button type="button" class="custom-prev-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <span class="nav-line"></span>
+
+                    <button type="button" class="custom-next-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
                 <span class="line flex-grow-1"></span>
+
+                <a class="link" href="<?php echo esc_url( $settings['link']['url'] ); ?>"<?php echo esc_attr( $target . $nofollow ) ?>>
+		            <span class="link__text">
+                        <?php echo esc_attr( $settings['text_link'] ); ?>
+                    </span>
+
+                    <span class="link__icon">
+                        <i class="fas fa-long-arrow-alt-right"></i>
+                    </span>
+                </a>
             </div>
 
-            <div class="custom-owl-carousel custom-equal-height-owl owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ) ; ?>'>
+            <div class="custom-owl-event custom-equal-height-owl owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ) ; ?>'>
                 <?php
-                while ( $query->have_posts() ): $query->the_post();
-	                if (  has_post_thumbnail() ) :
-		                $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
-	                else:
-		                $featured_img_url = get_theme_file_uri( '/assets/images/no-image.png' );
-	                endif;
-
-	                $dataCaption = [
-                        'title' => get_the_title(),
-                        'link' => get_the_permalink(),
-                        'textLink' => esc_html__('Chi tiết dự án', 'sungarden')
-                    ];
+                while ( $query->have_posts() ):
+                    $query->the_post();
+	                $place = rwmb_meta( 'metabox_project_place' );
                 ?>
                     <div class="item-post">
-                        <div class="item-post__thumbnail project-gallery" data-src="<?php echo esc_url( $featured_img_url ); ?>" data-fancybox="gallery" data-caption='<?php echo wp_json_encode( $dataCaption ) ; ?>'>
-	                        <?php
-	                        if ( has_post_thumbnail() ) :
-		                        the_post_thumbnail( 'large' );
-	                        else:
-		                        ?>
+                        <div class="item-post">
+		                    <?php
+		                    if ( has_post_thumbnail() ) :
+			                    the_post_thumbnail( 'large' );
+		                    else:
+                            ?>
+                                <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>"/>
+		                    <?php endif; ?>
 
-                                <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>" />
+                            <div class="content">
+                                <h5 class="title">
+				                    <?php the_title(); ?>
+                                </h5>
 
-	                        <?php endif; ?>
+                                <p class="place">
+				                    <?php echo esc_html( $place ); ?>
+                                </p>
+                            </div>
+
+                            <a class="link-item" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"></a>
                         </div>
                     </div>
-                <?php endwhile; wp_reset_postdata(); ?>
+                <?php
+                endwhile;
+                wp_reset_postdata();
+                ?>
             </div>
         </div>
 
@@ -566,4 +485,4 @@ class sungarden_widget_project_carousel extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new sungarden_widget_project_carousel );
+Plugin::instance()->widgets_manager->register_widget_type( new sungarden_widget_project_slider );

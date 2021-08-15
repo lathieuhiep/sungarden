@@ -112,6 +112,18 @@
             });
         }
 
+        let wow = new WOW(
+            {
+                boxClass:     'wow',      // animated element css class (default is wow)
+                animateClass: 'animated', // animation css class (default is animated)
+                offset:       10,          // distance to the element when triggering the animation (default is 0)
+                mobile:       true,       // trigger animations on mobile devices (default is true)
+                live:         true,       // act on asynchronously loaded content (default is true)
+                scrollContainer: null,    // optional scroll container selector, otherwise use window,
+                resetAnimation: true,     // reset animation on end (default is true)
+            }
+        );
+        wow.init();
     });
 
     // loading
@@ -168,6 +180,47 @@
                     slider.owlCarousel( config ).addClass( 'owl-carousel-init' );
 
                 }
+
+            } )
+
+        }
+
+    }
+
+    // function call owlCarousel event
+    $.fn.general_owlCarousel_custom_event = function ( class_item ) {
+
+        let class_item_owlCarousel   =   $( class_item );
+
+        if ( class_item_owlCarousel.length ) {
+
+            class_item_owlCarousel.each( function () {
+
+                let slider = $(this),
+                    defaults = {
+                    autoplaySpeed: 800,
+                    navSpeed: 800,
+                    dotsSpeed: 800,
+                    autoHeight: false,
+                    navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
+                },
+                    config = $.extend( defaults, slider.data( 'settings-owl') );
+
+                slider.owlCarousel( config );
+
+                // Go to the next item
+                $('.custom-next-btn').each( function () {
+                    $(this).on('click', function () {
+                        $(this).closest('.owl-event-style').find('.custom-owl-event').trigger('next.owl.carousel', [800]);
+                    })
+                } )
+
+                // Go to the previous item
+                $('.custom-prev-btn').each( function () {
+                    $(this).on('click', function () {
+                        $(this).closest('.owl-event-style').find('.custom-owl-event').trigger('prev.owl.carousel', [800]);
+                    })
+                } )
 
             } )
 

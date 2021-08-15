@@ -53,13 +53,19 @@ final class sungarden_plugin_elementor_widgets {
             'slides',
             'post-grid',
             'post-carousel',
+	        'post-slider',
             'about-text',
 	        'contact-cf7',
+	        'product-grid',
 	        'service',
 	        'project-carousel',
 	        'project-grid',
+	        'project-slider',
 	        'videos',
-	        'testimonial-carousel'
+	        'video-popup',
+	        'video-slider',
+	        'testimonial-carousel',
+	        'consultation'
         ];
         
         foreach ( $build_widgets_filename as $widget_filename ) :
@@ -73,6 +79,13 @@ final class sungarden_plugin_elementor_widgets {
 
     public function init_script() {
         wp_register_script( 'sungarden-elementor-custom', get_theme_file_uri( '/assets/js/elementor-custom.js' ), array(), '1.0.0', true );
+
+        // filter product cat
+	    wp_enqueue_script( 'filter-product-cat', get_theme_file_uri( '/assets/js/filter-product-cat.js' ), array(), '', true );
+
+	    $sungarden_filter_product_cat_admin_url    =   admin_url( 'admin-ajax.php' );
+	    $sungarden_filter_product_cat_ajax         =   array( 'url' => $sungarden_filter_product_cat_admin_url );
+	    wp_localize_script( 'filter-product-cat', 'filter_product_cat_product', $sungarden_filter_product_cat_ajax );
     }
 
 }

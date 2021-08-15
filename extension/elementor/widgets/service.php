@@ -11,7 +11,7 @@ class sungarden_widget_service extends Widget_Base {
 	}
 
 	public function get_name() {
-		return 'sungarden-contact-cf7';
+		return 'sungarden-service';
 	}
 
 	public function get_title() {
@@ -106,6 +106,33 @@ class sungarden_widget_service extends Widget_Base {
 
 		$this->end_controls_section();
 
+		/* Section Layout */
+		$this->start_controls_section(
+			'section_layout',
+			[
+				'label' => esc_html__( 'Layout Settings', 'sungarden' )
+			]
+		);
+
+		$this->add_control(
+			'column_number',
+			[
+				'label'   => esc_html__( 'Column', 'sungarden' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 3,
+				'options' => [
+					6 => esc_html__( '6 Column', 'sungarden' ),
+					5 => esc_html__( '5 Column', 'sungarden' ),
+					4 => esc_html__( '4 Column', 'sungarden' ),
+					3 => esc_html__( '3 Column', 'sungarden' ),
+					2 => esc_html__( '2 Column', 'sungarden' ),
+					1 => esc_html__( '1 Column', 'sungarden' ),
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
 	}
 
 	protected function render() {
@@ -115,15 +142,15 @@ class sungarden_widget_service extends Widget_Base {
 		?>
 
 		<div class="element-service">
-			<div class="row">
+			<div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-<?php echo esc_attr( $settings['column_number'] ) ?> custom-row">
 				<?php
 				foreach ( $settings['list'] as $item ) :
 					$target = $item['list_link']['is_external'] ? ' target=_blank' : '';
 					$nofollow = $item['list_link']['nofollow'] ? ' rel=nofollow' : '';
 				?>
 
-				<div class="col-12 col-sm-6 col-md-4">
-					<div class="element-service__item text-center">
+				<div class="col custom-col d-flex">
+					<div class="element-service__item text-center d-flex flex-column">
 						<div class="top">
 							<p class="sub-title">
 								<?php echo esc_html( $item['list_heading'] ); ?>
@@ -134,7 +161,7 @@ class sungarden_widget_service extends Widget_Base {
 							</h6>
 						</div>
 
-						<div class="box-image">
+						<div class="box-image d-flex flex-grow-1">
 							<a class="link-item" href="<?php echo esc_url( $item['list_link']['url'] ); ?>"<?php echo esc_attr( $target . $nofollow ) ?>>
 								<?php echo wp_get_attachment_image( $item['list_image']['id'], 'large' ); ?>
 							</a>

@@ -6,22 +6,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class sungarden_widget_project_grid extends Widget_Base {
+class sungarden_widget_product_grid extends Widget_Base {
 
 	public function get_categories() {
 		return array( 'sungarden_widgets' );
 	}
 
 	public function get_name() {
-		return 'sungarden-project-grid';
+		return 'sungarden-product-grid';
 	}
 
 	public function get_title() {
-		return esc_html__( 'Project Grid', 'sungarden' );
+		return esc_html__( 'Product Grid', 'sungarden' );
 	}
 
 	public function get_icon() {
 		return 'fa fa-newspaper-o';
+	}
+
+	public function get_script_depends() {
+		return ['sungarden-elementor-custom'];
 	}
 
 	protected function _register_controls() {
@@ -39,7 +43,7 @@ class sungarden_widget_project_grid extends Widget_Base {
 			[
 				'label'       => esc_html__( 'Select Category', 'sungarden' ),
 				'type'        => Controls_Manager::SELECT2,
-				'options'     => sungarden_check_get_cat( 'sungarden_project_cat' ),
+				'options'     => sungarden_check_get_cat( 'sungarden_product_cat' ),
 				'multiple'    => true,
 				'label_block' => true
 			]
@@ -50,7 +54,7 @@ class sungarden_widget_project_grid extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Number of Posts', 'sungarden' ),
 				'type'    => Controls_Manager::NUMBER,
-				'default' => 6,
+				'default' => 12,
 				'min'     => 1,
 				'max'     => 100,
 				'step'    => 1,
@@ -88,31 +92,6 @@ class sungarden_widget_project_grid extends Widget_Base {
 
 		$this->end_controls_section();
 
-		/* Section Layout */
-		$this->start_controls_section(
-			'section_layout',
-			[
-				'label' => esc_html__( 'Layout Settings', 'sungarden' )
-			]
-		);
-
-		$this->add_control(
-			'column_number',
-			[
-				'label'   => esc_html__( 'Column', 'sungarden' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 3,
-				'options' => [
-					4 => esc_html__( '4 Column', 'sungarden' ),
-					3 => esc_html__( '3 Column', 'sungarden' ),
-					2 => esc_html__( '2 Column', 'sungarden' ),
-					1 => esc_html__( '1 Column', 'sungarden' ),
-				],
-			]
-		);
-
-		$this->end_controls_section();
-
 		/* Section style post */
 		$this->start_controls_section(
 			'section_style_post',
@@ -139,7 +118,7 @@ class sungarden_widget_project_grid extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .element-project-grid .item-post__title a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .element-product-grid .item-post__title a' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -151,7 +130,7 @@ class sungarden_widget_project_grid extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => [
-					'{{WRAPPER}} .element-project-grid .item-post__title a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .element-product-grid .item-post__title a:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -160,7 +139,7 @@ class sungarden_widget_project_grid extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_post_typography',
-				'selector' => '{{WRAPPER}} .element-project-grid .item-post .item-post__title',
+				'selector' => '{{WRAPPER}} .element-product-grid .item-post .item-post__title',
 			]
 		);
 
@@ -176,21 +155,36 @@ class sungarden_widget_project_grid extends Widget_Base {
 		$order_by_post = $settings['order_by'];
 		$order_post    = $settings['order'];
 		$paged         = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+		$data_options  = [
+			'limit' => $limit_post,
+            'orderBy' => $order_by_post,
+            'order' => $order_post
+        ];
 
 		if ( ! empty( $cat_post ) ) :
+			$data_options['termId'] = $cat_post[0];
+            $data_options_nav = $data_options;
+
+            $get_terms = get_terms( array(
+				'taxonomy'   => 'sungarden_product_cat',
+				'include'    => $cat_post,
+				'hide_empty' => false,
+			) );
+
 			$tax_query = array(
 				array(
-					'taxonomy' => 'sungarden_project_cat',
+					'taxonomy' => 'sungarden_product_cat',
 					'field'    => 'term_id',
-					'terms'    => $cat_post
+					'terms'    => $cat_post[0]
 				),
 			);
 		else:
-			$tax_query = '';
+			$data_options_nav = $data_options;
+			$get_terms = $tax_query = '';
 		endif;
 
 		$args = array(
-			'post_type'           => 'sungarden_project',
+			'post_type'           => 'sungarden_product',
 			'posts_per_page'      => $limit_post,
 			'paged'               => $paged,
 			'orderby'             => $order_by_post,
@@ -203,46 +197,33 @@ class sungarden_widget_project_grid extends Widget_Base {
 
 		if ( $query->have_posts() ) :
 
-			?>
+        ?>
 
-            <div class="element-project-grid element-project-style">
-                <div class="row custom-row">
-					<?php
-                    while ( $query->have_posts() ):
-                        $query->the_post();
-
-	                    $place = rwmb_meta( 'metabox_project_place' );
-                    ?>
-
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-<?php echo esc_attr( 12 / $settings['column_number'] ); ?> item-col custom-col">
-                            <div class="item-post">
-	                            <?php
-	                            if ( has_post_thumbnail() ) :
-		                            the_post_thumbnail( 'large' );
-	                            else:
-                                ?>
-                                    <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>"/>
-	                            <?php endif; ?>
-
-                                <div class="content">
-                                    <h5 class="title">
-                                        <?php the_title(); ?>
-                                    </h5>
-
-                                    <p class="place">
-		                                <?php echo esc_html( $place ); ?>
-                                    </p>
-                                </div>
-
-                                <a class="link-item" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"></a>
-                            </div>
-                        </div>
-
-					<?php endwhile;
-					wp_reset_postdata(); ?>
+            <div class="element-product-grid">
+                <div class="load-data d-flex align-items-center justify-content-center">
+                    <div class="loader"></div>
                 </div>
 
-				<?php sungarden_paging_nav_query( $query ); ?>
+                <?php  if ( $get_terms ) : ?>
+
+                <nav class="element-product-grid__nav text-center">
+                    <ul>
+	                    <?php
+                        foreach ( $get_terms as $item_term ) :
+	                        $data_options['termId'] = $item_term->term_id;
+                        ?>
+                        <li class="product-nav-cat__item<?php echo esc_attr( $cat_post[0] == $item_term->term_id ? ' active' : '' ); ?>" data-options='<?php echo wp_json_encode( $data_options ) ; ?>'>
+                            <?php echo esc_html( $item_term->name ); ?>
+                        </li>
+	                    <?php endforeach; ?>
+                    </ul>
+                </nav>
+
+                <?php endif; ?>
+
+                <div class="container warp-product">
+                    <?php sungarden_content_filter_product_cat( $query, $paged, $data_options_nav ); ?>
+                </div>
             </div>
 
 		<?php
@@ -255,4 +236,4 @@ class sungarden_widget_project_grid extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new sungarden_widget_project_grid );
+Plugin::instance()->widgets_manager->register_widget_type( new sungarden_widget_product_grid );

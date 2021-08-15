@@ -1,7 +1,18 @@
 .element-service {
+  .custom-row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .custom-col {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+  }
+
   &__item {
     padding: 20px;
-    margin-bottom: 20px;
+
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.03);
@@ -19,14 +30,17 @@
 
     .box-image {
       margin-bottom: 12px;
-      height: 214px;
-      overflow: hidden;
-      border-radius: 8px;
 
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+      a {
+        display: block;
+        overflow: hidden;
+        border-radius: 8px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
     }
 

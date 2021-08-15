@@ -1,0 +1,60 @@
+.top-box-style {
+  margin-bottom: 35px;
+
+  .heading {
+    margin-bottom: 0;
+    font-size: 34px;
+  }
+
+  .owl-nav-custom {
+    margin: 0 30px 0 15px;
+
+    button {
+      padding: 0;
+      border: none;
+      line-height: initial;
+      background-color: transparent;
+
+      i {
+        color: $color-three;
+        font-size: 20px;
+        line-height: inherit;
+        @include transition();
+
+        &:hover {
+          color: $color-hover;
+        }
+      }
+    }
+
+    .nav-line {
+      margin: 0 16px;
+      width: 1px;
+      height: 16px;
+      background-color: #000000;
+    }
+  }
+
+  .link {
+    margin-left: 27px;
+    font-size: 18px;
+
+    span {
+      display: inline-block;
+    }
+
+    &__text {
+      margin-right: 10px;
+    }
+
+    &__icon {
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      font-size: 12px;
+      border-radius: 50%;
+      border: 1px solid $background-primary;
+    }
+  }
+}

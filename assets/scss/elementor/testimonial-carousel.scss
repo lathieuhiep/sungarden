@@ -45,11 +45,13 @@
 
       button {
         position: absolute;
-        bottom: 12%;
+        bottom: 50%;
         margin: 0;
+        line-height: normal;
+        @include transform(translateY(50%));
 
         &.owl-prev {
-          left: -43px;
+          left: -50px;
         }
 
         &.owl-next {

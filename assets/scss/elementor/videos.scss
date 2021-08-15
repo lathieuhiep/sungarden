@@ -8,9 +8,13 @@
     padding-right: 4px;
     margin-bottom: 8px;
   }
+}
 
+.element-video-style {
   .image-video {
     position: relative;
+    border-radius: 10px;
+    overflow: hidden;
 
     &:after {
       position: absolute;

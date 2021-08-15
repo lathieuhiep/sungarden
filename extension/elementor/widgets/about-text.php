@@ -50,6 +50,17 @@ class sungarden_widget_about_text extends Widget_Base {
             ]
         );
 
+	    $this->add_control(
+		    'image',
+		    [
+			    'label' => esc_html__( 'Choose Image', 'sungarden' ),
+			    'type' => Controls_Manager::MEDIA,
+			    'default' => [
+				    'url' => Utils::get_placeholder_image_src(),
+			    ],
+		    ]
+	    );
+
         $this->add_control(
             'widget_description',
             [
@@ -66,32 +77,6 @@ class sungarden_widget_about_text extends Widget_Base {
             'label' =>  esc_html__( 'Text', 'sungarden' ),
             'tab'   =>  Controls_Manager::TAB_STYLE,
         ));
-
-        $this->add_control(
-            'align',
-            [
-                'label'     =>  esc_html__( 'Alignment Title', 'sungarden' ),
-                'type'      =>  Controls_Manager::CHOOSE,
-                'options'   =>  [
-                    'left'  =>  [
-                        'title' =>  esc_html__( 'Left', 'sungarden' ),
-                        'icon'  =>  'fa fa-align-left',
-                    ],
-
-                    'center'    =>  [
-                        'title' =>  esc_html__( 'Center', 'sungarden' ),
-                        'icon'  =>  'fa fa-align-center',
-                    ],
-                    'right' => [
-                        'title' =>  esc_html__( 'Right', 'sungarden' ),
-                        'icon'  =>  'fa fa-align-right',
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .element-about-text' => 'text-align: {{VALUE}};',
-                ],
-            ]
-        );
 
         $this->add_control(
             'title_color',
@@ -115,26 +100,6 @@ class sungarden_widget_about_text extends Widget_Base {
             ]
         );
 
-        $this->add_responsive_control(
-            'margin_bottom_line',
-            [
-                'label'     =>  esc_html__( 'Margin Bottom Line', 'sungarden' ),
-                'type'      =>  Controls_Manager::SLIDER,
-                'default'   =>  [
-                    'size'  =>  '',
-                ],
-                'range'     =>  [
-                    'px'    =>  [
-                        'min'   =>  10,
-                        'max'   =>  600,
-                    ],
-                ],
-                'selectors' =>  [
-                    '{{WRAPPER}} .element-about-text__line' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
         $this->end_controls_section();
 
     }
@@ -142,7 +107,6 @@ class sungarden_widget_about_text extends Widget_Base {
     protected function render() {
 
         $settings = $this->get_settings_for_display();
-
         ?>
 
         <div class="element-about-text">
@@ -156,8 +120,16 @@ class sungarden_widget_about_text extends Widget_Base {
 
             <?php if ( !empty( $settings['widget_description'] ) ) : ?>
 
-                <div class="element-about-text__description">
-                    <?php echo wp_kses_post( $settings['widget_description'] ); ?>
+                <div class="element-about-text__description d-flex">
+                    <?php if ( $settings['image']['url'] ) : ?>
+                        <div class="image-text flex-lg-shrink-0 flex-grow-0 flex-fill">
+	                        <?php echo wp_get_attachment_image( $settings['image']['id'], 'full' ); ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="box-content flex-grow-1">
+	                    <?php echo wp_kses_post( $settings['widget_description'] ); ?>
+                    </div>
                 </div>
 
             <?php endif; ?>
@@ -165,30 +137,6 @@ class sungarden_widget_about_text extends Widget_Base {
 
         <?php
 
-    }
-
-    protected function _content_template() {
-
-        ?>
-        <div class="element-about-text">
-            <div class="element-about-text__top">
-                <h2 class="element-about-text__title">
-                    {{{ settings.widget_title }}}
-                </h2>
-
-                <span class="element-about-text__line">&nbsp;</span>
-            </div>
-
-            <# if ( '' !== settings.widget_description ) {#>
-
-            <div class="element-about-text__description">
-                {{{ settings.widget_description }}}
-            </div>
-
-            <# } #>
-        </div>
-
-        <?php
     }
 
 }

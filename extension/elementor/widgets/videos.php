@@ -17,7 +17,7 @@ class sungarden_widget_videos extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Videos', 'sungarden' );
+		return esc_html__( 'Video List', 'sungarden' );
 	}
 
 	public function get_icon() {
@@ -103,7 +103,7 @@ class sungarden_widget_videos extends Widget_Base {
 			$tax_query = array(
 				array(
 					'taxonomy' => 'sungarden_video_cat',
-					'field'    => 'id',
+					'field'    => 'term_id',
 					'terms'    => $cat_post
 				),
 			);
@@ -127,7 +127,7 @@ class sungarden_widget_videos extends Widget_Base {
 
 			?>
 
-            <div class="element-videos">
+            <div class="element-videos element-video-style">
                 <div class="row">
 					<?php
                     while ( $query->have_posts() ):

@@ -19,9 +19,9 @@ function sungarden_create_project() {
         'add_new_item'          =>  esc_html__( 'Thêm Dự án', 'sungarden' ),
         'edit_item'             =>  esc_html__( 'Sửa Dự án', 'sungarden' ),
         'new_item'              =>  esc_html__( 'Dự án mới', 'sungarden' ),
-        'view_item'             =>  esc_html__( 'Xem Dự án', 'sungarden' ),
-        'all_items'             =>  esc_html__( 'Danh sách Dự án', 'sungarden' ),
-        'search_items'          =>  esc_html__( 'Tìm kiếm Dự án', 'sungarden' ),
+        'view_item'             =>  esc_html__( 'Xem dự án', 'sungarden' ),
+        'all_items'             =>  esc_html__( 'Tất cả dự án', 'sungarden' ),
+        'search_items'          =>  esc_html__( 'Tìm kiếm dự án', 'sungarden' ),
         'not_found'             =>  esc_html__( 'Không tìm thấy', 'sungarden' ),
         'not_found_in_trash'    =>  esc_html__( 'Không tìm thấy trong thùng rác', 'sungarden' ),
         'parent_item_colon'     =>  ''

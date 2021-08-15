@@ -9,8 +9,6 @@
     }
 
     .line {
-      height: 1px;
-      background-color: #D3D3D3;
       @include transform(translateY(2px));
     }
   }

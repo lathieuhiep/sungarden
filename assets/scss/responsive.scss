@@ -3,6 +3,7 @@
     max-width: 1224px;
   }
 }
+
 @media (min-width: 1200px) {
   .container-fluid {
     padding-left: 100px;
@@ -72,6 +73,7 @@
     top: 0;
     z-index: 10;
   }
+
   .admin-bar {
     .main-navigation {
       &.active-sticky-nav {
@@ -79,6 +81,7 @@
       }
     }
   }
+
   .site-menu {
     > ul {
       height: 100%;
@@ -98,6 +101,7 @@
       }
     }
   }
+
   .modal {
     &.mode-quick-view-product {
       .modal-dialog {

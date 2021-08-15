@@ -20,7 +20,7 @@ function sungarden_create_service() {
         'edit_item'             =>  esc_html__( 'Sửa Dịch vụ', 'sungarden' ),
         'new_item'              =>  esc_html__( 'Dịch vụ mới', 'sungarden' ),
         'view_item'             =>  esc_html__( 'Xem Dịch vụ', 'sungarden' ),
-        'all_items'             =>  esc_html__( 'Danh sách Dịch vụ', 'sungarden' ),
+        'all_items'             =>  esc_html__( 'Tất cả dịch vụ', 'sungarden' ),
         'search_items'          =>  esc_html__( 'Tìm kiếm Dịch vụ', 'sungarden' ),
         'not_found'             =>  esc_html__( 'Không tìm thấy', 'sungarden' ),
         'not_found_in_trash'    =>  esc_html__( 'Không tìm thấy trong thùng rác', 'sungarden' ),
