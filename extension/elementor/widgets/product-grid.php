@@ -91,60 +91,6 @@ class sungarden_widget_product_grid extends Widget_Base {
 		);
 
 		$this->end_controls_section();
-
-		/* Section style post */
-		$this->start_controls_section(
-			'section_style_post',
-			[
-				'label' => esc_html__( 'Color & Typography', 'sungarden' ),
-				'tab'   => Controls_Manager::TAB_STYLE
-			]
-		);
-
-		// Style title post
-		$this->add_control(
-			'title_post_options',
-			[
-				'label'     => esc_html__( 'Title Post', 'sungarden' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before',
-			]
-		);
-
-		$this->add_control(
-			'title_post_color',
-			[
-				'label'     => esc_html__( 'Color', 'sungarden' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => [
-					'{{WRAPPER}} .element-product-grid .item-post__title a' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'title_post_color_hover',
-			[
-				'label'     => esc_html__( 'Color Hover', 'sungarden' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => [
-					'{{WRAPPER}} .element-product-grid .item-post__title a:hover' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name'     => 'title_post_typography',
-				'selector' => '{{WRAPPER}} .element-product-grid .item-post .item-post__title',
-			]
-		);
-
-		$this->end_controls_section();
-
 	}
 
 	protected function render() {

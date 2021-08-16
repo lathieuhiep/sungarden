@@ -27,6 +27,8 @@ Text Domain: sungarden
   ## Comment
 # Project
   ## Single
+# Product
+  ## Single
 # Elementor
   ## Slider
   ## Posts Grid
@@ -82,6 +84,11 @@ Text Domain: sungarden
 # Project
 -----------------------------------------------------------------------------*/
 @import "project/project";
+
+/**
+# Product
+-----------------------------------------------------------------------------*/
+@import "product/product";
 
 /**
 # Elementor
