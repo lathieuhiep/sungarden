@@ -2,6 +2,15 @@
 global $sungarden_options;
 
 $sungarden_logo_image_id    =   $sungarden_options['sungarden_logo_image']['id'];
+$logoPage = rwmb_meta( 'metabox_page_logo', array( 'limit' => 1 ) );
+
+if ( $logoPage ) {
+	$idImage = $logoPage[0]['ID'];
+} elseif ( $sungarden_logo_image_id ) {
+	$idImage = $sungarden_logo_image_id;
+} else {
+	$idImage = '';
+}
 ?>
 
 <nav id="site-navigation" class="main-navigation">
@@ -11,8 +20,8 @@ $sungarden_logo_image_id    =   $sungarden_options['sungarden_logo_image']['id']
                 <div class="site-logo d-flex align-items-center">
                     <a href="<?php echo esc_url( get_home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
                         <?php
-                            if ( !empty( $sungarden_logo_image_id ) ) :
-                                echo wp_get_attachment_image( $sungarden_logo_image_id, 'full' );
+                            if ( !empty( $idImage ) ) :
+                                echo wp_get_attachment_image( $idImage, 'full' );
                             else :
                                 echo'<img class="logo-default" src="'.esc_url( get_theme_file_uri( '/assets/images/logo.png' ) ).'" alt="'.get_bloginfo('title').'" />';
                             endif;

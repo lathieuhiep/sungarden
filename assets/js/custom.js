@@ -71,7 +71,6 @@
         if ( projectGallery.length ) {
             projectGallery.fancybox({
                 transitionEffect: "slide",
-                slideClass: "abc",
                 baseClass: "projec-fancybox-custom",
                 clickContent: false,
                 hash : false,
@@ -144,6 +143,20 @@
                 dots: false,
                 centerMode: false,
                 focusOnSelect: true,
+                prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+                nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>'
+            });
+
+        }
+
+        // slides-project
+        let elementSlidesProject = $('.slider-quick-project');
+
+        if ( elementSlidesProject ) {
+            elementSlidesProject.slick({
+                infinite: true,
+                slidesToShow: 5,
+                slidesToScroll: 1,
                 prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
                 nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>'
             });

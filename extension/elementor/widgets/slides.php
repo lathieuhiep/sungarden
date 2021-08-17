@@ -416,6 +416,68 @@ class sungarden_widget_slides extends Widget_Base {
 
         $this->end_controls_section();
 
+        // Project
+	    $this->start_controls_section(
+		    'section_project_options',
+		    [
+			    'label' => esc_html__( 'Project', 'sungarden' ),
+			    'tab' => Controls_Manager::SECTION
+		    ]
+	    );
+
+	    $this->add_control(
+		    'select_cat',
+		    [
+			    'label'         =>  esc_html__( 'Select Category', 'sungarden' ),
+			    'type'          =>  Controls_Manager::SELECT2,
+			    'options'       =>  sungarden_check_get_cat( 'sungarden_project_cat' ),
+			    'multiple'      =>  true,
+			    'label_block'   =>  true
+		    ]
+	    );
+
+	    $this->add_control(
+		    'limit',
+		    [
+			    'label'     =>  esc_html__( 'Number of Posts', 'sungarden' ),
+			    'type'      =>  Controls_Manager::NUMBER,
+			    'default'   =>  6,
+			    'min'       =>  1,
+			    'max'       =>  100,
+			    'step'      =>  1,
+		    ]
+	    );
+
+	    $this->add_control(
+		    'order_by',
+		    [
+			    'label'     =>  esc_html__( 'Order By', 'sungarden' ),
+			    'type'      =>  Controls_Manager::SELECT,
+			    'default'   =>  'id',
+			    'options'   =>  [
+				    'id'    =>  esc_html__( 'Post ID', 'sungarden' ),
+				    'title' =>  esc_html__( 'Title', 'sungarden' ),
+				    'date'  =>  esc_html__( 'Date', 'sungarden' ),
+				    'rand'  =>  esc_html__( 'Random', 'sungarden' ),
+			    ],
+		    ]
+	    );
+
+	    $this->add_control(
+		    'order',
+		    [
+			    'label'     =>  esc_html__( 'Order', 'sungarden' ),
+			    'type'      =>  Controls_Manager::SELECT,
+			    'default'   =>  'ASC',
+			    'options'   =>  [
+				    'ASC'   =>  esc_html__( 'Ascending', 'sungarden' ),
+				    'DESC'  =>  esc_html__( 'Descending', 'sungarden' ),
+			    ],
+		    ]
+	    );
+
+	    $this->end_controls_section();
+
         $this->start_controls_section(
             'section_style_slides',
             [
@@ -979,64 +1041,142 @@ class sungarden_widget_slides extends Widget_Base {
 		    'dots'      =>  ( 'yes' === $settings['dots'] ),
 	    ];
 
+	    // project
+	    $cat_post       =   $settings['select_cat'];
+	    $limit_post     =   $settings['limit'];
+	    $order_by_post  =   $settings['order_by'];
+	    $order_post     =   $settings['order'];
+
+	    if ( ! empty( $cat_post ) ) :
+		    $tax_query = array(
+			    array(
+				    'taxonomy' => 'sungarden_project_cat',
+				    'field'    => 'term_id',
+				    'terms'    => $cat_post
+			    ),
+		    );
+	    else:
+		    $tax_query = '';
+	    endif;
+
+	    $args = array(
+		    'post_type'           => 'sungarden_project',
+		    'posts_per_page'      => $limit_post,
+		    'orderby'             => $order_by_post,
+		    'order'               => $order_post,
+		    'ignore_sticky_posts' => 1,
+		    'tax_query'           => $tax_query
+	    );
+
+	    $query = new \WP_Query( $args );
+
     ?>
 
-        <div class="element-slides custom-owl-carousel owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ); ?>'>
+            <div class="element-slides">
+                <div class="custom-owl-carousel owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ); ?>'>
 
-            <?php
+                    <?php
 
-            foreach ( $settings['slides_list'] as $item ) :
-                $sungarden_slides_link         =   $item['link'];
+                    foreach ( $settings['slides_list'] as $item ) :
+                        $sungarden_slides_link         =   $item['link'];
 
-            ?>
+                    ?>
 
-                <div class="element-slides__item elementor-repeater-item-<?php echo esc_attr( $item['_id'] ); ?>">
-                    <div class="element-slides__item--bg"></div>
+                        <div class="element-slides__item elementor-repeater-item-<?php echo esc_attr( $item['_id'] ); ?>">
+                            <div class="element-slides__item--bg"></div>
 
-                    <div class="element-slides__item--inner">
-                        <?php if ( $item['background_overlay'] == 'yes' ) : ?>
-                            <div class="element-slides__item--overlay"></div>
-                        <?php
-                        endif;
+                            <div class="element-slides__item--inner">
+                                <?php if ( $item['background_overlay'] == 'yes' ) : ?>
+                                    <div class="element-slides__item--overlay"></div>
+                                <?php
+                                endif;
 
-	                    if ( $item['show_content'] == 'yes' ) :
-                        ?>
+                                if ( $item['show_content'] == 'yes' ) :
+                                ?>
 
-                            <div class="element-slides__item--content">
-                                <?php if ( !empty( $item['heading'] ) ) : ?>
-                                    <div class="element-slides__item--heading">
-                                        <?php echo esc_html( $item['heading'] ); ?>
+                                    <div class="element-slides__item--content">
+                                        <?php if ( !empty( $item['heading'] ) ) : ?>
+                                            <div class="element-slides__item--heading">
+                                                <?php echo esc_html( $item['heading'] ); ?>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <?php if ( !empty( $item['description'] ) ) : ?>
+                                            <div class="element-slides__item--description">
+                                                <?php echo esc_html( $item['description'] ); ?>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <div class="line"></div>
+
+                                        <?php if ( !empty( $item['button_text'] ) ) : ?>
+                                            <div class="element-slides__item--link">
+                                                <?php if ( !empty( $sungarden_slides_link['url'] ) ) : ?>
+                                                    <a href="<?php echo esc_url( $sungarden_slides_link['url'] ); ?>" <?php echo ( $sungarden_slides_link['is_external'] ? 'target="_blank"' : '' ); ?>>
+                                                        <?php echo esc_html( $item['button_text'] ); ?>
+                                                    </a>
+                                                <?php
+                                                else:
+                                                    echo esc_html( $item['button_text'] );
+                                                endif;
+                                                ?>
+                                            </div>
+                                        <?php endif; ?>
                                     </div>
-                                <?php endif; ?>
 
-                                <?php if ( !empty( $item['description'] ) ) : ?>
-                                    <div class="element-slides__item--description">
-                                        <?php echo esc_html( $item['description'] ); ?>
-                                    </div>
-                                <?php endif; ?>
-
-                                <?php if ( !empty( $item['button_text'] ) ) : ?>
-                                    <div class="element-slides__item--link">
-                                        <?php if ( !empty( $sungarden_slides_link['url'] ) ) : ?>
-                                            <a href="<?php echo esc_url( $sungarden_slides_link['url'] ); ?>" <?php echo ( $sungarden_slides_link['is_external'] ? 'target="_blank"' : '' ); ?>>
-                                                <?php echo esc_html( $item['button_text'] ); ?>
-                                            </a>
-                                        <?php
-                                        else:
-                                            echo esc_html( $item['button_text'] );
-                                        endif;
-                                        ?>
-                                    </div>
                                 <?php endif; ?>
                             </div>
+                        </div>
 
-	                    <?php endif; ?>
+                    <?php endforeach; ?>
+
+                </div>
+
+                <?php if ( $query->have_posts() ) : ?>
+
+                <div class="element-slides__project">
+                    <h4 class="title-project">
+                        <?php esc_html_e('Click để xem thêm hình ảnh chi tiết', 'sungarden'); ?>
+                    </h4>
+
+                    <div class="icon topToBottom">
+                        <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/icon/arrow.png' ) ); ?>" alt="">
+                    </div>
+
+                    <div class="slider-quick-project">
+                        <?php
+                        while ( $query->have_posts() ): $query->the_post();
+                            if (  has_post_thumbnail() ) :
+                                $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
+                            else:
+                                $featured_img_url = get_theme_file_uri( '/assets/images/no-image.png' );
+                            endif;
+
+                            $dataCaption = [
+                                'title' => get_the_title(),
+                                'link' => get_the_permalink(),
+                                'textLink' => esc_html__('Chi tiết dự án', 'sungarden')
+                            ];
+                            ?>
+                            <div class="item-post">
+                                <div class="item-post__thumbnail project-gallery" data-src="<?php echo esc_url( $featured_img_url ); ?>" data-fancybox="gallery" data-caption='<?php echo wp_json_encode( $dataCaption ) ; ?>'>
+                                    <?php
+                                    if ( has_post_thumbnail() ) :
+                                        the_post_thumbnail( 'medium' );
+                                    else:
+                                        ?>
+
+                                        <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>" />
+
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        <?php endwhile; wp_reset_postdata(); ?>
                     </div>
                 </div>
 
-            <?php endforeach; ?>
-
-        </div>
+                <?php endif; ?>
+            </div>
 
         <?php
     }

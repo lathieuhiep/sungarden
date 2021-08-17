@@ -90,6 +90,7 @@ if ( class_exists( 'RW_Meta_Box' ) ) {
 	require get_parent_theme_file_path( '/extension/meta-box/product-options.php' );
 	require get_parent_theme_file_path( '/extension/meta-box/project-options.php' );
 	require get_parent_theme_file_path( '/extension/meta-box/video-options.php' );
+	require get_parent_theme_file_path( '/extension/meta-box/page-options.php' );
 
 }
 

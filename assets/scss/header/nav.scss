@@ -220,3 +220,45 @@
     }
   }
 }
+
+.site-header {
+  &.active-absolute-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    .main-navigation {
+      background-color: transparent;
+      @include box-shadow(none);
+    }
+
+    .site-menu {
+      > ul {
+        > li {
+          > a {
+            color: #ffffff;
+          }
+        }
+      }
+
+      ul {
+        li {
+          &.current_page_item,
+          &.current-menu-parent {
+            > a {
+              color: $color-hover;
+            }
+          }
+
+          a {
+            &:hover {
+              color: $color-hover;
+            }
+          }
+        }
+      }
+    }
+  }
+}
