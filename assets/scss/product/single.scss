@@ -3,9 +3,13 @@
     padding: 0;
   }
 
-  .top-box {
-    padding: 40px 0;
+  .warp {
+    padding: 40px 0 0;
     background-color: #F6F7F4;
+
+    &__top {
+      margin-bottom: 40px;
+    }
   }
 
   .product-thubnail-slick {
@@ -94,4 +98,43 @@
       }
     }
   }
+
+  .related-product {
+    padding: 50px 0 60px;
+    background-color: #ffffff;
+
+    .top-box-style {
+      .heading {
+        font-size: 28px;
+      }
+    }
+    .item-post {
+      &__content {
+        .title-post {
+          font-size: 14px;
+          margin-bottom: 3px;
+
+          a {
+            color: $color-title;
+
+            &:hover {
+              color: $color-hover
+            }
+          }
+        }
+
+        .price {
+          font-size: 14px;
+
+          span {
+            color: #CE0909;
+          }
+        }
+      }
+    }
+  }
+}
+
+.site-cat-product {
+  background-color: #F6F7F4;
 }

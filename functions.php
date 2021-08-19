@@ -74,6 +74,7 @@ require get_parent_theme_file_path( '/extension/post-type/project.php' );
 require get_parent_theme_file_path( '/extension/post-type/product.php' );
 require get_parent_theme_file_path( '/extension/post-type/service.php' );
 require get_parent_theme_file_path( '/extension/post-type/video.php' );
+require get_parent_theme_file_path( '/extension/post-type/faq.php' );
 
 if ( class_exists( 'ReduxFramework' ) ) {
 	/*
@@ -179,6 +180,33 @@ if ( ! function_exists( 'sungarden_mce_text_sizes' ) ) :
 
 endif;
 // End Customize mce editor font sizes
+
+// breadcrumbs
+function sungarden_breadcrumbs( $title = ''  ) {
+	if(function_exists('bcn_display')) :
+?>
+
+    <div class="breadcrumbs breadcrumbs-type" typeof="BreadcrumbList" vocab="http://schema.org/">
+        <div class="container">
+            <h3 class="heading">
+				<?php
+                if ( $title ) :
+                    echo esc_html( $title );
+                else:
+	                the_title();
+                endif;
+                ?>
+            </h3>
+
+            <div class="breadcrumbs-col">
+				<?php bcn_display(); ?>
+            </div>
+        </div>
+    </div>
+
+<?php
+	endif;
+}
 
 /* callback comment list */
 function sungarden_comments( $sungarden_comment, $sungarden_comment_args, $sungarden_comment_depth ) {
@@ -613,9 +641,17 @@ add_action( 'wp_footer', 'sungarden_facebook_sdk' );
  *
  * @param object $query The main WordPress query.
  */
-function beecolor_include_custom_post_types_in_search_results( $query ) {
+function sungarden_include_custom_post_types_in_search_results( $query ) {
 	if ( $query->is_main_query() && $query->is_search() && ! is_admin() ) {
 		$query->set( 'post_type', array( 'post' ) );
 	}
 }
-add_action( 'pre_get_posts', 'beecolor_include_custom_post_types_in_search_results' );
+add_action( 'pre_get_posts', 'sungarden_include_custom_post_types_in_search_results' );
+
+// set product category
+add_action('pre_get_posts', 'change_tax_num_of_posts' );
+function change_tax_num_of_posts( $wp_query ) {
+	if( is_tax( 'sungarden_product_cat' ) ) {
+		$wp_query->set('posts_per_page', 12);
+	}
+}

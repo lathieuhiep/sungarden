@@ -9,94 +9,98 @@ $terms_string = join(', ', wp_list_pluck($brand, 'name'));
 ?>
 
 <div id="product-<?php the_ID() ?>" <?php post_class( 'site-product-single-item' ); ?>>
-    <div class="top-box">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <div class="product-thubnail-slick">
-	                    <?php
-	                    if ( has_post_thumbnail() ) :
-		                    the_post_thumbnail( 'large' );
-	                    else:
-		                    ?>
-                            <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>"/>
-	                    <?php
-                        endif;
+    <div class="warp">
+        <div class="warp__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="product-thubnail-slick">
+                            <?php
+                            if ( has_post_thumbnail() ) :
+                                the_post_thumbnail( 'large' );
+                            else:
+                                ?>
+                                <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>"/>
+                            <?php
+                            endif;
 
-                        if ( $imageGallery ) :
-                            foreach ( $imageGallery as $item ) :
-                                echo wp_get_attachment_image( $item['ID'], 'large' );
-                            endforeach;
-                        endif;
-                        ?>
+                            if ( $imageGallery ) :
+                                foreach ( $imageGallery as $item ) :
+                                    echo wp_get_attachment_image( $item['ID'], 'large' );
+                                endforeach;
+                            endif;
+                            ?>
 
+                        </div>
+
+                        <div class="product-thubnail-nav">
+                            <?php
+                            if ( has_post_thumbnail() ) :
+                                the_post_thumbnail( 'large' );
+                            else:
+                                ?>
+                                <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>"/>
+                            <?php
+                            endif;
+
+                            if ( $imageGallery ) :
+                                foreach ( $imageGallery as $item ) :
+                                    echo wp_get_attachment_image( $item['ID'], 'large' );
+                                endforeach;
+                            endif;
+                            ?>
+                        </div>
                     </div>
 
-                    <div class="product-thubnail-nav">
-		                <?php
-		                if ( has_post_thumbnail() ) :
-			                the_post_thumbnail( 'large' );
-		                else:
-			                ?>
-                            <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>"/>
-		                <?php
-		                endif;
+                    <div class="col-12 col-md-6">
+                        <div class="box-right">
+                            <h1 class="title">
+                                <?php the_title(); ?>
+                            </h1>
 
-		                if ( $imageGallery ) :
-			                foreach ( $imageGallery as $item ) :
-				                echo wp_get_attachment_image( $item['ID'], 'large' );
-			                endforeach;
-		                endif;
-		                ?>
-                    </div>
-                </div>
+                            <div class="product-info d-flex">
+                                <div class="product-info__item">
+                                    <span>
+                                        <?php esc_html_e('Xuất xứ', 'sungarden'); ?>:&nbsp;&nbsp;<b><?php echo esc_html( $contry ); ?></b>
+                                    </span>
+                                </div>
 
-                <div class="col-12 col-md-6">
-                    <div class="box-right">
-                        <h1 class="title">
-                            <?php the_title(); ?>
-                        </h1>
+                                <div class="product-info__item">
+                                    <span>
+                                        <?php esc_html_e('Thương hiệu', 'sungarden'); ?>:&nbsp;&nbsp;<b><?php echo esc_html( $terms_string ); ?></b>
+                                    </span>
+                                </div>
+                            </div>
 
-                        <div class="product-info d-flex">
-                            <div class="product-info__item">
-                                <span>
-                                    <?php esc_html_e('Xuất xứ', 'sungarden'); ?>:&nbsp;&nbsp;<b><?php echo esc_html( $contry ); ?></b>
+                            <div class="product-bottom d-flex align-items-center">
+                                <span class="price">
+                                    <?php esc_html_e('Giá', 'sungarden'); ?>:&nbsp;&nbsp<b><?php esc_html_e( 'Liên hệ' ); ?></b>
+                                </span>
+
+                                <span class="phone">
+                                    <?php echo esc_html( $phone ); ?>
                                 </span>
                             </div>
 
-                            <div class="product-info__item">
-                                <span>
-                                    <?php esc_html_e('Thương hiệu', 'sungarden'); ?>:&nbsp;&nbsp;<b><?php echo esc_html( $terms_string ); ?></b>
-                                </span>
-                            </div>
-                        </div>
+                            <div class="desc">
+                                <h5 class="desc__title">
+                                    <?php esc_html_e('Thông tin sản phẩm', 'sungarden'); ?>:
+                                </h5>
 
-                        <div class="product-bottom d-flex align-items-center">
-                            <span class="price">
-                                <?php esc_html_e('Giá', 'sungarden'); ?>:&nbsp;&nbsp<b><?php esc_html_e( 'Liên hệ' ); ?></b>
-                            </span>
+                                <div class="desc_content">
+                                    <?php
+                                    the_content();
 
-                            <span class="phone">
-                                <?php echo esc_html( $phone ); ?>
-                            </span>
-                        </div>
-
-                        <div class="desc">
-                            <h5 class="desc__title">
-                                <?php esc_html_e('Thông tin sản phẩm', 'sungarden'); ?>:
-                            </h5>
-
-                            <div class="desc_content">
-	                            <?php
-	                            the_content();
-
-	                            sungarden_link_page();
-	                            ?>
+                                    sungarden_link_page();
+                                    ?>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <?php get_template_part('template-parts/product/related','product'); ?>
     </div>
 </div>

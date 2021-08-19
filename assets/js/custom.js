@@ -163,33 +163,24 @@
 
         }
 
+        // related product
+        $( document ).general_owlCarousel_custom_event( '.related-product__owl' );
+
+        let text = $('.element-service-detail-content .content-desc'),
+            readMoreService = $('.read-more-service'),
+            h = text[0].scrollHeight;
+
+        readMoreService.on('click', function () {
+            $(this).addClass('d-none');
+            text.animate({'height': h});
+        })
+
     });
 
     // loading
     $( window ).on( "load", function() {
 
         $( '#site-loadding' ).remove();
-
-    });
-
-    // scroll event
-    $( window ).scroll( function() {
-
-        if ( timer_clear ) clearTimeout(timer_clear);
-
-        timer_clear = setTimeout( function() {
-
-            /* Start scroll back top */
-            let $scrollTop = $(this).scrollTop();
-
-            if ( $scrollTop > 200 ) {
-                $('#back-top').addClass('active_top');
-            }else {
-                $('#back-top').removeClass('active_top');
-            }
-            /* End scroll back top */
-
-        }, 100 );
 
     });
 

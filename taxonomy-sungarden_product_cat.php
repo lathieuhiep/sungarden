@@ -1,18 +1,60 @@
 <?php
 get_header();
 
-get_template_part('template-parts/breadcrumbs/inc','breadcrumbs');
+$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+
+sungarden_breadcrumbs( $term->name );
 ?>
 
-	<div class="site-container site-single-project">
-		<?php
-		if ( have_posts() ) : while (have_posts()) : the_post();
+	<div class="site-container site-cat-product element-product-grid">
+		<?php if ( have_posts() ) : ?>
 
-			get_template_part( 'template-parts/project/content','single' );
+            <div class="container warp-product">
+                <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 custom-row">
+	                <?php while (have_posts()) : the_post(); ?>
 
-		endwhile;
-		endif;
-		?>
+                        <div class="col item-col custom-col d-flex">
+                            <div class="d-flex wow animate fadeInUp flex-grow-1" data-wow-duration="2s">
+                                <div class="item-post d-flex flex-column flex-grow-1">
+                                    <div class="item-post__thumbnail">
+						                <?php
+						                if ( has_post_thumbnail() ) :
+							                the_post_thumbnail( 'large' );
+						                else:
+							                ?>
+                                            <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ); ?>"
+                                                 alt="<?php the_title(); ?>"/>
+						                <?php endif; ?>
+                                    </div>
+
+                                    <div class="item-post__content d-flex flex-column flex-grow-1">
+                                        <h5 class="title flex-grow-1">
+                                            <a href="<?php the_permalink(); ?>">
+								                <?php the_title(); ?>
+                                            </a>
+                                        </h5>
+
+                                        <p class="price">
+                                            <span>
+                                                <?php esc_html_e( 'Giá', 'sungarden' ); ?>:
+                                            </span>
+
+                                            <span>
+                                                <?php esc_html_e( 'Liên hệ', 'sungarden' ); ?>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+	                <?php endwhile; ?>
+                </div>
+
+                <?php sungarden_pagination(); ?>
+            </div>
+
+        <?php endif; ?>
 	</div>
 
 <?php get_footer(); ?>

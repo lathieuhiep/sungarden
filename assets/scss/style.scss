@@ -29,6 +29,8 @@ Text Domain: sungarden
   ## Single
 # Product
   ## Single
+# Service
+  ## Single Service
 # Elementor
   ## Slider
   ## Posts Grid
@@ -89,6 +91,11 @@ Text Domain: sungarden
 # Product
 -----------------------------------------------------------------------------*/
 @import "product/product";
+
+/**
+# Service
+-----------------------------------------------------------------------------*/
+@import "service/service";
 
 /**
 # Elementor

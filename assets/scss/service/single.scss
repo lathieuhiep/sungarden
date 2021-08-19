@@ -1,0 +1,58 @@
+.site-single-service {
+  padding: 0;
+}
+
+.element-service-detail-info {
+  .heading {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 26px;
+    margin-bottom: 11px;
+  }
+
+  .title {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 26px;
+    margin-bottom: 28px;
+  }
+
+  .desc {
+    margin-bottom: 40px;
+  }
+
+  .btn-registration {
+    button {
+      padding: 11px 30px;
+      color: #000000;
+      font-weight: 500;
+      border: none;
+      background-color: #FFE025;
+    }
+  }
+}
+
+.element-service-detail-content {
+  .detail-content {
+    position: relative;
+  }
+
+  .content-desc {
+    height: 1000px;
+    overflow: hidden;
+  }
+
+  .read-more-service {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 140px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 500;
+    color: $color-three;
+    z-index: 2;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 22.4%, #FFFFFF 100%);
+  }
+}

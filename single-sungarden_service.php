@@ -1,10 +1,8 @@
 <?php
 get_header();
-
-get_template_part('template-parts/breadcrumbs/inc','breadcrumbs');
 ?>
 
-<div class="site-container site-single-project">
+<div class="site-container site-single-service">
 	<?php
 	if ( have_posts() ) : while (have_posts()) : the_post();
 
