@@ -19,7 +19,7 @@ class sungarden_widget_project_image extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-text-area';
+		return 'eicon-image-hotspot';
 	}
 
 	protected function _register_controls() {

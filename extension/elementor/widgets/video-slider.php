@@ -21,7 +21,7 @@ class sungarden_widget_video_slider extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'fa fa-newspaper-o';
+        return 'eicon-slider-video';
     }
 
     public function get_script_depends() {

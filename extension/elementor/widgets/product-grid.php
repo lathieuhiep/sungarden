@@ -21,7 +21,7 @@ class sungarden_widget_product_grid extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'fa fa-newspaper-o';
+		return 'eicon-posts-grid';
 	}
 
 	public function get_script_depends() {

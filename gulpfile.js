@@ -39,7 +39,7 @@ gulp.task('sass-library-theme', function () {
 gulp.task('compress-js', function () {
     return gulp.src( [
         './node_modules/@popperjs/core/dist/umd/popper.js',
-        './node_modules/bootstrap/dist/js/bootstrap.js',
+        './node_modules/bootstrap/dist/js/bootstrap.min.js',
         './node_modules/owl.carousel/dist/owl.carousel.js',
         './node_modules/sticky-sidebar-v2/dist/jquery.sticky-sidebar.js',
         './node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js',

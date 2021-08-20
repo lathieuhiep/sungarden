@@ -173,7 +173,7 @@
         readMoreService.on('click', function () {
             $(this).addClass('d-none');
             text.animate({'height': h});
-        })
+        });
 
     });
 

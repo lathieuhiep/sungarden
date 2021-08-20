@@ -69,7 +69,10 @@ final class sungarden_plugin_elementor_widgets {
 	        'video-popup',
 	        'video-slider',
 	        'testimonial-carousel',
-	        'consultation'
+	        'consultation',
+	        'quickview-slider',
+	        'project-box',
+	        'faq'
         ];
         
         foreach ( $build_widgets_filename as $widget_filename ) :

@@ -19,7 +19,7 @@ class sungarden_widget_consultation extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-text-area';
+		return 'eicon-email-field';
 	}
 
 	protected function _register_controls() {

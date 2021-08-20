@@ -19,7 +19,7 @@ class sungarden_widget_service_detail_info extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-text-area';
+		return 'eicon-post-info';
 	}
 
 	protected function _register_controls() {

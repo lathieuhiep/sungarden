@@ -32,16 +32,6 @@ class sungarden_widget_contact_cf7 extends Widget_Base {
 		);
 
 		$this->add_control(
-			'heading',
-			[
-				'label'         =>  esc_html__( 'Heading', 'sungarden' ),
-				'type'          =>  Controls_Manager::TEXT,
-				'default'       =>  esc_html__( 'Heading', 'sungarden' ),
-				'label_block'   =>  true
-			]
-		);
-
-		$this->add_control(
 			'select_cf7',
 			[
 				'label'     =>  esc_html__( 'Select Contact Form CF7', 'sungarden' ),
@@ -49,6 +39,36 @@ class sungarden_widget_contact_cf7 extends Widget_Base {
 				'default'   =>  'id',
 				'label_block' =>  true,
 				'options'   =>  sungarden_get_form_cf7(),
+			]
+		);
+
+		$this->end_controls_section();
+
+		/* STYLE TAB */
+		$this->start_controls_section('style', array(
+			'label' =>  esc_html__( 'Button', 'sungarden' ),
+			'tab'   =>  Controls_Manager::TAB_STYLE,
+		));
+
+		$this->add_control(
+			'btn_color',
+			[
+				'label'     =>  __( 'Button Color', 'sungarden' ),
+				'type'      =>  Controls_Manager::COLOR,
+				'selectors' =>  [
+					'{{WRAPPER}} form.wpcf7-form .wpcf7-submit' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'btn_background_color',
+			[
+				'label'     =>  __( 'Button Background Color', 'sungarden' ),
+				'type'      =>  Controls_Manager::COLOR,
+				'selectors' =>  [
+					'{{WRAPPER}} form.wpcf7-form .wpcf7-submit' => 'background-color: {{VALUE}}',
+				],
 			]
 		);
 

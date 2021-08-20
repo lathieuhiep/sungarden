@@ -298,21 +298,21 @@ pre {
 
     .owl-dot {
       display: inline-block;
-      margin: 0 5px;
+      margin: 0 10px;
 
       span {
         display: block;
         width: 10px;
         height: 10px;
-        background-color: #000000;
+        background-color: #DBDBDB;
         @include border-radius(50%);
-        @include transition(all 0.2s ease-in-out);
+        @include transition();
       }
 
       &.active,
       &:hover {
         span {
-          background-color: $background-hover;
+          background-color: $background-primary;
         }
       }
     }

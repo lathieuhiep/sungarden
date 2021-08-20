@@ -39,6 +39,9 @@
         /* Element post slider */
         elementorFrontend.hooks.addAction( 'frontend/element_ready/sungarden-post-slider.default', ElementCarouselCustomEvent );
 
+        /* Element quick view slider */
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/sungarden-quickview-slider.default', ElementCarouselSlider );
+
     } );
 
 })( jQuery );
