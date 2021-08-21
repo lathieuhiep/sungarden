@@ -11,7 +11,6 @@ function sungarden_register_meta_box_project( $sungarden_meta_boxes ) {
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'fields'     => array(
-
 			array(
 				'id'   => 'metabox_project_categories',
 				'name' => 'Hạng mục',
@@ -59,17 +58,6 @@ function sungarden_register_meta_box_project( $sungarden_meta_boxes ) {
 					'showButtonPanel' => false,
 				),
 			),
-
-			array(
-				'id'               => 'metabox_project_image',
-				'name'             => 'Hình ảnh dự án',
-				'type'             => 'image_advanced',
-				'force_delete'     => false,
-				'max_status'       => false,
-				'image_size'       => 'thumbnail',
-			),
-
-
 		)
 	);
 
