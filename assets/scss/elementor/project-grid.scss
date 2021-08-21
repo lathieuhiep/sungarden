@@ -58,6 +58,7 @@
     &:hover {
       &:after {
         height: 100%;
+        opacity: 0;
       }
 
       .content {

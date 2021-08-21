@@ -1,7 +1,7 @@
 (function ($) {
 
     /* Start carousel slider */
-    let ElementCarouselSlider   =   function( $scope, $ ) {
+    const ElementCarouselSlider   =   function( $scope, $ ) {
 
         let element_slides = $scope.find( '.custom-owl-carousel' );
 
@@ -10,10 +10,38 @@
     };
 
     // Element carousel custom event
-    let ElementCarouselCustomEvent = function ($scope, $) {
+    const ElementCarouselCustomEvent = function ($scope, $) {
         let element_slides = $scope.find( '.custom-owl-event' );
 
         $( document ).general_owlCarousel_custom_event( element_slides );
+    }
+
+    // Element service detail content
+    const ElementServiceDetailContent = function ($scope, $) {
+        let text = $scope.find('.element-service-detail-content .content-desc'),
+            readMoreService = $scope.find('.read-more-service'),
+            h = text[0].scrollHeight;
+
+        readMoreService.on('click', function () {
+            $(this).addClass('d-none');
+            text.animate({'height': h});
+        });
+    }
+
+    // Element slider quick project
+    const ElementSliderQuickProject = function ($scope) {
+
+        let elementSlidesProject = $scope.find('.slider-quick-project');
+
+        if ( elementSlidesProject ) {
+            elementSlidesProject.slick({
+                infinite: true,
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+                nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>'
+            });
+        }
     }
 
     $( window ).on( 'elementor/frontend/init', function() {
@@ -41,6 +69,12 @@
 
         /* Element quick view slider */
         elementorFrontend.hooks.addAction( 'frontend/element_ready/sungarden-quickview-slider.default', ElementCarouselSlider );
+
+        /* Element service detail content */
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/sungarden-service-detail-content.default', ElementServiceDetailContent );
+
+        /* Element slider quick project */
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/sungarden-slides.default', ElementSliderQuickProject );
 
     } );
 

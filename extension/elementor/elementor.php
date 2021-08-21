@@ -72,7 +72,8 @@ final class sungarden_plugin_elementor_widgets {
 	        'consultation',
 	        'quickview-slider',
 	        'project-box',
-	        'faq'
+	        'faq',
+	        'contact-us'
         ];
         
         foreach ( $build_widgets_filename as $widget_filename ) :

@@ -17,6 +17,12 @@ body {
   font-weight: 400;
   @include flexbox();
   @include flex-direction(column);
+
+  &.admin-bar {
+    .active-absolute-nav {
+      margin-top: 32px;
+    }
+  }
 }
 
 .sticky-footer {
@@ -326,6 +332,8 @@ pre {
     .owl-item {
       @include flexbox();
       @include flex(1 0 auto);
+      @include align-items(center);
+      @include justify-content(center);
     }
   }
 }

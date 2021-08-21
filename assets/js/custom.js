@@ -80,7 +80,7 @@
                     if ( item.type === 'image' ) {
                         caption = '<div class="project-caption-item">' +
                             '<h4 class="title-item">'+ caption.title +'</h4>' +
-                            '<a href="'+ caption.link +'">'+ caption.textLink +'</a>' +
+                            '<a href="'+ caption.link +'" target="_blank">'+ caption.textLink +'</a>' +
                             '</div>';
                     }
 
@@ -133,7 +133,8 @@
                 slidesToScroll: 1,
                 arrows: false,
                 fade: true,
-                asNavFor: '.product-thubnail-nav'
+                adaptiveHeight: true,
+                asNavFor: '.product-thubnail-nav',
             });
 
             $('.product-thubnail-nav').slick({
@@ -149,31 +150,8 @@
 
         }
 
-        // slides-project
-        let elementSlidesProject = $('.slider-quick-project');
-
-        if ( elementSlidesProject ) {
-            elementSlidesProject.slick({
-                infinite: true,
-                slidesToShow: 5,
-                slidesToScroll: 1,
-                prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
-                nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>'
-            });
-
-        }
-
         // related product
         $( document ).general_owlCarousel_custom_event( '.related-product__owl' );
-
-        let text = $('.element-service-detail-content .content-desc'),
-            readMoreService = $('.read-more-service'),
-            h = text[0].scrollHeight;
-
-        readMoreService.on('click', function () {
-            $(this).addClass('d-none');
-            text.animate({'height': h});
-        });
 
     });
 

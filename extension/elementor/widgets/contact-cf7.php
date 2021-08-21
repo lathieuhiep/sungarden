@@ -53,7 +53,7 @@ class sungarden_widget_contact_cf7 extends Widget_Base {
 		$this->add_control(
 			'btn_color',
 			[
-				'label'     =>  __( 'Button Color', 'sungarden' ),
+				'label'     =>  __( 'Color', 'sungarden' ),
 				'type'      =>  Controls_Manager::COLOR,
 				'selectors' =>  [
 					'{{WRAPPER}} form.wpcf7-form .wpcf7-submit' => 'color: {{VALUE}}',
@@ -64,10 +64,56 @@ class sungarden_widget_contact_cf7 extends Widget_Base {
 		$this->add_control(
 			'btn_background_color',
 			[
-				'label'     =>  __( 'Button Background Color', 'sungarden' ),
+				'label'     =>  __( 'Background Color', 'sungarden' ),
 				'type'      =>  Controls_Manager::COLOR,
 				'selectors' =>  [
 					'{{WRAPPER}} form.wpcf7-form .wpcf7-submit' => 'background-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'margin_bottom',
+			[
+				'label' => __( 'Margin bottom input', 'plugin-domain' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 1000,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => '',
+				],
+				'selectors' => [
+					'{{WRAPPER}} form.wpcf7-form .wpcf7-form-control-wrap' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'height_textarea',
+			[
+				'label' => __( 'Height Textarea', 'plugin-domain' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 1000,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => '',
+				],
+				'selectors' => [
+					'{{WRAPPER}} form.wpcf7-form .wpcf7-form-control-wrap textarea' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);

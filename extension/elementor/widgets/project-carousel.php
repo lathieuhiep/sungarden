@@ -32,9 +32,22 @@ class sungarden_widget_project_carousel extends Widget_Base {
 
 	    /* Section Heading */
 	    $this->start_controls_section(
-		    'section_heading',
+		    'section_content',
 		    [
-			    'label' =>  esc_html__( 'Heading', 'sungarden' )
+			    'label' =>  esc_html__( 'Content', 'sungarden' )
+		    ]
+	    );
+
+	    $this->add_control(
+		    'style_content',
+		    [
+			    'label'     =>  esc_html__( 'Style', 'sungarden' ),
+			    'type'      =>  Controls_Manager::SELECT,
+			    'default'   =>  '1',
+			    'options'   =>  [
+				    '1'    =>  esc_html__( 'Type 1', 'sungarden' ),
+				    '2' =>  esc_html__( 'Type 2', 'sungarden' ),
+			    ],
 		    ]
 	    );
 
@@ -44,7 +57,10 @@ class sungarden_widget_project_carousel extends Widget_Base {
 			    'label'       => esc_html__( 'Heading', 'sungarden' ),
 			    'type'        => Controls_Manager::TEXT,
 			    'default'     => esc_html__( 'Xem nhanh dự án', 'sungarden' ),
-			    'label_block' => true
+			    'label_block' => true,
+			    'condition' =>  [
+				    'style_content' => '1',
+			    ],
 		    ]
 	    );
 
@@ -517,14 +533,16 @@ class sungarden_widget_project_carousel extends Widget_Base {
 
     ?>
 
-        <div class="element-project-carousel">
-            <div class="top-box d-flex align-items-center">
-                <h3 class="heading flex-grow-0">
-		            <?php echo esc_html( $settings['heading'] ); ?>
-                </h3>
+        <div class="element-project-carousel style-<?php echo esc_attr( $settings['style_content'] ) ?>">
+            <?php if ( $settings['style_content'] == '1' ) : ?>
+                <div class="top-box d-flex align-items-center">
+                    <h3 class="heading flex-grow-0">
+			            <?php echo esc_html( $settings['heading'] ); ?>
+                    </h3>
 
-                <span class="line flex-grow-1"></span>
-            </div>
+                    <span class="line flex-grow-1"></span>
+                </div>
+            <?php endif; ?>
 
             <div class="custom-owl-carousel custom-equal-height-owl owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ) ; ?>'>
                 <?php

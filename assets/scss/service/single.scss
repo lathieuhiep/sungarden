@@ -64,6 +64,11 @@
     .item-content {
       .name {
         font-size: 18px;
+        margin-bottom: 0;
+
+        a {
+          color: $color-three;
+        }
       }
     }
   }
@@ -78,8 +83,6 @@
         padding: 22px;
 
         .name {
-          margin-bottom: 0;
-
           a {
             color: #ffffff;
           }
@@ -95,6 +98,10 @@
         }
       }
     }
+  }
+
+  .box-link-all {
+    margin-top: 36px;
   }
 }
 
@@ -231,5 +238,65 @@
 
   .box-link-all {
     margin-top: 27px;
+  }
+}
+
+.element-contact-us {
+  padding: 50px 60px 62px;
+  border-radius: 5px;
+  background-color: rgba(114, 169, 90, 0.7);
+
+  .title {
+    margin-bottom: 5px;
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: 400;
+  }
+
+  .sub-title {
+    color: #ffffff;
+    font-size: 34px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .action {
+    a {
+      display: inline-block;
+      padding: 12px 34px;
+      border-radius: 5px;
+      margin-bottom: 18px;
+
+      &.hotline {
+        color: $color-three;
+        font-size: 20px;
+        background-color: #FFE025;
+
+        span {
+          display: inline-block;
+          margin-right: 3px;
+        }
+        b {
+          display: inline-block;
+        }
+      }
+
+      &.chat {
+        color: #ffffff;
+        font-size: 17px;
+        font-weight: 500;
+        background-color: #3A60B0;
+
+        img {
+          display: inline-block;
+          margin-right: 12px;
+          width: 33px;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }

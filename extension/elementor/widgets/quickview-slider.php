@@ -104,6 +104,24 @@ class sungarden_quickview_slider extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'link',
+			[
+				'label' => esc_html__( 'Link', 'sungarden' ),
+				'type' => Controls_Manager::URL,
+				'placeholder' => esc_html__( 'https://your-link.com', 'sungarden' ),
+				'show_external' => true,
+				'default' => [
+					'url' => '',
+					'is_external' => true,
+					'nofollow' => true,
+				],
+				'condition' =>  [
+					'style_content' => 'product',
+				],
+			]
+		);
+
 		$this->end_controls_section();
 
 		/* Section Layout */
@@ -338,6 +356,9 @@ class sungarden_quickview_slider extends Widget_Base {
 			],
 		];
 
+		$targetLinkAll = $settings['link']['is_external'] ? ' target=_blank' : '';
+		$nofollowLinkAll = $settings['link']['nofollow'] ? ' rel=nofollow' : '';
+
 		?>
 
 		<div class="element-quickview-slider style-<?php echo esc_attr( $settings['style_content'] ) ?>">
@@ -361,14 +382,26 @@ class sungarden_quickview_slider extends Widget_Base {
                             </h4>
 
                             <?php if ( $settings['style_content'] == 'project' ) : ?>
+
                                 <a class="link-item" href="<?php echo esc_url( $item['list_link']['url'] ); ?>"<?php echo esc_attr( $target . $nofollow ) ?>>
 		                            <?php esc_html_e('Xem chi tiết', 'sungarden'); ?>
                                 </a>
+
                             <?php endif; ?>
                         </div>
 					</div>
 				<?php endforeach; ?>
 			</div>
+
+            <?php if ( $settings['style_content'] == 'product' ) : ?>
+
+                <div class="box-link-all text-center">
+                    <a href="<?php echo esc_url( $settings['link']['url'] ); ?>"<?php echo esc_attr( $targetLinkAll . $nofollowLinkAll ) ?>>
+                        <?php esc_html_e('Xem danh sách sản phẩm', 'sungarden'); ?>
+                    </a>
+                </div>
+
+            <?php endif; ?>
 		</div>
 
 		<?php
