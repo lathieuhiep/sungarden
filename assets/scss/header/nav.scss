@@ -234,14 +234,6 @@
     }
 
     .site-menu {
-      > ul {
-        > li {
-          > a {
-            color: #ffffff;
-          }
-        }
-      }
-
       ul {
         li {
           &.current_page_item,

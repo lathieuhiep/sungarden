@@ -1107,8 +1107,6 @@ class sungarden_widget_slides extends Widget_Base {
                                             </div>
                                         <?php endif; ?>
 
-                                        <div class="line"></div>
-
                                         <?php if ( !empty( $item['button_text'] ) ) : ?>
                                             <div class="element-slides__item--link">
                                                 <?php if ( !empty( $sungarden_slides_link['url'] ) ) : ?>

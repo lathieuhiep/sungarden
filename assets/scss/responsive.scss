@@ -110,6 +110,20 @@
     }
   }
 
+  .site-header {
+    &.active-absolute-nav {
+      .site-menu {
+        > ul {
+          > li {
+            > a {
+              color: #ffffff;
+            }
+          }
+        }
+      }
+    }
+  }
+
 }
 
 @media (max-width: 991px) {
@@ -117,17 +131,20 @@
   .site-navigation_warp {
     display: block;
   }
+
   .site-logo {
     @include flexbox();
     @include justify-content(space-between);
     @include flex(1);
   }
+
   .navbar-toggle {
     float: none;
     margin: 0;
     padding: 0;
     display: block;
   }
+
   .site-menu {
     position: absolute;
     top: 100%;
@@ -208,8 +225,74 @@
       }
     }
   }
+
   .icon_menu_item_mobile {
     display: block;
+  }
+
+  .active-absolute-nav {
+    background-color: rgba(0,0,0,0.5);
+
+    .main-navigation {
+      button {
+        &.navbar-toggler {
+          i {
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+
+  .element-slides {
+    &__item {
+      &--heading {
+        font-size: 22px;
+      }
+
+      &--description {
+        font-size: 20px;
+      }
+    }
+
+    &__project {
+      bottom: 5px;
+
+      .title-project {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .icon {
+        margin-bottom: 0;
+
+        img {
+          width: 30px;
+        }
+      }
+
+      .slider-quick-project {
+        max-width: none;
+
+        .item-post {
+          &__thumbnail {
+            margin: 4px;
+          }
+        }
+
+        .slick-arrow {
+          z-index: 2;
+
+          &.slick-prev {
+            left: 8px;
+          }
+
+          &.slick-next {
+            right: 8px;
+          }
+        }
+      }
+    }
   }
 
 }
@@ -220,22 +303,33 @@
   .recent_posts_thumbs_widget_fist_large .recent_posts_thumbs_widget_item:nth-child(n+2) {
     @include flex-direction(column);
   }
+
   .recent_posts_thumbs_widget_list .recent_posts_thumbs_widget_item--image,
   .recent_posts_thumbs_widget_fist_large .recent_posts_thumbs_widget_item:nth-child(n+2) .recent_posts_thumbs_widget_item--image {
     max-width: 100%;
     margin: 0 0 10px;
   }
+
   .recent_posts_thumbs_widget_grid {
     .recent_posts_thumbs_widget_item {
       width: 100%;
     }
   }
+
 }
 
 @media (max-width: 767px) {
 
   .site-sidebar {
     padding-top: 50px;
+  }
+
+  .top-box-style {
+    @include flex-direction(column);
+
+    .heading {
+      font-size: 22px;
+    }
   }
 
 }
@@ -249,6 +343,21 @@
 
     .form-comment-item {
       margin-bottom: 15px;
+    }
+  }
+
+  .element-video-popup {
+    &__warp {
+      .play-video {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+
+        i {
+          font-size: 16px;
+          @include transform(translateY(0px));
+        }
+      }
     }
   }
 
