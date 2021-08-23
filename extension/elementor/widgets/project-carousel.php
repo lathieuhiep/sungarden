@@ -571,6 +571,18 @@ class sungarden_widget_project_carousel extends Widget_Base {
 
 	                        <?php endif; ?>
                         </div>
+
+                        <?php if ( $settings['style_content'] == '2' ) : ?>
+                            <div class="item-post__content text-center">
+                                <h4 class="title-item">
+                                    <?php the_title(); ?>
+                                </h4>
+
+                                <a href="<?php the_permalink(); ?>" target="_blank">
+                                    <?php esc_html_e('Chi tiết dự án', 'sungarden'); ?>
+                                </a>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 <?php endwhile; wp_reset_postdata(); ?>
             </div>

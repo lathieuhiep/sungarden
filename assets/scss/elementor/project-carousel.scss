@@ -63,6 +63,32 @@
   }
 
   &.style-2 {
+    .item-post {
+      position: relative;
+
+      &__content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 15px;
+
+        .title-item {
+          margin-bottom: 7px;
+          color: #ffffff;
+          font-size: 24px;
+          text-transform: uppercase;
+        }
+
+        a {
+          color: #FFE025;
+
+          &:hover {
+            color: $color-three;
+          }
+        }
+      }
+    }
     .owl-carousel {
       .owl-nav {
         margin: 0;
