@@ -568,8 +568,7 @@ function sungarden_post_share() {
 
 	?>
     <div class="site-post-share">
-        <div class="fb-like" data-href="<?php the_permalink(); ?>" data-width="" data-layout="button_count"
-             data-share="true" data-action="like" data-size="small"></div>
+        <iframe src="https://www.facebook.com/plugins/like.php?href=<?php the_permalink(); ?>&width=120&layout=button&action=like&size=small&share=true&height=65&appId=612555202942781" width="150" height="20" style="border:none;overflow:hidden" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
     </div>
 	<?php
 
@@ -603,10 +602,10 @@ function sungarden_opengraph() {
 		endif;
 
 		?>
+        <meta property="og:url" content="<?php the_permalink(); ?>"/>
+        <meta property="og:type" content="website" />
         <meta property="og:title" content="<?php the_title(); ?>"/>
         <meta property="og:description" content="<?php echo esc_attr( $excerpt ); ?>"/>
-        <meta property="og:type" content="article"/>
-        <meta property="og:url" content="<?php the_permalink(); ?>"/>
         <meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo() ); ?>"/>
         <meta property="og:image" content="<?php echo esc_url( $img_src ); ?>"/>
 
@@ -622,14 +621,13 @@ add_action( 'wp_head', 'sungarden_opengraph', 5 );
 
 /* Start Facebook SDK */
 function sungarden_facebook_sdk() {
-	if ( is_single() ) :
-		?>
-        <div id="fb-root"></div>
+	global $sungarden_options;
 
-        <script async defer crossorigin="anonymous"
-                src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0"></script>
-	<?php
-	endif;
+	$messenger = $sungarden_options['sungarden_information_messenger'];
+
+	if ( $messenger ) {
+		echo force_balance_tags( $messenger );
+    }
 }
 
 add_action( 'wp_footer', 'sungarden_facebook_sdk' );
@@ -654,4 +652,9 @@ function change_tax_num_of_posts( $wp_query ) {
 	if( is_tax( 'sungarden_product_cat' ) ) {
 		$wp_query->set('posts_per_page', 12);
 	}
+}
+
+// convert string to number
+function phone_number_format($number) {
+    return preg_replace("/[^\d]/","",$number);
 }

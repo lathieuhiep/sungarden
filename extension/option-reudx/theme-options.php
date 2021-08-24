@@ -313,35 +313,17 @@ Redux::set_section( $sungarden_opt_name, array(
     'fields'        =>  array(
 
         array(
-            'id'        =>  'sungarden_information_show_hide',
-            'type'      =>  'select',
-            'title'     =>  esc_html__( 'Show Or Hide Information', 'sungarden' ),
-            'default'   =>  1,
-            'options'   =>  array(
-                1   =>  esc_html__( 'Show', 'sungarden' ),
-                0   =>  esc_html__( 'Hide', 'sungarden' )
-            )
-        ),
-
-        array(
-            'id'        =>  'sungarden_information_address',
-            'type'      =>  'text',
-            'title'     =>  esc_html__( 'Address', 'sungarden' ),
-            'default'   =>  '988782, Our Street, S State.',
-        ),
-
-        array(
-            'id'        =>  'sungarden_information_mail',
-            'type'      =>  'text',
-            'title'     =>  esc_html__( 'Mail', 'sungarden' ),
-            'default'   =>  'info@domain.com',
-        ),
-
-        array(
             'id'        =>  'sungarden_information_phone',
             'type'      =>  'text',
             'title'     =>  esc_html__( 'Phone', 'sungarden' ),
             'default'   =>  '+1 234 567 186',
+        ),
+
+	    array(
+            'id'        =>  'sungarden_information_messenger',
+            'type'      =>  'textarea',
+            'title'     =>  esc_html__( 'Messenger', 'sungarden' ),
+            'default'   =>  '',
         ),
 
     )
