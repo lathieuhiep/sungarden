@@ -12,7 +12,6 @@ if ( $phone ) :
     <a class="d-flex align-items-center" href="tel:<?php echo esc_attr( phone_number_format( $phone ) ); ?>">
         <span class="line"></span>
         <span class="icon"><i class="fas fa-phone-alt"></i></span>
-        <span class="phone"><?php echo esc_html( $phone ) ?></span>
     </a>
 </div>
 

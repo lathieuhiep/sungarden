@@ -131,6 +131,28 @@ class sungarden_widget_service extends Widget_Base {
 			]
 		);
 
+		$this->add_responsive_control(
+			'height',
+			[
+				'label' => __( 'Height', 'sungarden' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 2000,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => '230',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .element-service__item .box-image a' => 'height: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->end_controls_section();
 
 	}
@@ -149,9 +171,9 @@ class sungarden_widget_service extends Widget_Base {
 					$nofollow = $item['list_link']['nofollow'] ? ' rel=nofollow' : '';
 				?>
 
-				<div class="col custom-col d-flex">
-					<div class="element-service__item text-center d-flex flex-column">
-						<div class="top">
+				<div class="col custom-col d-flex flex-column">
+					<div class="element-service__item text-center d-flex flex-column flex-grow-1">
+						<div class="top flex-grow-1">
 							<p class="sub-title">
 								<?php echo esc_html( $item['list_heading'] ); ?>
 							</p>
@@ -161,7 +183,7 @@ class sungarden_widget_service extends Widget_Base {
 							</h6>
 						</div>
 
-						<div class="box-image d-flex flex-grow-1">
+						<div class="box-image">
 							<a class="link-item" href="<?php echo esc_url( $item['list_link']['url'] ); ?>"<?php echo esc_attr( $target . $nofollow ) ?>>
 								<?php echo wp_get_attachment_image( $item['list_image']['id'], 'large' ); ?>
 							</a>

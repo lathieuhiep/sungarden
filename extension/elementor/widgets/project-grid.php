@@ -215,7 +215,7 @@ class sungarden_widget_project_grid extends Widget_Base {
                     ?>
 
                         <div class="col-12 col-sm-6 col-md-4 col-lg-<?php echo esc_attr( 12 / $settings['column_number'] ); ?> item-col custom-col">
-                            <div class="item-post">
+                            <div class="item-post box-img-height">
 	                            <?php
 	                            if ( has_post_thumbnail() ) :
 		                            the_post_thumbnail( 'large' );

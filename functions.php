@@ -534,8 +534,20 @@ function sungarden_check_get_cat( $type_taxonomy ): array {
 
 	return $cat_check;
 }
-
 /* End get Category check box */
+
+function sungarden_get_list_page() {
+	$listPage = array();
+	$pages = get_pages();
+
+	if ( $pages ) {
+	    foreach ( $pages as $page ) {
+		    $listPage[ $page->ID ] = $page->post_title;
+        }
+    }
+
+	return $listPage;
+}
 
 /* Get Contact Form */
 function sungarden_get_form_cf7(): array {

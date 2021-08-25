@@ -64,6 +64,10 @@
 
       .site-post-share {
         margin-bottom: 0;
+
+        iframe {
+          width: 128px;
+        }
       }
     }
 
@@ -74,7 +78,13 @@
 }
 
 .element-project-gallery {
+  margin-left: -2px;
+  margin-right: -2px;
+
   .grid-item {
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-bottom: 4px;
     cursor: pointer;
     overflow: hidden;
     @include flex(0 0 auto);

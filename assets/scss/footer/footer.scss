@@ -1,7 +1,7 @@
 .footer-box-phone {
   position: fixed;
-  left: 15px;
-  bottom: 15px;
+  left: 12px;
+  bottom: 24px;
   z-index: 10;
 
   a {
@@ -10,7 +10,7 @@
     span {
       color: #ffffff;
       font-weight: 500;
-      background-color: $background-hover;
+      background-color: #0099FF;
 
       &.line,
       &.icon,

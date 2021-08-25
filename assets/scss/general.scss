@@ -410,3 +410,16 @@ pre {
   0% { transform: translateY(0); }
   100% { transform: translateY(-10px); }
 }
+
+.elementor {
+  .box-img-height {
+    height: 300px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

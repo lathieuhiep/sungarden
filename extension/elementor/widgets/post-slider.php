@@ -442,7 +442,7 @@ class sungarden_widget_post_slider extends Widget_Base {
 
                 ?>
                     <div class="item-post">
-                        <div class="item-post__thumbnail">
+                        <div class="item-post__thumbnail box-img-height">
 			                <?php
 			                if ( has_post_thumbnail() ) :
 				                the_post_thumbnail( 'large' );

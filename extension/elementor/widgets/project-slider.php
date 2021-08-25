@@ -447,28 +447,26 @@ class sungarden_widget_project_slider extends Widget_Base {
                     $query->the_post();
 	                $place = rwmb_meta( 'metabox_project_place' );
                 ?>
-                    <div class="item-post">
-                        <div class="item-post">
-		                    <?php
-		                    if ( has_post_thumbnail() ) :
-			                    the_post_thumbnail( 'large' );
-		                    else:
-                            ?>
-                                <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>"/>
-		                    <?php endif; ?>
+                    <div class="item-post box-img-height">
+                        <?php
+                        if ( has_post_thumbnail() ) :
+                            the_post_thumbnail( 'large' );
+                        else:
+                        ?>
+                            <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>"/>
+                        <?php endif; ?>
 
-                            <div class="content">
-                                <h5 class="title">
-				                    <?php the_title(); ?>
-                                </h5>
+                        <div class="content">
+                            <h5 class="title">
+                                <?php the_title(); ?>
+                            </h5>
 
-                                <p class="place">
-				                    <?php echo esc_html( $place ); ?>
-                                </p>
-                            </div>
-
-                            <a class="link-item" href="<?php the_permalink(); ?>" target="_blank" title="<?php the_title(); ?>"></a>
+                            <p class="place">
+                                <?php echo esc_html( $place ); ?>
+                            </p>
                         </div>
+
+                        <a class="link-item" href="<?php the_permalink(); ?>" target="_blank" title="<?php the_title(); ?>"></a>
                     </div>
                 <?php
                 endwhile;

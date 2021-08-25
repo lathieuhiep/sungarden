@@ -138,7 +138,7 @@ class sungarden_widget_videos extends Widget_Base {
                     ?>
 
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3 item-col">
-                            <div class="image-video">
+                            <div class="image-video box-img-height">
 	                            <?php
 	                            if ( has_post_thumbnail() ) :
 		                            the_post_thumbnail( 'large' );
