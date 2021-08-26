@@ -234,7 +234,7 @@ class sungarden_widget_project_grid extends Widget_Base {
                                     </p>
                                 </div>
 
-                                <a class="link-item" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"></a>
+                                <a class="link-item" target="_blank" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"></a>
                             </div>
                         </div>
 

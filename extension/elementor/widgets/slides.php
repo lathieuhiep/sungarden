@@ -476,6 +476,16 @@ class sungarden_widget_slides extends Widget_Base {
 		    ]
 	    );
 
+	    $this->add_control(
+		    'text_view_detail',
+		    [
+			    'label'         =>  esc_html__( 'Text', 'sungarden' ),
+			    'type'          =>  Controls_Manager::TEXT,
+			    'default'       =>  esc_html__( 'Click để xem thêm hình ảnh chi tiết', 'sungarden' ),
+			    'label_block'   =>  true
+		    ]
+	    );
+
 	    $this->end_controls_section();
 
         $this->start_controls_section(
@@ -1134,7 +1144,7 @@ class sungarden_widget_slides extends Widget_Base {
 
                 <div class="element-slides__project">
                     <h4 class="title-project">
-                        <?php esc_html_e('Click để xem thêm hình ảnh chi tiết', 'sungarden'); ?>
+                        <?php echo esc_html( $settings['text_view_detail'] ); ?>
                     </h4>
 
                     <div class="icon topToBottom">

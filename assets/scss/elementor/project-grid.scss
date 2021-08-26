@@ -2,6 +2,7 @@
   .item-post {
     position: relative;
     border-radius: 10px;
+    @include flex(1);
 
     &:after {
       position: absolute;

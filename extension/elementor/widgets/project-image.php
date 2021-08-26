@@ -44,7 +44,7 @@ class sungarden_widget_project_image extends Widget_Base {
 			]
 		);
 
-		$repeater->add_responsive_control(
+		$repeater->add_control(
 			'width',
 			[
 				'label' => __( 'Width', 'sungarden' ),
@@ -57,8 +57,8 @@ class sungarden_widget_project_image extends Widget_Base {
 					],
 				],
 				'default' => [
-					'unit' => '%',
 					'size' => 50,
+					'unit' => '%',
 				],
 				'selectors' => [
 					'{{WRAPPER}} {{CURRENT_ITEM}}.grid-item' => 'width: {{SIZE}}{{UNIT}};',
@@ -66,7 +66,7 @@ class sungarden_widget_project_image extends Widget_Base {
 			]
 		);
 
-		$repeater->add_responsive_control(
+		$repeater->add_control(
 			'height',
 			[
 				'label' => __( 'Height', 'sungarden' ),

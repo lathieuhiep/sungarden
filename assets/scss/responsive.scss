@@ -4,6 +4,25 @@
   }
 }
 
+@media ( max-width: 1399px ) {
+
+  .element-testimonial-carousel {
+    .item-box {
+      @include flex-direction(column);
+
+      .item-img {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+
+      .item-content {
+        padding: 0;
+      }
+    }
+  }
+
+}
+
 @media (min-width: 1200px) {
   .container-fluid {
     padding-left: 100px;
@@ -16,10 +35,21 @@
   .container {
     max-width: none;
   }
+
   .element-post-carousel {
     .owl-carousel {
       .owl-nav {
         display: none;
+      }
+    }
+  }
+
+  .element-testimonial-carousel {
+    .owl-carousel {
+      .owl-nav {
+        button {
+          display: none;
+        }
       }
     }
   }
@@ -52,13 +82,23 @@
 
 }
 
-@media (min-width: 992px) and (max-width: 1200px) {
+@media (min-width: 992px) and (max-width: 1199px) {
 
   .site-menu {
     ul {
       li {
         a {
           padding: 0 7px;
+        }
+      }
+    }
+  }
+
+  .element-service {
+    &__item {
+      .box-image {
+        a {
+          height: 150px !important;
         }
       }
     }
@@ -272,8 +312,6 @@
       }
 
       .slider-quick-project {
-        max-width: none;
-
         .item-post {
           &__thumbnail {
             margin: 4px;
@@ -329,6 +367,59 @@
 
     .heading {
       font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .owl-nav-custom {
+      margin-bottom: 15px;
+    }
+  }
+
+  .element-about-text {
+    &__description {
+      .image-text {
+        display: none;
+      }
+    }
+  }
+
+  .element-video-popup {
+    &:before {
+      display: none;
+    }
+  }
+
+  .element-testimonial-carousel {
+    .heading {
+      font-size: 24px;
+    }
+  }
+
+}
+
+@media ( min-width: 576px ) and ( max-width: 991px ) {
+
+  .element-slides {
+    &__project {
+      padding: 0 12px;
+
+      .slider-quick-project {
+        max-width: 700px;
+      }
+    }
+  }
+
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+
+  .element-service {
+    &__item {
+      .box-image {
+        a {
+          height: 200px !important;
+        }
+      }
     }
   }
 
@@ -357,6 +448,26 @@
           font-size: 16px;
           @include transform(translateY(0px));
         }
+      }
+    }
+  }
+
+  .element-service {
+    &__item {
+      .box-image {
+        a {
+          height: auto !important;
+        }
+      }
+    }
+  }
+
+  .element-slides {
+    &__project {
+      padding: 0 12px;
+
+      .slider-quick-project {
+        max-width: none;
       }
     }
   }

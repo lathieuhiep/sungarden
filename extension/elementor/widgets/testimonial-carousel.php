@@ -347,7 +347,7 @@ class sungarden_testimonial_carousel extends Widget_Base {
                 <?php echo esc_html($settings['heading']); ?>
             </h3>
 
-			<div class="custom-owl-carousel custom-equal-height-owl owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ) ; ?>'>
+			<div class="custom-owl-carousel owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ) ; ?>'>
 				<?php foreach ( $settings['list'] as $item ) : ?>
 					<div class="item">
 						<div class="item-box">
