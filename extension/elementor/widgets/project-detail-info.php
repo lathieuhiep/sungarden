@@ -58,7 +58,7 @@ class sungarden_widget_project_detail_info extends Widget_Base {
 		<div class="element-project-detail-info">
 			<div class="project-detail-top">
 				<div class="row">
-					<div class="col-12 col-md-4">
+					<div class="col-12 col-md-6 col-lg-4">
 						<div class="project-info">
 							<div class="project-info__top d-flex align-items-center">
 								<h5 class="title flex-grow-0">
@@ -156,9 +156,9 @@ class sungarden_widget_project_detail_info extends Widget_Base {
 						</div>
 					</div>
 
-					<div class="col-12 col-md-8">
+					<div class="col-12 col-md-6 col-lg-8">
 						<div class="content">
-							<div class="content__top d-flex align-items-center justify-content-between">
+							<div class="content__top d-flex align-items-lg-center justify-content-lg-between">
 								<h1 class="title-item">
 									<?php the_title(); ?>
 								</h1>

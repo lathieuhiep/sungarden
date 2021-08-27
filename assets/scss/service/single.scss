@@ -204,13 +204,24 @@
       }
 
       .accordion-button {
+        position: relative;
         color: $color-primary;
         font-size: 17px;
+        line-height: 1.6em;
         padding: 0;
         box-shadow: none;
         background-color: transparent;
+        display: block;
+
+        span {
+          display: inline-block;
+          width: 95%;
+        }
 
         &:after {
+          position: absolute;
+          top: 0;
+          right: 0;
           background: none;
           font-family: "Font Awesome 5 Free";
           font-weight: 900;

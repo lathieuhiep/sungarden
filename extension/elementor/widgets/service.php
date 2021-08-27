@@ -164,7 +164,7 @@ class sungarden_widget_service extends Widget_Base {
 		?>
 
 		<div class="element-service">
-			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-<?php echo esc_attr( $settings['column_number'] ) ?> custom-row">
+			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-<?php echo esc_attr( $settings['column_number'] ) ?> custom-row">
 				<?php
 				foreach ( $settings['list'] as $item ) :
 					$target = $item['list_link']['is_external'] ? ' target=_blank' : '';

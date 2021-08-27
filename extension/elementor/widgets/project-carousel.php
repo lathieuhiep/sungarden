@@ -488,10 +488,12 @@ class sungarden_widget_project_carousel extends Widget_Base {
 		    'responsive'    => [
 			    '0' => array(
 				    'items'     =>  $settings['item_567'],
+				    'dots' => false,
 				    'margin'    =>  $settings['margin_item_567']
 			    ),
 			    '576' => array(
 				    'items'     =>  $settings['item_568'],
+				    'dots' => false,
 				    'margin'    =>  $settings['margin_item_568']
 			    ),
 			    '768' => array(

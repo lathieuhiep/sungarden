@@ -143,55 +143,57 @@ class sungarden_widget_project_box extends Widget_Base {
 			?>
 
             <div class="element-project-box">
-                <?php
-                while ( $query->have_posts() ):
-                    $query->the_post();
+                <div class="d-flex flex-wrap row-cols-1 row-cols-sm-2 row-cols-lg-1">
+                    <?php
+                    while ( $query->have_posts() ):
+                        $query->the_post();
 
-                    $place = rwmb_meta( 'metabox_project_place' );
-                ?>
+                        $place = rwmb_meta( 'metabox_project_place' );
+                    ?>
 
-                    <div class="item-post d-flex row-cols-2">
-                        <div class="item-post__left">
-                            <h5 class="title">
-		                        <?php the_title(); ?>
-                            </h5>
+                        <div class="item-post d-flex flex-wrap row-cols-1 row-cols-lg-2">
+                            <div class="item-post__left">
+                                <h5 class="title">
+                                    <?php the_title(); ?>
+                                </h5>
 
-                            <p class="place">
-		                        <?php echo esc_html( $place ); ?>
-                            </p>
-
-                            <div class="desc">
-                                <p>
-		                            <?php
-		                            if ( has_excerpt() ) :
-			                            echo esc_html( get_the_excerpt() );
-		                            else:
-			                            echo wp_trim_words( get_the_content(), 35, '...' );
-		                            endif;
-		                            ?>
+                                <p class="place">
+                                    <?php echo esc_html( $place ); ?>
                                 </p>
+
+                                <div class="desc">
+                                    <p>
+                                        <?php
+                                        if ( has_excerpt() ) :
+                                            echo esc_html( get_the_excerpt() );
+                                        else:
+                                            echo wp_trim_words( get_the_content(), 35, '...' );
+                                        endif;
+                                        ?>
+                                    </p>
+                                </div>
+
+                                <a class="link-item" href="<?php the_permalink(); ?>" target="_blank" title="<?php the_title(); ?>">
+                                    <?php esc_html_e('Xem chi tiết', 'sungarden'); ?>
+                                </a>
                             </div>
 
-                            <a class="link-item" href="<?php the_permalink(); ?>" target="_blank" title="<?php the_title(); ?>">
-                                <?php esc_html_e('Xem chi tiết', 'sungarden'); ?>
-                            </a>
+                            <div class="item-post__right">
+                                <?php
+                                if ( has_post_thumbnail() ) :
+                                    the_post_thumbnail( 'large' );
+                                else:
+                                    ?>
+                                    <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>"/>
+                                <?php endif; ?>
+                            </div>
                         </div>
 
-                        <div class="item-post__right">
-	                        <?php
-	                        if ( has_post_thumbnail() ) :
-		                        the_post_thumbnail( 'large' );
-	                        else:
-		                        ?>
-                                <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>"/>
-	                        <?php endif; ?>
-                        </div>
-                    </div>
-
-                <?php
-                endwhile;
-                wp_reset_postdata();
-                ?>
+                    <?php
+                    endwhile;
+                    wp_reset_postdata();
+                    ?>
+                </div>
 
                 <div class="box-link-all text-center">
                     <a href="<?php echo esc_url( $settings['link']['url'] ); ?>"<?php echo esc_attr( $target . $nofollow ) ?>>

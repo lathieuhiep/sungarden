@@ -58,12 +58,15 @@
 
       .title-item {
         margin: 0;
+        padding-right: 12px;
         font-size: 31px;
         color: $color-three;
+        @include flex(1);
       }
 
       .site-post-share {
         margin-bottom: 0;
+        @include flex(0 0 auto);
 
         iframe {
           width: 128px;

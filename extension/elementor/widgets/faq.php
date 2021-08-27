@@ -124,7 +124,7 @@ class sungarden_widget_faq extends Widget_Base {
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFaq-<?php the_ID(); ?>">
                             <button class="accordion-button<?php echo esc_attr( $loop != 1 ? ' collapsed' : '' )?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq-<?php the_ID(); ?>" aria-expanded="true" aria-controls="collapseOne">
-                                <?php the_title() ?>
+                               <span><?php the_title() ?></span>
                             </button>
                         </h2>
 
