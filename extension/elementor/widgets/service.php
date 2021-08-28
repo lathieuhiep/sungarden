@@ -131,28 +131,6 @@ class sungarden_widget_service extends Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control(
-			'height',
-			[
-				'label' => __( 'Height', 'sungarden' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px' ],
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 2000,
-					],
-				],
-				'default' => [
-					'unit' => 'px',
-					'size' => '230',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .element-service__item .box-image a' => 'height: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
 		$this->end_controls_section();
 
 	}

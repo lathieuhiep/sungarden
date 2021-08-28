@@ -22,14 +22,6 @@
     .slick-slide {
       > div {
         padding: 0 7.5px;
-        height: 150px;
-        overflow: hidden;
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
       }
     }
 
@@ -117,16 +109,6 @@
       }
     }
     .item-post {
-      &__thumbnail {
-        height: 155px;
-        overflow: hidden;
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-      }
       &__content {
         .title-post {
           font-size: 14px;

@@ -103,16 +103,6 @@
     }
   }
 
-  .element-service {
-    &__item {
-      .box-image {
-        a {
-          height: 150px !important;
-        }
-      }
-    }
-  }
-
   .element-project-box {
     .item-post {
       &__left {
@@ -537,19 +527,15 @@
 
 @media (min-width: 576px) and (max-width: 767px) {
 
-  .element-service {
-    &__item {
-      .box-image {
-        a {
-          height: 200px !important;
-        }
-      }
-    }
-  }
-
   .element-faq {
     .accordion {
       padding: 30px 24px;
+    }
+  }
+
+  .element-project-gallery {
+    .grid-item {
+      width: 50% !important;
     }
   }
 
@@ -577,16 +563,6 @@
         i {
           font-size: 16px;
           @include transform(translateY(0px));
-        }
-      }
-    }
-  }
-
-  .element-service {
-    &__item {
-      .box-image {
-        a {
-          height: auto !important;
         }
       }
     }
@@ -644,6 +620,12 @@
           font-size: 18px;
         }
       }
+    }
+  }
+
+  .element-project-gallery {
+    .grid-item {
+      width: 100% !important;
     }
   }
 

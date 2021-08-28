@@ -11,7 +11,7 @@ $data_settings_owl = [
 	'margin'     => 18,
 	'responsive' => [
 		'0'   => array(
-			'items'  => 12,
+			'items'  => 2,
 			'margin' => 2
 		),
 		'576' => array(

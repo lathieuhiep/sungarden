@@ -137,8 +137,8 @@ class sungarden_widget_videos extends Widget_Base {
 	                    $place = rwmb_meta( 'metabox_video_place' );
                     ?>
 
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 item-col">
-                            <div class="image-video box-img-height">
+                        <div class="col-12 col-sm-6 col-md-4 col-xl-3 item-col">
+                            <div class="image-video">
 	                            <?php
 	                            if ( has_post_thumbnail() ) :
 		                            the_post_thumbnail( 'large' );

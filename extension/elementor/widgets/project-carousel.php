@@ -562,7 +562,7 @@ class sungarden_widget_project_carousel extends Widget_Base {
                     ];
                 ?>
                     <div class="item-post">
-                        <div class="item-post__thumbnail project-gallery<?php echo esc_attr( $settings['style_content'] == '1' ? ' box-img-height' : '' ) ?>" data-src="<?php echo esc_url( $featured_img_url ); ?>" data-fancybox="gallery" data-caption='<?php echo wp_json_encode( $dataCaption ) ; ?>'>
+                        <div class="item-post__thumbnail project-gallery" data-src="<?php echo esc_url( $featured_img_url ); ?>" data-fancybox="gallery" data-caption='<?php echo wp_json_encode( $dataCaption ) ; ?>'>
 	                        <?php
 	                        if ( has_post_thumbnail() ) :
 		                        the_post_thumbnail( 'large' );

@@ -441,13 +441,13 @@ class sungarden_widget_project_slider extends Widget_Base {
                 </a>
             </div>
 
-            <div class="custom-owl-event custom-equal-height-owl owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ) ; ?>'>
+            <div class="custom-owl-event owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ) ; ?>'>
                 <?php
                 while ( $query->have_posts() ):
                     $query->the_post();
 	                $place = rwmb_meta( 'metabox_project_place' );
                 ?>
-                    <div class="item-post box-img-height">
+                    <div class="item-post">
                         <?php
                         if ( has_post_thumbnail() ) :
                             the_post_thumbnail( 'large' );
