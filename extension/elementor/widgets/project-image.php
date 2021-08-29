@@ -66,6 +66,33 @@ class sungarden_widget_project_image extends Widget_Base {
 			]
 		);
 
+		$repeater->add_responsive_control(
+			'height',
+			[
+				'label' => __( 'Height', 'sungarden' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 2000,
+					],
+				],
+				'devices' => [ 'desktop', 'tablet', 'mobile' ],
+				'desktop_default' => [
+					'unit' => 'px',
+					'size' => '606',
+				],
+				'mobile_default' => [
+					'unit' => 'px',
+					'size' => '',
+				],
+				'selectors' => [
+					'{{WRAPPER}} {{CURRENT_ITEM}}.grid-item' => 'height: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->add_control(
 			'list',
 			[

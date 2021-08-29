@@ -74,6 +74,8 @@
                 baseClass: "projec-fancybox-custom",
                 clickContent: false,
                 hash : false,
+                idleTime: false,
+                mobile: {},
                 caption : function( instance, item ) {
                     let caption = $(this).data('caption') || '';
 
@@ -93,7 +95,7 @@
                         item.$content.append(dataCaption);
                         $('.project-caption-item').fadeIn();
                     }
-                }
+                },
             });
         }
 
