@@ -327,7 +327,7 @@ class sungarden_widget_post_slider extends Widget_Base {
 			    'show_external' => true,
 			    'default' => [
 				    'url' => '',
-				    'is_external' => true,
+				    'is_external' => false,
 				    'nofollow' => false,
 			    ],
 		    ]
@@ -462,7 +462,7 @@ class sungarden_widget_post_slider extends Widget_Base {
                             </h4>
                         </div>
 
-                        <a class="item-link" href="<?php the_permalink(); ?>" target="_blank" title="<?php the_title(); ?>"></a>
+                        <a class="item-link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"></a>
                     </div>
                 <?php
                 endwhile;

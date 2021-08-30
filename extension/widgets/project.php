@@ -70,41 +70,45 @@ class sungarden_project_widget extends WP_Widget {
 			?>
 
             <div class="post_widget_warp">
-				<?php
-				while ( $post_query->have_posts() ) :
-					$post_query->the_post();
+                <div class="row row-cols-2 row-cols-md-1 custom-row">
+                    <?php
+                    while ( $post_query->have_posts() ) :
+                        $post_query->the_post();
 
-					$place = rwmb_meta( 'metabox_project_place' );
-                ?>
+                        $place = rwmb_meta( 'metabox_project_place' );
+                    ?>
 
-                    <div class="item">
-                        <?php
-                        if ( has_post_thumbnail() ):
-                            the_post_thumbnail( 'large' );
-                        else:
-                        ?>
-                            <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ); ?>" alt="post">
-                        <?php endif; ?>
+                        <div class="col custom-col">
+                            <div class="item">
+                                <?php
+                                if ( has_post_thumbnail() ):
+                                    the_post_thumbnail( 'large' );
+                                else:
+                                ?>
+                                    <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ); ?>" alt="post">
+                                <?php endif; ?>
 
-                        <div class="box-title">
-                            <div class="box-content">
-                                <a class="link-full" href="<?php the_permalink(); ?>" title="<?php the_title() ?>"></a>
+                                <div class="box-title">
+                                    <div class="box-content">
+                                        <a class="link-full" href="<?php the_permalink(); ?>" title="<?php the_title() ?>"></a>
 
-                                <h4 class="item-title">
-		                            <?php the_title(); ?>
-                                </h4>
+                                        <h4 class="item-title">
+                                            <?php the_title(); ?>
+                                        </h4>
 
-                                <p class="item-place">
-		                            <?php echo esc_html( $place ); ?>
-                                </p>
+                                        <p class="item-place">
+                                            <?php echo esc_html( $place ); ?>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-				<?php
-				endwhile;
-				wp_reset_postdata();
-				?>
+                    <?php
+                    endwhile;
+                    wp_reset_postdata();
+                    ?>
+                </div>
             </div>
 
 		<?php

@@ -32,9 +32,6 @@ $sungarden_on_off_share_single = $sungarden_options['sungarden_on_off_share_sing
     </div>
 </div>
 
-<?php
-get_template_part( 'template-parts/post/inc','related-post' );
-
 
 
 

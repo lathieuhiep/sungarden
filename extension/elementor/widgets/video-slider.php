@@ -327,7 +327,7 @@ class sungarden_widget_video_slider extends Widget_Base {
 			    'show_external' => true,
 			    'default' => [
 				    'url' => '',
-				    'is_external' => true,
+				    'is_external' => false,
 				    'nofollow' => false,
 			    ],
 		    ]

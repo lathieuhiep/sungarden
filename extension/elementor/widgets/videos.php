@@ -134,18 +134,21 @@ class sungarden_widget_videos extends Widget_Base {
                         $query->the_post();
 
 	                    $videoUrl = get_post_meta( get_the_ID(), 'metabox_video_url', true);
+	                    $selectImage = get_post_meta( get_the_ID(), 'meta_box_video_select_image', true);
+	                    $sizeImageVideo = get_post_meta( get_the_ID(), 'meta_box_video_size_image', true);
 	                    $place = rwmb_meta( 'metabox_video_place' );
+
+	                    $yt_id = sungarden_helpwp_youtube_id( $videoUrl );
                     ?>
 
                         <div class="col-12 col-sm-6 col-md-4 col-xl-3 item-col">
                             <div class="image-video">
-	                            <?php
-	                            if ( has_post_thumbnail() ) :
-		                            the_post_thumbnail( 'large' );
-	                            else:
-                                ?>
-                                    <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>"/>
-	                            <?php endif; ?>
+	                            <?php if ( $selectImage == 1 ) : ?>
+                                    <img alt="<?php the_title(); ?>" src="https://img.youtube.com/vi/<?php echo esc_html( $yt_id ); ?>/<?php echo esc_attr( $sizeImageVideo ) ?>.jpg">
+                                <?php else:
+                                    the_post_thumbnail('large');
+                                 endif;
+                                 ?>
 
                                 <div class="play-video" data-fancybox="group" data-src="<?php echo esc_url( $videoUrl ); ?>">
                                     <i class="fas fa-play"></i>

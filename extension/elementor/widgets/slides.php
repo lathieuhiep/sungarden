@@ -159,7 +159,7 @@ class sungarden_widget_slides extends Widget_Base {
                 'type'          =>  Controls_Manager::URL,
                 'label_block'   =>  true,
                 'default'       =>  [
-                    'is_external'   =>  'true',
+                    'is_external'   =>  false,
                 ],
                 'placeholder'   =>  esc_html__( 'https://your-link.com', 'sungarden' ),
             ]

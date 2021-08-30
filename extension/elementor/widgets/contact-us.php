@@ -70,8 +70,8 @@ class sungarden_widget_contact_us extends Widget_Base {
 				'show_external' => true,
 				'default' => [
 					'url' => '',
-					'is_external' => true,
-					'nofollow' => true,
+					'is_external' => false,
+					'nofollow' => false,
 				],
 			]
 		);

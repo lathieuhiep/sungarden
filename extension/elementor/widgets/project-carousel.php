@@ -580,7 +580,7 @@ class sungarden_widget_project_carousel extends Widget_Base {
                                     <?php the_title(); ?>
                                 </h4>
 
-                                <a href="<?php the_permalink(); ?>" target="_blank">
+                                <a href="<?php the_permalink(); ?>">
                                     <?php esc_html_e('Chi tiết dự án', 'sungarden'); ?>
                                 </a>
                             </div>

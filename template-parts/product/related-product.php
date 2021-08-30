@@ -74,7 +74,7 @@ if ( ! empty( $terms ) ):
 
                     <span class="line flex-grow-1"></span>
 
-                    <a class="link" href="<?php echo esc_url( get_term_link($termIds[0], 'sungarden_product_cat') ); ?>" target="_blank">
+                    <a class="link" href="<?php echo esc_url( get_term_link($termIds[0], 'sungarden_product_cat') ); ?>">
                         <span class="link__text">
                             <?php esc_html_e('Xem thêm sản phẩm', 'sungarden'); ?>
                         </span>
@@ -103,7 +103,7 @@ if ( ! empty( $terms ) ):
 
                             <div class="item-post__content d-flex justify-content-center flex-column">
                                 <h4 class="title-post">
-                                    <a class="item-link" href="<?php the_permalink(); ?>" target="_blank" title="<?php the_title(); ?>">
+                                    <a class="item-link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                         <?php the_title(); ?>
                                     </a>
                                 </h4>

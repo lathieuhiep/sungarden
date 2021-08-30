@@ -499,6 +499,19 @@
     }
   }
 
+  .site-sidebar {
+    .sidebar {
+      position: static !important;
+      height: auto !important;
+
+      &__inner {
+        position: static !important;
+        width: 100% !important;
+        @include transform(none !important);
+      }
+    }
+  }
+
 }
 
 @media (min-width: 576px) and (max-width: 991px) {

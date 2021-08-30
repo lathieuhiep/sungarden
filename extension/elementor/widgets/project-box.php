@@ -95,8 +95,8 @@ class sungarden_widget_project_box extends Widget_Base {
 				'show_external' => true,
 				'default' => [
 					'url' => '',
-					'is_external' => true,
-					'nofollow' => true,
+					'is_external' => false,
+					'nofollow' => false,
 				],
 			]
 		);
@@ -173,7 +173,7 @@ class sungarden_widget_project_box extends Widget_Base {
                                     </p>
                                 </div>
 
-                                <a class="link-item" href="<?php the_permalink(); ?>" target="_blank" title="<?php the_title(); ?>">
+                                <a class="link-item" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                     <?php esc_html_e('Xem chi tiết', 'sungarden'); ?>
                                 </a>
                             </div>

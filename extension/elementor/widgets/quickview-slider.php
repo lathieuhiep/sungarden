@@ -80,8 +80,8 @@ class sungarden_quickview_slider extends Widget_Base {
 				'show_external' => true,
 				'default' => [
 					'url' => '',
-					'is_external' => true,
-					'nofollow' => true,
+					'is_external' => false,
+					'nofollow' => false,
 				],
 			]
 		);
@@ -113,8 +113,8 @@ class sungarden_quickview_slider extends Widget_Base {
 				'show_external' => true,
 				'default' => [
 					'url' => '',
-					'is_external' => true,
-					'nofollow' => true,
+					'is_external' => false,
+					'nofollow' => false,
 				],
 				'condition' =>  [
 					'style_content' => 'product',

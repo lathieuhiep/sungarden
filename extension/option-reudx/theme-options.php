@@ -320,6 +320,16 @@ Redux::set_section( $sungarden_opt_name, array(
         ),
 
 	    array(
+		    'id'        =>  'sungarden_background_phone',
+		    'type'      =>  'color',
+		    'title'     =>  esc_html__( 'Background Phone', 'sungarden' ),
+		    'validate' => 'color',
+		    'output'    => array(
+			    'background-color' => '.footer-box-phone a span'
+		    )
+	    ),
+
+	    array(
             'id'        =>  'sungarden_information_messenger',
             'type'      =>  'textarea',
             'title'     =>  esc_html__( 'Messenger', 'sungarden' ),

@@ -27,6 +27,10 @@
       @include transition();
     }
 
+    img {
+      width: 100%;
+    }
+
     .play-video {
       position: absolute;
       top: 50%;

@@ -62,7 +62,7 @@
                 bottomSpacing: 0,
                 innerWrapperSelector: '.sidebar__inner',
                 containerSelector: '.container',
-                resizeSensor: true
+                resizeSensor: false
             });
         }
 
@@ -82,7 +82,7 @@
                     if ( item.type === 'image' ) {
                         caption = '<div class="project-caption-item">' +
                             '<h4 class="title-item">'+ caption.title +'</h4>' +
-                            '<a href="'+ caption.link +'" target="_blank">'+ caption.textLink +'</a>' +
+                            '<a href="'+ caption.link +'">'+ caption.textLink +'</a>' +
                             '</div>';
                     }
 

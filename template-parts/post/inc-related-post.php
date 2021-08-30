@@ -36,7 +36,7 @@ if ( !empty( $sungarden_term_cat_post ) ):
                 <div class="col-12 col-sm-6 col-md-4 item">
                     <div class="related-post-item">
                         <figure class="post-image">
-                            <?php the_post_thumbnail( 'medium' ); ?>
+                            <?php the_post_thumbnail( 'large' ); ?>
                         </figure>
 
                         <?php sungarden_post_meta(); ?>
