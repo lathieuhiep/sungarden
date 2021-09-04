@@ -442,6 +442,61 @@ Redux::set_section( $sungarden_opt_name, array(
 ));
 /* End Blog Option */
 
+// Single service
+Redux::set_section( $sungarden_opt_name, array(
+	'title'         =>  esc_html__( 'Single Service', 'sungarden' ),
+	'id'            =>  'sungarden_opt_single_service',
+	'desc'          =>  esc_html__( '', 'sungarden' ),
+	'fields'        =>  array(
+
+		array(
+			'id'        =>  'sungarden_opt_single_service_related_show',
+			'type'      =>  'switch',
+			'title'     =>  esc_html__( 'Show Related', 'sungarden' ),
+			'default'   =>  true,
+		),
+
+		array(
+			'id'            =>  'sungarden_opt_single_service_related_limit',
+			'type'          =>  'slider',
+			'title'         =>  esc_html__( 'Limit', 'sungarden' ),
+			'min'           =>  1,
+			'step'          =>  1,
+			'max'           =>  250,
+			'default'       =>  15,
+			'display_value' => 'text',
+			'required'  =>  array( 'sungarden_opt_single_service_related_show', '=', true ),
+		),
+
+		array(
+			'id'        =>  'sungarden_opt_single_service_related_orderby',
+			'type'      =>  'select',
+			'title'     =>  esc_html__( 'Order By', 'sungarden' ),
+			'default'   =>  'id',
+			'options'   =>  array(
+				'id'     => esc_html__( 'ID', 'sungarden' ),
+				'title'  => esc_html__( 'Title', 'sungarden' ),
+				'date'   => esc_html__( 'Date', 'sungarden' ),
+				'rand'   => esc_html__( 'Random', 'sungarden' ),
+			),
+			'required'  =>  array( 'sungarden_opt_single_service_related_show', '=', true ),
+		),
+
+		array(
+			'id'        =>  'sungarden_opt_single_service_related_order',
+			'type'      =>  'select',
+			'title'     =>  esc_html__( 'Order', 'sungarden' ),
+			'default'   =>  'DESC',
+			'options'   =>  array(
+				'ASC'  => esc_html__( 'Ascending', 'sungarden' ),
+				'DESC' => esc_html__( 'Descending', 'sungarden' ),
+			),
+			'required'  =>  array( 'sungarden_opt_single_service_related_show', '=', true ),
+		),
+
+	)
+));
+
 /* Start Social Network */
 Redux::set_section( $sungarden_opt_name, array(
     'title'             =>  esc_html__( 'Social Network', 'sungarden' ),
