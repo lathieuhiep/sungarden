@@ -35,6 +35,17 @@ class sungarden_widget_faq extends Widget_Base {
 		);
 
 		$this->add_control(
+			'select_cat',
+			[
+				'label'       => esc_html__( 'Select Category', 'sungarden' ),
+				'type'        => Controls_Manager::SELECT2,
+				'options'     => sungarden_check_get_cat( 'sungarden_faq_cat' ),
+				'multiple'    => true,
+				'label_block' => true
+			]
+		);
+
+		$this->add_control(
 			'limit',
 			[
 				'label'   => esc_html__( 'Number of Posts', 'sungarden' ),
@@ -103,12 +114,25 @@ class sungarden_widget_faq extends Widget_Base {
 		$target = $settings['link']['is_external'] ? ' target=_blank' : '';
 		$nofollow = $settings['link']['nofollow'] ? ' rel=nofollow' : '';
 
+		if ( ! empty( $cat_post ) ) :
+			$tax_query = array(
+				array(
+					'taxonomy' => 'sungarden_faq_cat',
+					'field'    => 'term_id',
+					'terms'    => $cat_post
+				),
+			);
+		else:
+			$tax_query = '';
+		endif;
+
 		$args = array(
 			'post_type'           => 'sungarden_faq',
 			'posts_per_page'      => $limit_post,
 			'orderby'             => $order_by_post,
 			'order'               => $order_post,
 			'ignore_sticky_posts' => 1,
+			'tax_query'           => $tax_query
 		);
 
 		$query = new \WP_Query( $args );

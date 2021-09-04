@@ -102,8 +102,8 @@ function sungarden_create_product() {
 
 	
 	// Filter posts by taxonomy in admin
-	add_action('restrict_manage_posts', 'sungarden_filter_post_type_by_taxonomy');
-	function sungarden_filter_post_type_by_taxonomy() {
+	add_action('restrict_manage_posts', 'sungarden_filter_product_by_taxonomy');
+	function sungarden_filter_product_by_taxonomy() {
 		global $typenow;
 		$post_type = 'sungarden_product'; // change to your post type
 		$taxonomy  = 'sungarden_product_cat'; // change to your taxonomy
@@ -123,8 +123,8 @@ function sungarden_create_product() {
 	}
 	
 	
-	add_filter('parse_query', 'sungarden_convert_id_to_term_in_query');
-	function sungarden_convert_id_to_term_in_query($query) {
+	add_filter('parse_query', 'sungarden_convert_id_to_product_in_query');
+	function sungarden_convert_id_to_product_in_query($query) {
 		global $pagenow;
 		$post_type = 'sungarden_product'; // change to your post type
 		$taxonomy  = 'sungarden_product_cat'; // change to your taxonomy
@@ -134,5 +134,4 @@ function sungarden_create_product() {
 			$q_vars[$taxonomy] = $term->slug;
 		}
 	}
-
 }

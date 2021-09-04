@@ -74,7 +74,8 @@ final class sungarden_plugin_elementor_widgets {
 	        'project-box',
 	        'faq',
 	        'contact-us',
-	        'page-content'
+	        'page-content',
+	        'grid-even-odd'
         ];
         
         foreach ( $build_widgets_filename as $widget_filename ) :
