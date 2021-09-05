@@ -1,37 +1,5 @@
 .site-single-service {
   padding: 0;
-
-  .related-service {
-    padding: 50px 0 60px;
-
-    .top-box-style {
-      .heading {
-        font-size: 28px;
-      }
-    }
-
-    .item-post {
-      &__thumbnail {
-        margin-bottom: 12px;
-      }
-
-      &__content {
-        .title-post {
-          font-size: 14px;
-          margin-bottom: 3px;
-
-          a {
-            color: $color-title;
-          }
-        }
-
-        .item-link {
-          font-size: 14px;
-          text-decoration: underline;
-        }
-      }
-    }
-  }
 }
 
 .element-service-detail-info {

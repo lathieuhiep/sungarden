@@ -9,8 +9,6 @@ get_header();
             the_content();
             sungarden_link_page();
         endwhile;
-
-		get_template_part('template-parts/service/related','service');
 	endif;
 	?>
 </div>

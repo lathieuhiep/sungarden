@@ -13,6 +13,8 @@ get_template_part('template-parts/breadcrumbs/inc','breadcrumbs');
 		sungarden_link_page();
 
 	endwhile;
+
+		get_template_part('template-parts/project/related','project');
 	endif;
 	?>
 </div>
