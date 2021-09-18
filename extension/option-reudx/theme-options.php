@@ -494,6 +494,14 @@ Redux::set_section( $sungarden_opt_name, array(
 			'required'  =>  array( 'sungarden_opt_single_project_related_show', '=', true ),
 		),
 
+		array(
+			'id'        =>  'sungarden_opt_single_project_related_all',
+			'type'      =>  'text',
+			'title'     =>  esc_html__( 'Link All', 'sungarden' ),
+			'default'   =>  '#',
+			'required'  =>  array( 'sungarden_opt_single_project_related_show', '=', true ),
+		),
+
 	)
 ));
 

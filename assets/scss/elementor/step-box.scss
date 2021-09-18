@@ -1,0 +1,24 @@
+.element-step-box {
+  .col-mt {
+    margin-bottom: 30px;
+  }
+
+  .item {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 4px 4px 1px 0 rgba(0, 0, 0, 0.05);
+
+    &__step {
+      font-weight: 700;
+      font-size: 14px;
+      color: $color-hover;
+      display: block;
+    }
+
+    &__title {
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+  }
+}

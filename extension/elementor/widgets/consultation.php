@@ -223,7 +223,7 @@ class sungarden_widget_consultation extends Widget_Base {
             </div>
 
             <div class="btn-registration">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".modal-cf7">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <?php echo esc_html( $settings['text_btn_cf7'] ); ?>
                 </button>
             </div>
@@ -239,7 +239,7 @@ class sungarden_widget_consultation extends Widget_Base {
             </div>
 
             <!-- Modal contact form -->
-            <div class="modal modal-cf7 fade" tabindex="-1" aria-hidden="true">
+            <div class="modal modal-cf7 fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">

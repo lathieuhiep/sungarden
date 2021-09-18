@@ -70,7 +70,7 @@ class sungarden_project_widget extends WP_Widget {
 			?>
 
             <div class="post_widget_warp">
-                <div class="row row-cols-2 row-cols-md-1 custom-row">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-1 custom-row">
                     <?php
                     while ( $post_query->have_posts() ) :
                         $post_query->the_post();

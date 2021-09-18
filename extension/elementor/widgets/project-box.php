@@ -86,7 +86,7 @@ class sungarden_widget_project_box extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+        $this->add_control(
 			'link',
 			[
 				'label' => esc_html__( 'Link', 'sungarden' ),
@@ -98,6 +98,16 @@ class sungarden_widget_project_box extends Widget_Base {
 					'is_external' => false,
 					'nofollow' => false,
 				],
+			]
+		);
+
+		$this->add_control(
+			'text_link',
+			[
+				'label'         =>  esc_html__( 'Text Link', 'sungarden' ),
+				'type'          =>  Controls_Manager::TEXT,
+				'default'       =>  esc_html__( 'Xem toàn bộ dự án', 'sungarden' ),
+				'label_block'   =>  true
 			]
 		);
 
@@ -197,7 +207,7 @@ class sungarden_widget_project_box extends Widget_Base {
 
                 <div class="box-link-all text-center">
                     <a href="<?php echo esc_url( $settings['link']['url'] ); ?>"<?php echo esc_attr( $target . $nofollow ) ?>>
-		                <?php esc_html_e('Xem toàn bộ dự án', 'sungarden'); ?>
+		                <?php echo esc_html( $settings['text_link'] ) ?>
                     </a>
                 </div>
             </div>

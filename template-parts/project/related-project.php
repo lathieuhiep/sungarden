@@ -4,6 +4,7 @@ global $sungarden_options;
 $limit   = $sungarden_options ['sungarden_opt_single_project_related_limit'] ?? 15;
 $orderBy = $sungarden_options ['sungarden_opt_single_project_related_orderby'] ?? 'id';
 $order   = $sungarden_options ['sungarden_opt_single_project_related_order'] ?? 'DESC';
+$link    = $sungarden_options ['sungarden_opt_single_project_related_all'] ?? '';
 
 $terms = get_the_terms( get_the_ID(), 'sungarden_project_cat' );
 
@@ -14,15 +15,19 @@ $data_settings_owl = [
 	'margin'     => 8,
 	'responsive' => [
 		'0'   => array(
-			'items'  => 2,
-			'margin' => 2
+			'items'  => 1,
+			'margin' => 0
 		),
 
 		'576' => array(
-			'items'  => 3,
+			'items'  => 2,
 		),
 
 		'768' => array(
+			'items' => 3
+		),
+
+		'992' => array(
 			'items' => 4
 		),
 	],
@@ -77,15 +82,17 @@ if ( ! empty( $terms ) ):
 
                     <span class="line flex-grow-1"></span>
 
-                    <a class="link d-flex align-items-center" href="<?php echo esc_url( get_term_link( $term_ids[0], 'sungarden_project_cat' ) ); ?>">
-                        <span class="link__text">
-                            <?php esc_html_e( 'Xem thêm những dự án khác', 'sungarden' ); ?>
-                        </span>
+                    <?php if ( $link ) : ?>
+                        <a class="link d-flex align-items-center" href="<?php echo esc_url( $link ); ?>">
+                            <span class="link__text">
+                                <?php esc_html_e( 'Xem thêm những dự án khác', 'sungarden' ); ?>
+                            </span>
 
-                        <span class="link__icon d-flex align-items-center justify-content-center">
-                            <i class="fas fa-long-arrow-alt-right"></i>
-                        </span>
-                    </a>
+                            <span class="link__icon d-flex align-items-center justify-content-center">
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                            </span>
+                        </a>
+                    <?php endif; ?>
                 </div>
 
                 <div class="related-product__owl custom-owl-event owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ) ; ?>'>

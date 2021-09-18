@@ -38,10 +38,9 @@ class sungarden_widget_faq extends Widget_Base {
 			'select_cat',
 			[
 				'label'       => esc_html__( 'Select Category', 'sungarden' ),
-				'type'        => Controls_Manager::SELECT2,
+				'type'        => Controls_Manager::SELECT,
+				'label_block' => true,
 				'options'     => sungarden_check_get_cat( 'sungarden_faq_cat' ),
-				'multiple'    => true,
-				'label_block' => true
 			]
 		);
 
@@ -101,6 +100,16 @@ class sungarden_widget_faq extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'text_link',
+			[
+				'label'         =>  esc_html__( 'Text Link', 'sungarden' ),
+				'type'          =>  Controls_Manager::TEXT,
+				'default'       =>  esc_html__( 'Xem thêm câu hỏi', 'sungarden' ),
+				'label_block'   =>  true
+			]
+		);
+
 		$this->end_controls_section();
 
 	}
@@ -108,6 +117,7 @@ class sungarden_widget_faq extends Widget_Base {
 	protected function render() {
 
 		$settings      = $this->get_settings_for_display();
+		$cat_post      = $settings['select_cat'];
 		$limit_post    = $settings['limit'];
 		$order_by_post = $settings['order_by'];
 		$order_post    = $settings['order'];
@@ -164,7 +174,7 @@ class sungarden_widget_faq extends Widget_Base {
 
             <div class="box-link-all text-center">
                 <a href="<?php echo esc_url( $settings['link']['url'] ); ?>"<?php echo esc_attr( $target . $nofollow ) ?>>
-					<?php esc_html_e('Xem thêm câu hỏi', 'sungarden'); ?>
+	                <?php echo esc_html( $settings['text_link'] ) ?>
                 </a>
             </div>
 		</div>

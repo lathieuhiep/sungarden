@@ -522,13 +522,13 @@ function sungarden_check_get_cat( $type_taxonomy ): array {
 	$category  = get_terms(
 		array(
 			'taxonomy'   => $type_taxonomy,
-			'hide_empty' => false
+			'hide_empty' => true
 		)
 	);
 
 	if ( isset( $category ) && ! empty( $category ) ):
 		foreach ( $category as $item ) {
-			$cat_check[ $item->term_id ] = $item->name;
+			$cat_check[ $item->term_id ] = $item->name .' ('. $item->count .')';
 		}
 	endif;
 

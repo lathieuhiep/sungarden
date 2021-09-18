@@ -527,6 +527,13 @@
     }
   }
 
+  .element-service-detail-info {
+    .heading,
+    .title {
+      font-size: 20px;
+    }
+  }
+
 }
 
 @media (min-width: 576px) and (max-width: 991px) {
@@ -564,6 +571,28 @@
   .element-project-gallery {
     .grid-item {
       width: 50% !important;
+    }
+  }
+
+  .element-project-carousel {
+    .top-box {
+      .heading {
+        font-size: 24px;
+      }
+    }
+
+    &.style-1 {
+      .owl-carousel {
+        .owl-nav {
+          top: -67px;
+
+          button {
+            i {
+              font-size: 20px;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -654,6 +683,31 @@
   .element-project-gallery {
     .grid-item {
       width: 100% !important;
+    }
+  }
+
+  .element-project-carousel {
+    .top-box {
+      padding-right: 55px;
+
+      .heading {
+        font-size: 20px;
+        margin-right: 12px;
+      }
+    }
+
+    &.style-1 {
+      .owl-carousel {
+        .owl-nav {
+          top: -66px;
+
+          button {
+            i {
+              font-size: 18px;
+            }
+          }
+        }
+      }
     }
   }
 
