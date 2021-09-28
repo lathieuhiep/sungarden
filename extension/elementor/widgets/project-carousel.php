@@ -403,7 +403,7 @@ class sungarden_widget_project_carousel extends Widget_Base {
                 </div>
             <?php endif; ?>
 
-            <div class="custom-owl-carousel custom-equal-height-owl owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ) ; ?>'>
+            <div class="custom-owl-carousel custom-equal-height-owl owl-carousel owl-theme project-gallery-popup" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ) ; ?>'>
                 <?php
                 while ( $query->have_posts() ): $query->the_post();
 	                if (  has_post_thumbnail() ) :
@@ -419,7 +419,7 @@ class sungarden_widget_project_carousel extends Widget_Base {
                     ];
                 ?>
                     <div class="item-post">
-                        <div class="item-post__thumbnail project-gallery" data-src="<?php echo esc_url( $featured_img_url ); ?>" data-fancybox="gallery" data-caption='<?php echo wp_json_encode( $dataCaption ) ; ?>'>
+                        <div class="item-post__thumbnail" data-mfp-src="<?php echo esc_url( $featured_img_url ); ?>" data-mfp-content='<?php echo wp_json_encode( $dataCaption ) ; ?>'>
 	                        <?php
 	                        if ( has_post_thumbnail() ) :
 		                        the_post_thumbnail( 'large' );

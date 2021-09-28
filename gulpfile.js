@@ -44,7 +44,8 @@ gulp.task('compress-js', function () {
         './node_modules/sticky-sidebar-v2/dist/jquery.sticky-sidebar.js',
         './node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js',
         './node_modules/wow.js/dist/wow.js',
-        './node_modules/slick-carousel/slick/slick.js'
+        './node_modules/slick-carousel/slick/slick.js',
+        './node_modules/magnific-popup/dist/jquery.magnific-popup.js'
     ],  { allowEmpty: true } )
         .pipe(concat('library.min.js'))
         .pipe(uglify())
