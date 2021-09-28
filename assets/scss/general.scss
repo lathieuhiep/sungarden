@@ -423,3 +423,35 @@ pre {
     }
   }
 }
+
+.mfp-figure {
+  figure {
+    position: relative;
+
+    .mfp-bottom-bar {
+      top: auto;
+      bottom:40px;
+      padding-bottom: 37px;
+
+      .mfp-title {
+        padding-right: 0;
+        text-align: center;
+
+        .title-item {
+          margin-bottom: 7px;
+          color: #ffffff;
+          font-size: 24px;
+          text-transform: uppercase;
+        }
+
+        a {
+          color: #FFE025;
+        }
+      }
+
+      .mfp-counter {
+        display: none;
+      }
+    }
+  }
+}

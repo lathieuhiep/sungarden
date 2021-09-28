@@ -75,7 +75,6 @@
                 clickContent: false,
                 hash : false,
                 idleTime: false,
-                mobile: {},
                 caption : function( instance, item ) {
                     let caption = $(this).data('caption') || '';
 
@@ -154,6 +153,32 @@
 
         // related product
         $( document ).general_owlCarousel_custom_event( '.related-product__owl' );
+
+
+        $('.project-gallery-popup').magnificPopup({
+            delegate: '.item-post__thumbnail',
+            type: 'image',
+            gallery: {
+                enabled:true
+            },
+            mainClass: 'mfp-with-zoom',
+            removalDelay: 500,
+            zoom: {
+                enabled: true,
+                duration: 300,
+                easing: 'ease-in-out',
+                opener: function(openerElement) {
+                    return openerElement.is('img') ? openerElement : openerElement.find('img');
+                }
+            },
+            image: {
+                titleSrc: function(item) {
+                    let caption = JSON.parse( item.el.attr('data-mfp-content') ) || '' ;
+
+                    return '<h4 class="title-item">'+ caption.title +'</h4>' + '<a href="'+ caption.link +'">'+ caption.textLink +'</a>';
+                }
+            }
+        });
 
     });
 

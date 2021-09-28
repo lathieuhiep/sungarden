@@ -1151,7 +1151,7 @@ class sungarden_widget_slides extends Widget_Base {
                         <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/icon/arrow.png' ) ); ?>" alt="">
                     </div>
 
-                    <div class="slider-quick-project">
+                    <div class="slider-quick-project project-gallery-popup">
                         <?php
                         while ( $query->have_posts() ): $query->the_post();
                             if (  has_post_thumbnail() ) :
@@ -1167,7 +1167,7 @@ class sungarden_widget_slides extends Widget_Base {
                             ];
                             ?>
                             <div class="item-post">
-                                <div class="item-post__thumbnail project-gallery" data-src="<?php echo esc_url( $featured_img_url ); ?>" data-fancybox="gallery" data-caption='<?php echo wp_json_encode( $dataCaption ) ; ?>'>
+                                <div class="item-post__thumbnail" data-mfp-src="<?php echo esc_url( $featured_img_url ); ?>" data-mfp-content='<?php echo wp_json_encode( $dataCaption ) ; ?>'>
                                     <?php
                                     if ( has_post_thumbnail() ) :
                                         the_post_thumbnail( 'medium' );
